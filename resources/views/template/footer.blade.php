@@ -1,4 +1,4 @@
-<footer class="footer fixed-bottom">
+<footer class="footer">
     <div class="container" style="margin-left: 8%">
         <div class="row mt-4">
             <div class="footer-col">

@@ -20,7 +20,7 @@
 <body>
     @include('/template/navbar')
 
-    <div class="container" style="margin-top: 15vh; margin-bottom: 10vh; margin-left: 10vh; margin-right: 10vh">
+    <div class="container" style="margin-top: 8%; margin-bottom: 3%">
         @yield('content')
     </div>
 
