@@ -40,13 +40,13 @@
                 <h5>Follow Us</h5>
                 <div class="social-links">
                     <a href="#">
-                        <i class="fab fa-instagram"></i>
+                        <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/socmedLogo/instagram.png?raw=true" style="width: 30%; height: 30%;">
                     </a>
                     <a href="#">
-                        <i class="fab fa-facebook"></i>
+                        <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/socmedLogo/linkedin.png?raw=true" style="width: 30%; height: 30%;">
                     </a>
                     <a href="#">
-                        <i class="fab fa-linkedin"></i>
+                        <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/socmedLogo/x.png?raw=true" style="width: 13%; height: 13%;">
                     </a>
                 </div>
             </div>
