@@ -1,0 +1,43 @@
+.card-img-top {
+    padding: 0.625rem; /* Adjust padding as needed */
+    border-radius: 1.875rem; 
+    /* width: 62.5rem; */
+    height: 25rem; 
+    object-fit: cover;
+    /* background-color: aqua; */
+}
+.card {
+    border: 1px solid #ddd; /* Optional: Add border to the card */ 
+    border-radius: 10px; /* Optional: Add corner radius to the card */
+    overflow: hidden; /* Ensure image does not overflow */
+}
+.card-body {
+    padding: 15px; /* Adjust padding as needed */
+}
+
+.btn {
+    background-color: #F76D3B;
+    color: #ddd;
+}
+
+.row {
+    padding: 0.625rem;
+    /* background-color: aqua; */
+}
+
+.header h1 {
+    color: #F76D3B;
+}
+
+.description {
+    display: flex;
+    flex-wrap: wrap;
+    /* background-color: #F76D3B; */
+}
+
+.description img {
+    width: 4.563rem;
+    height: 2.813rem;
+    /* flex: 1; */
+    /* background-color: aqua; */
+}

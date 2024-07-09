@@ -19,4 +19,7 @@ Route::get('/bootcamp', function () {
 });
 
 Route::prefix('bootcamp')->group(function(){
+    Route::get('/menu', function () {
+        return view('bootcamp/menu');
+    });
 });
