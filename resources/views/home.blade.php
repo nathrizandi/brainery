@@ -33,17 +33,36 @@
         <h2>What to Learn Next</h2>
         <h3>Our Top Pick for You</h3>
     </div>
+
     <div class="row">
-        <div class="col-8">
-            <div class="card" style="width: 30rem;">
-                <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/course1.jpg?raw=true" class="card-img-top" style="width: 100%; height: auto;">
+        <div class="col-9 mt-1">
+            <div class="card shadow-sm" style="width: 50vw;">
+                <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/course.jpg?raw=true" class="card-img-top" style="width: 100%; height: auto;">
                 <div class="card-body">
+                    <h2>Nama Course</h2>
+                    <h3>By: Nama Tutor</h3>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>
             </div>
         </div>
-        <div class="col-4">
-            <p>tes</p>
+        <div class="col-3">
+            <div class="row mt-5">
+                <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/brain4.png?raw=true" alt="" style="width: 23vw">
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="row">
+            <h2>New on Brainery</h2>
+        </div>
+        <div class="row">
+            <div class="card" style="width: 18rem;">
+                <img src="" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
         </div>
     </div>
 
