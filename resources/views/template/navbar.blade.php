@@ -48,7 +48,7 @@
                 <a href="/login" type="button" class="btn btn-outline btn-sm login-btn">Login</a> 
             </div>
             <div class="col-5">
-                <a href="#" type="button" class="btn btn-outline btn-sm regist-btn">Register</a> 
+                <a href="/register" type="button" class="btn btn-outline btn-sm regist-btn">Register</a> 
             </div>
         </div>
 

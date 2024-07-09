@@ -1,0 +1,41 @@
+.custom-form-check-label {
+    display: flex;
+    align-items: center;
+  }
+
+  .custom-form-check-label img {
+    width: 3.5vw;
+    margin-right: 15px;
+  }
+
+  .form-check-input {
+    margin-left: 15px; 
+  }
+
+  .custom-text {
+    margin: 0; 
+  }
+
+  .checkout-btn {
+    background-color: white;
+    border-radius: 8px;
+    color: #F76D3B;
+    /* padding: 5px 10px; */
+    border-color: #F76D3B;
+    text-decoration: none;
+    border-style: solid;
+    border-width: 1px;
+    width: 4vw;
+    transition: 0.5s;
+}
+.checkout-btn:hover {
+    background-color: #F76D3B;
+    border-radius: 10px;
+    color: white;
+    /* padding: 5px 10px; */
+    border-color: #F76D3B;
+    text-decoration: none;
+    border-style: solid;
+    border-width: 1px;
+    transition: 0.5s;
+}

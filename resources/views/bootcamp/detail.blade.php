@@ -1,6 +1,6 @@
 @extends('/template/layout')
 
-@section('title', 'Bootcamp Menu')
+@section('title', 'Bootcamp Detail')
 
 @section('custom-csspage', 'css/bootcamp-detail.css')
 
@@ -42,97 +42,38 @@
                 Speakers of this Bootcamp
             </h3>
             <div class="row row-cols-1 row-cols-md-3 g-4">
-                <div class="col">
-                  <div class="user">
-                    <div class="user-image" style="text-align: center">
-                        <img src="" class="rounded-circle" style="width: 18.75rem" alt="...">
-                    </div>
-                      <div class="text-center">
-                        <h5 class="card-title">Dr. Felix Gustino Tjuatja</h5>
-                      </div>
-                  </div>
-                </div>
-                <div class="col">
-                    <div class="user">
-                      <div class="user-image" style="text-align: center">
-                          <img src="/assets/felix.jpg" class="rounded-circle" style="width: 18.75rem" alt="...">
-                      </div>
-                        <div class="text-center">
-                          <h5 class="card-title">Dr. Felix Gustino Tjuatja</h5>
+                @for ($i=0; $i<3; $i++) 
+                    <div class="col">
+                      <div class="user">
+                        <div class="user-image" style="text-align: center">
+                            <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/speaker.jpg?raw=true" class="rounded-circle" style="width: 10vw" alt="...">
                         </div>
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="user">
-                      <div class="user-image" style="text-align: center">
-                          <img src="/assets/felix.jpg" class="rounded-circle" style="width: 18.75rem" alt="...">
+                          <div class="text-center mt-3">
+                            <p class="card-title" style="font-weight: bold">Dr. Felix Gustino Tjuatja</p>
+                          </div>
                       </div>
-                        <div class="text-center">
-                          <h5 class="card-title">Dr. Felix Gustino Tjuatja</h5>
-                        </div>
                     </div>
-                  </div>
-              </div>
+                @endfor
+            </div>
         </div>
-        <div class="recommended">
-            <h3>
-                Recommended Bootcamp
-            </h3>
+        <div class="recommended mt-5">
+            <h3>Recommended Bootcamp</h3>
             <div class="row row-cols-1 row-cols-md-4 g-4">
-                <div class="col">
-                  <div class="card h-80">
-                    <img src="/assets/public-speaking.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h4 class="card-title">Digital Business Training</h4>
-                        <h6 class="card-date">26th/May/2024</h6>
-                        <div class="description">
-                            <img src="assets/logobinus.png" alt="">
-                            <p class="card-text"><small class="text-body-secondary">Bina Nusantara</small></p>
+                @for ($i=0; $i<4; $i++) 
+                    <div class="col">
+                      <div class="card h-80">
+                        <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/course2.jpg?raw=true" class="card-img-top" alt="...">
+                        <div class="card-body" style="display: flex; align-items: center; justify-content: space-between;">
+                            <h3 class="card-title" style="margin: 0">Digital Business Training</h3>
+                            <div class="ms-auto">
+                                <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/logo/sunib.png?raw=true" style="width: 3.5vw" class="me-2">
+                            </div>
                         </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-                <div class="col">
-                    <div class="card h-80">
-                        <img src="/assets/public-speaking.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h4 class="card-title">Digital Business Training</h4>
-                            <h6 class="card-date">26th/May/2024</h6>
-                            <div class="description">
-                                <img src="assets/logobinus.png" alt="">
-                                <p class="card-text"><small class="text-body-secondary">Bina Nusantara</small></p>
-                            </div>
-                        </div>
-                      </div>
-                </div>
-                <div class="col">
-                    <div class="card h-80">
-                        <img src="/assets/public-speaking.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h4 class="card-title">Digital Business Training</h4>
-                            <h6 class="card-date">26th/May/2024</h6>
-                            <div class="description">
-                                <img src="assets/logobinus.png" alt="">
-                                <p class="card-text"><small class="text-body-secondary">Bina Nusantara</small></p>
-                            </div>
-                        </div>
-                      </div>
-                </div>
-                <div class="col">
-                    <div class="card h-80">
-                        <img src="/assets/public-speaking.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h4 class="card-title">Digital Business Training</h4>
-                            <h6 class="card-date">26th/May/2024</h6>
-                            <div class="description">
-                                <img src="assets/logobinus.png" alt="">
-                                <p class="card-text"><small class="text-body-secondary">Bina Nusantara</small></p>
-                            </div>
-                        </div>
-                      </div>
-                </div>
+                @endfor
               </div>
-              <a href="" class="btn btn-warning">Read More</a>
+              <a href="/bootcamp/list" class="btn mt-4" style="background-color: #F76D3B; color: white;">View More</a>
         </div>
     </div>
 </div>

@@ -39,22 +39,28 @@ body, html {
     text-align: center;
 }
 
-.form-group {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
 .form-control-custom {
     border: none;
     background-color: #FEF8F3;
     border-radius: 5px;
     padding: 10px;
-    width: 100%;
     box-sizing: border-box;
 }
+.form-group label {
+    font-weight: bold;
+    display: block;
+    text-align: left;
+}
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.form-group {
+    flex: 1 1 48%;
+}
 
-.login-btn {
+.regist-btn {
     background-color: #F76D3B;
     border-radius: 8px;
     color: white;
@@ -65,7 +71,7 @@ body, html {
     border-width: 1px;
     transition: 0.5s;
 }
-.login-btn:hover {
+.regist-btn:hover {
     background-color: #eb5c28;
     border-radius: 10px;
     color: white;
