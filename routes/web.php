@@ -9,3 +9,14 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('home');
 });
+
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::get('/bootcamp', function () {
+    return view('bootcamp/bootcamp');
+});
+
+Route::prefix('bootcamp')->group(function(){
+});

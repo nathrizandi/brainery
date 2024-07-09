@@ -5,8 +5,8 @@
 @section('content')
     {{-- CAROUSEL --}}
     <div class="row">
-        <div id="carouselExampleAutoplaying" class="carousel slide" style="width: 100%; height: 30%" data-bs-ride="carousel">
-            <div class="carousel-inner">
+        <div id="carouselExampleAutoplaying" class="carousel slide" style="width: 100%; height: 30%;" data-bs-ride="carousel">
+            <div class="carousel-inner" style="border-radius: 10px">
             <div class="carousel-item active">
                 <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/jumbotron/banner1.jpg?raw=true" style="width: 100%; height: auto;" class="d-block w-100" alt="...">
             </div>
@@ -57,10 +57,108 @@
             <h2>New on Brainery</h2>
         </div>
         <div class="row">
-            <div class="card" style="width: 18rem;">
-                <img src="" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            @for ($i = 0; $i < 4; $i++)    
+                <div class="col-3">
+                    <div class="card shadow-sm" style="width: 18vw; border-radius: 20px">
+                        <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/course2.jpg?raw=true" class="card-img-top mt-2 align-self-center" style="width: 95%; height: auto; border-radius: 8px;">
+                        <div class="card-body">
+                            <h3>Nama Course</h3>
+                            <b><p>By: Nama Tutor</p></b>
+                            <p>lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet </p>
+                        </div>
+                    </div>
+                </div>
+            @endfor
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <h2>Explore More</h2>
+        <h3>Based on the most in-demand categories</h3>
+    </div>
+    <div class="row mt-3">
+        <ul class="nav nav-pills justify-content-start mb-3" id="pills-tab" role="tablist" style="margin-left: 1%">
+            <li class="nav-item" role="presentation" style="margin-right: 1%;">
+                <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-compsci" type="button" role="tab" aria-controls="pills-home" aria-selected="true" style="background-color: #F9BF48; color:white; width: 150px">Computer Science</button>
+            </li>
+            <li class="nav-item" role="presentation" style="margin-right: 1%;">
+                <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-music" type="button" role="tab" aria-controls="pills-profile" aria-selected="false" style="background-color: #67A1EE; color:white; width: 150px">Music</button>
+            </li>
+            <li class="nav-item" role="presentation" style="margin-right: 1%;">
+                <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-english" type="button" role="tab" aria-controls="pills-contact" aria-selected="false" style="background-color: #8FD8B5; color:white; width: 150px">English</button>
+            </li>
+            <li class="nav-item" role="presentation" style="margin-right: 1%;">
+                <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-accounting" type="button" role="tab" aria-controls="pills-contact" aria-selected="false" style="background-color: #2A3242; color:white; width: 150px">Accounting</button>
+            </li>
+        </ul>
+
+        <!-- Tab content -->
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-compsci" role="tabpanel" aria-labelledby="pills-compsci-tab">
+                <div class="row">
+                    @for ($i = 0; $i < 4; $i++)    
+                        <div class="col-3">
+                            <div class="card shadow-sm" style="width: 18vw; border-radius: 20px">
+                                <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/course2.jpg?raw=true" class="card-img-top mt-2 align-self-center" style="width: 95%; height: auto; border-radius: 8px;">
+                                <div class="card-body">
+                                    <h3>Nama Course Compsci</h3>
+                                    <b><p>By: Nama Tutor</p></b>
+                                    <p>lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet </p>
+                                </div>
+                            </div>
+                        </div>
+                    @endfor
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="pills-music" role="tabpanel" aria-labelledby="pills-music-tab">
+                <div class="row">
+                    @for ($i = 0; $i < 4; $i++)    
+                        <div class="col-3">
+                            <div class="card shadow-sm" style="width: 18vw; border-radius: 20px">
+                                <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/course2.jpg?raw=true" class="card-img-top mt-2 align-self-center" style="width: 95%; height: auto; border-radius: 8px;">
+                                <div class="card-body">
+                                    <h3>Nama Course Music</h3>
+                                    <b><p>By: Nama Tutor</p></b>
+                                    <p>lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet </p>
+                                </div>
+                            </div>
+                        </div>
+                    @endfor
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="pills-english" role="tabpanel" aria-labelledby="pills-english-tab">
+                <div class="row">
+                    @for ($i = 0; $i < 4; $i++)    
+                        <div class="col-3">
+                            <div class="card shadow-sm" style="width: 18vw; border-radius: 20px">
+                                <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/course2.jpg?raw=true" class="card-img-top mt-2 align-self-center" style="width: 95%; height: auto; border-radius: 8px;">
+                                <div class="card-body">
+                                    <h3>Nama Course English</h3>
+                                    <b><p>By: Nama Tutor</p></b>
+                                    <p>lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet </p>
+                                </div>
+                            </div>
+                        </div>
+                    @endfor
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="pills-accounting" role="tabpanel" aria-labelledby="pills-accounting-tab">
+                <div class="row">
+                    @for ($i = 0; $i < 4; $i++)    
+                        <div class="col-3">
+                            <div class="card shadow-sm" style="width: 18vw; border-radius: 20px">
+                                <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/course2.jpg?raw=true" class="card-img-top mt-2 align-self-center" style="width: 95%; height: auto; border-radius: 8px;">
+                                <div class="card-body">
+                                    <h3>Nama Course Accounting</h3>
+                                    <b><p>By: Nama Tutor</p></b>
+                                    <p>lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet </p>
+                                </div>
+                            </div>
+                        </div>
+                    @endfor
                 </div>
             </div>
         </div>

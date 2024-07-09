@@ -26,7 +26,7 @@
                 <div class="row">
                     <ul class="navbar-nav d-flex justify-content-between">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active" aria-current="page" href="/home">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">My Learning</a>
@@ -35,14 +35,22 @@
                             <a class="nav-link" href="#">Courses</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Bootcamp</a>
+                            <a class="nav-link" href="/bootcamp">Bootcamp</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <a href="#" class="login-btn" style="margin-right: 5vh">Login</a>
+        {{-- <a href="#" class="login-btn" style="margin-right: 5vh">Login</a> --}}
+        <div class="row">
+            <div class="col-5">
+                <a href="/login" type="button" class="btn btn-outline btn-sm login-btn">Login</a> 
+            </div>
+            <div class="col-5">
+                <a href="#" type="button" class="btn btn-outline btn-sm regist-btn">Register</a> 
+            </div>
+        </div>
 
 
     </div>
