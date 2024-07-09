@@ -1,5 +1,5 @@
 <footer class="footer">
-    <div class="container" style="margin-left: 8%">
+    <div class="container" style="margin-left: 15%">
         <div class="row mt-4">
             <div class="footer-col">
                 <h5>Brainery</h5>
