@@ -14,105 +14,109 @@
                     <h2>Take a look at our available bootcamp</h2>
                 </div>
                 <div class="col-md mt-3">
-                    <div class="card shadow-sm mb-3">
-                        <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/course.jpg?raw=true" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h class="card-title">Digital Business Training</h>
-                          <div class="description">
-                            <img src="assets/logobinus.png" alt="">
-                            <p class="card-text"><small class="text-body-secondary">Bina Nusantara</small></p>
-                        </div>
-                        </div>
-                      </div>
-                      <div class="card shadow-sm mb-3">
-                          <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/course.jpg?raw=true" class="card-img-top" alt="...">
-                          <div class="card-body">
-                              <h5 class="card-title">Digital Business Training</h5>
-                              <div class="description">
-                                <img src="assets/logobinus.png" alt="">
-                                <p class="card-text"><small class="text-body-secondary">Bina Nusantara</small></p>
-                            </div>
+                    <a href="/bootcamp/detail" style="text-decoration: none; color: inherit; display: block">
+                        <div class="card shadow-sm mb-3">
+                            <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/course.jpg?raw=true" class="card-img-top" alt="...">
+                            <div class="card-body d-flex align-items-center">
+                                <h3 class="card-title">Digital Business Training</h3>
+                                <div class="ms-auto">
+                                    <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/logo/sunib.png?raw=true" style="width: 3.5vw" class="me-2">
+                                </div>
                             </div>
                         </div>
-                        <a href="" class="btn btn-warning">Read More</a>
+                    </a>
+                    <a href="/bootcamp/detail" style="text-decoration: none; color: inherit; display: block">
+                        <div class="card shadow-sm mb-3">
+                            <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/course.jpg?raw=true" class="card-img-top" alt="...">
+                            <div class="card-body d-flex align-items-center">
+                                <h3 class="card-title">Digital Business Training</h3>
+                                <div class="ms-auto">
+                                    <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/logo/sunib.png?raw=true" style="width: 3.5vw" class="me-2">
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="/bootcamp/list" class="btn" style="background-color: #F76D3B; color: white">View More</a>
                 </div>
-                <div class="col-md">
-                    <div class="card mb-3">
-                        <img src="/assets/computer-science.png" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Digital Business Training</h5>
-                          <div class="description">
-                            <img src="assets/logobinus.png" alt="">
-                            <p class="card-text"><small class="text-body-secondary">Bina Nusantara</small></p>
+                <div class="col-md mt-3">
+                    <a href="/bootcamp/detail" style="text-decoration: none; color: inherit; display: block">
+                        <div class="card shadow-sm mb-3">
+                            <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/course.jpg?raw=true" class="card-img-top" alt="...">
+                            <div class="card-body d-flex align-items-center">
+                                <h3 class="card-title">Digital Business Training</h3>
+                                <div class="ms-auto">
+                                    <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/logo/sunib.png?raw=true" style="width: 3.5vw" class="me-2">
+                                </div>
+                            </div>
                         </div>
+                    </a>
+                    <a href="/bootcamp/detail" style="text-decoration: none; color: inherit; display: block">
+                        <div class="card shadow-sm mb-3">
+                            <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/course.jpg?raw=true" class="card-img-top" alt="...">
+                            <div class="card-body d-flex align-items-center">
+                                <h3 class="card-title">Digital Business Training</h3>
+                                <div class="ms-auto">
+                                    <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/logo/sunib.png?raw=true" style="width: 3.5vw" class="me-2">
+                                </div>
+                            </div>
                         </div>
-                      </div>
-                    <div class="card mb-3">
-                        <img src="/assets/public-speaking.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Digital Business Training</h5>
-                          <div class="description">
-                            <img src="assets/logobinus.png" alt="">
-                            <p class="card-text"><small class="text-body-secondary">Bina Nusantara</small></p>
-                        </div>
-                        </div>
-                      </div>
+                    </a>
                 </div>
             </div>
-            <div class="row">
+
+            <div class="row mt-5">
                 <div class="header">
-                    <h1>
-                        Popular Bootcamp
-                    </h1>
-                    <h5>
-                        Take a look at our available bootcamp
-                    </h5>
+                    <h1 class="text-orange">Popular Bootcamp</h1>
+                    <h3>Take a look at our available bootcamp</h3>
                 </div>
                 <div class="col-md">
-                    <div class="card mb-3">
-                        <img src="/assets/Digital business.jpeg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Digital Business Training</h5>
-                          <div class="description">
-                            <img src="assets/logobinus.png" alt="">
-                            <p class="card-text"><small class="text-body-secondary">Bina Nusantara</small></p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card mb-3">
-                          <img src="/assets/Binusian Card.jpg" class="card-img-top" alt="...">
-                          <div class="card-body">
-                              <h5 class="card-title">Digital Business Training</h5>
-                              <div class="description">
-                                <img src="assets/logobinus.png" alt="">
-                                <p class="card-text"><small class="text-body-secondary">Bina Nusantara</small></p>
-                            </div>
+                    <a href="/bootcamp/detail" style="text-decoration: none; color: inherit; display: block">
+                        <div class="card shadow-sm mb-3">
+                            <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/course.jpg?raw=true" class="card-img-top" alt="...">
+                            <div class="card-body d-flex align-items-center">
+                                <h3 class="card-title">Digital Business Training</h3>
+                                <div class="ms-auto">
+                                    <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/logo/sunib.png?raw=true" style="width: 3.5vw" class="me-2">
+                                </div>
                             </div>
                         </div>
-                        <a href="" class="btn btn-warning">Read More</a>
+                    </a>
+                    <a href="/bootcamp/detail" style="text-decoration: none; color: inherit; display: block">
+                        <div class="card shadow-sm mb-3">
+                            <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/course.jpg?raw=true" class="card-img-top" alt="...">
+                            <div class="card-body d-flex align-items-center">
+                                <h3 class="card-title">Digital Business Training</h3>
+                                <div class="ms-auto">
+                                    <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/logo/sunib.png?raw=true" style="width: 3.5vw" class="me-2">
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="/bootcamp/list" class="btn" style="background-color: #F76D3B; color: white">View More</a>
                 </div>
                 <div class="col-md">
-                    <div class="card mb-3">
-                        <img src="/assets/computer-science.png" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Digital Business Training</h5>
-                          <div class="description">
-                            <img src="assets/logobinus.png" alt="">
-                            <p class="card-text"><small class="text-body-secondary">Bina Nusantara</small></p>
+                    <a href="/bootcamp/detail" style="text-decoration: none; color: inherit; display: block">
+                        <div class="card shadow-sm mb-3">
+                            <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/course.jpg?raw=true" class="card-img-top" alt="...">
+                            <div class="card-body d-flex align-items-center">
+                                <h3 class="card-title">Digital Business Training</h3>
+                                <div class="ms-auto">
+                                    <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/logo/sunib.png?raw=true" style="width: 3.5vw" class="me-2">
+                                </div>
+                            </div>
                         </div>
+                    </a>
+                    <a href="/bootcamp/detail" style="text-decoration: none; color: inherit; display: block">
+                        <div class="card shadow-sm mb-3">
+                            <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/course.jpg?raw=true" class="card-img-top" alt="...">
+                            <div class="card-body d-flex align-items-center">
+                                <h3 class="card-title">Digital Business Training</h3>
+                                <div class="ms-auto">
+                                    <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/logo/sunib.png?raw=true" style="width: 3.5vw" class="me-2">
+                                </div>
+                            </div>
                         </div>
-                      </div>
-                    <div class="card mb-3">
-                        <img src="/assets/public-speaking.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Digital Business Training</h5>
-                          <div class="description">
-                            <img src="assets/logobinus.png" alt="">
-                            <p class="card-text"><small class="text-body-secondary">Bina Nusantara</small></p>
-                        </div>
-                        </div>
-                      </div>
-                </div>
+                    </a>
             </div>
         </div>
     </section>

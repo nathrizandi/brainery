@@ -22,4 +22,11 @@ Route::prefix('bootcamp')->group(function(){
     Route::get('/menu', function () {
         return view('bootcamp/menu');
     });
+    Route::get('/list', function () {
+        return view('bootcamp/list');
+    });
+    Route::get('/detail', function () {
+        return view('bootcamp/detail');
+    });
+
 });

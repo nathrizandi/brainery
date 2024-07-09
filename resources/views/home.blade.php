@@ -36,14 +36,16 @@
 
     <div class="row">
         <div class="col-9 mt-1">
-            <div class="card shadow-sm" style="width: 50vw;">
-                <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/course.jpg?raw=true" class="card-img-top" style="width: 100%; height: auto;">
-                <div class="card-body">
-                    <h2>Nama Course</h2>
-                    <h3>By: Nama Tutor</h3>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" style="text-decoration: none; color: inherit; display: block">
+                <div class="card shadow-sm" style="width: 50vw;">
+                    <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/course.jpg?raw=true" class="card-img-top" style="width: 100%; height: auto;">
+                    <div class="card-body">
+                        <h2>Nama Course</h2>
+                        <h3>By: Nama Tutor</h3>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
         <div class="col-3">
             <div class="row mt-5">
@@ -59,14 +61,16 @@
         <div class="row">
             @for ($i = 0; $i < 4; $i++)    
                 <div class="col-3">
-                    <div class="card shadow-sm" style="width: 18vw; border-radius: 20px">
-                        <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/course2.jpg?raw=true" class="card-img-top mt-2 align-self-center" style="width: 95%; height: auto; border-radius: 8px;">
-                        <div class="card-body">
-                            <h3>Nama Course</h3>
-                            <b><p>By: Nama Tutor</p></b>
-                            <p>lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet </p>
+                    <a href="#" style="text-decoration: none; color: inherit; display: block">
+                        <div class="card shadow-sm" style="width: 18vw; border-radius: 20px">
+                            <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/course2.jpg?raw=true" class="card-img-top mt-2 align-self-center" style="width: 95%; height: auto; border-radius: 8px;">
+                            <div class="card-body">
+                                <h3>Nama Course</h3>
+                                <b><p>By: Nama Tutor</p></b>
+                                <p>lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet </p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             @endfor
         </div>
@@ -98,14 +102,16 @@
                 <div class="row">
                     @for ($i = 0; $i < 4; $i++)    
                         <div class="col-3">
-                            <div class="card shadow-sm" style="width: 18vw; border-radius: 20px">
-                                <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/course2.jpg?raw=true" class="card-img-top mt-2 align-self-center" style="width: 95%; height: auto; border-radius: 8px;">
-                                <div class="card-body">
-                                    <h3>Nama Course Compsci</h3>
-                                    <b><p>By: Nama Tutor</p></b>
-                                    <p>lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet </p>
+                            <a href="#" style="text-decoration: none; color: inherit; display: block">
+                                <div class="card shadow-sm" style="width: 18vw; border-radius: 20px">
+                                    <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/course2.jpg?raw=true" class="card-img-top mt-2 align-self-center" style="width: 95%; height: auto; border-radius: 8px;">
+                                    <div class="card-body">
+                                        <h3>Nama Course Compsci</h3>
+                                        <b><p>By: Nama Tutor</p></b>
+                                        <p>lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet </p>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     @endfor
                 </div>
