@@ -35,8 +35,8 @@
     </div>
     <div class="row">
         <div class="col-8">
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
+            <div class="card" style="width: 30rem;">
+                <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/course1.jpg?raw=true" class="card-img-top" style="width: 100%; height: auto;">
                 <div class="card-body">
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>
