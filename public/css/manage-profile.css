@@ -1,4 +1,9 @@
 .card{
     background-color: #FDE7D5;
-    border: 8px;
+    border: none;
+    border-radius: 15px;
+}
+
+.bold{
+    font-weight: bold;
 }

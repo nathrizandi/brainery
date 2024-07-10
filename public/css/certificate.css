@@ -1,0 +1,90 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    /* overflow: hidden; */
+    overflow-x: hidden;
+}
+.vr {
+    opacity: 1;
+}
+
+.container {
+    max-width: 1728px;
+}
+
+.profile-info img {
+    border-radius: 50%;
+    width: 8vw;
+    height: 16vh;
+    padding-right: 10px
+}
+
+.achievements-header {
+    margin-bottom: 30px;
+}
+
+.achievements-header div {
+    display: flex;
+    align-items: center;
+}
+
+.achievements-header div img {
+    margin-right: 10px;
+}
+
+.achievement-card p {
+    font-weight: bold;
+    opacity: 0.5;
+}
+
+.achievement-card {
+    background-color: #FDE7D5;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.achievement-card h5 {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.achievement-icon {
+    margin-right: 20px;
+}
+
+.achievement-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.achievement-content-content {
+    width: 100%;
+}
+
+#certificate-icon,
+#course-icon {
+    padding-right: 10px;
+    width: 70px;
+    height: 60px
+}
+
+.text-primary-orange {
+    color: #F76D3B;
+    font-weight: bold
+}
+
+.divider {
+    height: 100%
+}
+
+.divider img {
+    height: 10%
+}
+
+#small-image {
+    width: 7%;
+    height: 7%;
+    padding-right: 5px;
+}

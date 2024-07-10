@@ -51,4 +51,7 @@ Route::prefix('profile')->group(function(){
     Route::get('/edit', function () {
         return view('profile.edit');
     });
+    Route::get('/certificate', function () {
+        return view('profile.certificate');
+    });
 });
