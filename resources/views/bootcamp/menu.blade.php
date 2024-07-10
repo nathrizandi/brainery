@@ -2,8 +2,6 @@
 
 @section('title', 'Bootcamp Menu')
 
-@section('custom-csspage', 'css/bootcamp-menu.css')
-
 @section('content')
     {{-- Boxes --}}
     <section class="boxes">

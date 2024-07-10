@@ -2,8 +2,6 @@
 
 @section('title', 'Bootcamp Detail')
 
-@section('custom-csspage', 'css/bootcamp-detail.css')
-
 @section('content')
 <div class="row">
     <div class="header mb-3">

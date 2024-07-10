@@ -2,7 +2,7 @@
 
 @section('title', 'Checkout Subscription')
 
-@section('custom-csspage', 'css/checkout.css')
+@section('custom-csspage', '/css/checkout.css')
 
 @section('content')
     <h1 class="text-orange">Subscription Payment</h1>
@@ -30,7 +30,7 @@
     </div>
 
     <div class="row mt-4">
-        <div class="col-12" style="background-color: white; border-radius: 7px; height: 30vh">
+        <div class="col-12" style="background-color: white; border-radius: 7px; height: 35vh">
             <div class="container row mt-3">
                 <h2>Payment Method</h2>
             </div>
@@ -46,7 +46,7 @@
                             <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
                         </div>
                     </div>
-                    <div class="form-check">
+                    <div class="form-check mt-2">
                         <div class="d-flex align-items-center">
                             <label class="form-check-label custom-form-check-label" for="flexRadioDefault2" style="margin-right: 73.2%">
                                 <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/logo/sunib.png?raw=true" class="me-2">
@@ -55,7 +55,7 @@
                             <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
                         </div>
                     </div>
-                    <div class="form-check">
+                    <div class="form-check mt-2">
                         <div class="d-flex align-items-center">
                             <label class="form-check-label custom-form-check-label" for="flexRadioDefault3" style="margin-right: 84.15%">
                                 <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/logo/sunib.png?raw=true" class="me-2">
@@ -64,7 +64,7 @@
                             <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
                         </div>
                     </div>
-                    <div class="form-check">
+                    <div class="form-check mt-2">
                         <div class="d-flex align-items-center">
                             <label class="form-check-label custom-form-check-label" for="flexRadioDefault3" style="margin-right: 83.10%">
                                 <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/logo/sunib.png?raw=true" class="me-2">
