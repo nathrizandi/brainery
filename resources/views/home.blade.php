@@ -38,7 +38,7 @@
         <div class="col-9 mt-1">
             <a href="#" style="text-decoration: none; color: inherit; display: block">
                 <div class="card shadow-sm" style="width: 50vw;">
-                    <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/course.jpg?raw=true" class="card-img-top" style="width: 100%; height: auto;">
+                    <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/jumbotron/sella.png?raw=true" class="card-img-top" style="width: 100%; height: auto;">
                     <div class="card-body">
                         <h2>Nama Course</h2>
                         <h3>By: Nama Tutor</h3>

@@ -40,7 +40,7 @@
                             <h3>Achievement</h3>
                             <h2 class="text-primary-orange">Backend Developer</h2>
                             <div class="d-flex flex-col">
-                                <img src="{{ asset('assets/image/Certificate-Learning-Method.png') }}"
+                                <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/icon/self-paced.png?raw=true"
                                     alt="" id="small-image">
                                 <p>Self-paced</p>
                             </div>
@@ -67,7 +67,7 @@
                             <h3>Achievement</h3>
                             <h2 class="text-primary-orange">Backend Developer</h2>
                             <div class="d-flex flex-col">
-                                <img src="{{ asset('assets/image/Certificate-Learning-Method.png') }}"
+                                <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/icon/self-paced.png?raw=true"
                                     alt="" id="small-image">
                                 <p>Self-paced</p>
                             </div>
@@ -94,7 +94,7 @@
                             <h3>Achievement</h5>
                             <h2 class="text-primary-orange">Backend Developer</h2>
                             <div class="d-flex flex-col">
-                                <img src="{{ asset('assets/image/Certificate-Learning-Method.png') }}"
+                                <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/icon/self-paced.png?raw=true"
                                     alt="" id="small-image">
                                 <p>Self-paced</p>
                             </div>
@@ -121,7 +121,7 @@
                             <h3>Achievement</h3>
                             <h2 class="text-primary-orange">Backend Developer</h2>
                             <div class="d-flex flex-col">
-                                <img src="{{ asset('assets/image/Certificate-Learning-Method.png') }}"
+                                <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/icon/self-paced.png?raw=true"
                                     alt="" id="small-image">
                                 <p>Self-paced</p>
                             </div>
