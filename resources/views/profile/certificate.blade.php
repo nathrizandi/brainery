@@ -18,13 +18,13 @@
             </div>
             <div class="achievements-info d-flex flex-row">
                 <div class='d-flex flex-row align-items-center pr-4'>
-                    <img src="{{ asset('assets/image/Certificate-Earned.png') }}" alt="Certificate Icon"
+                    <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/icon/certificate-orange.png?raw=true" alt="Certificate Icon"
                         id='certificate-icon'>
                     <h6>4 Certificate Earned</h6>
                 </div>
                 <div class="vr" style="margin-left: 10px; margin-right:10px"></div>
                 <div class='d-flex flex-row align-items-center pl-4'>
-                    <img src="{{ asset('assets/image/Certificate-Course-Completed.png') }}" alt="Course Icon"
+                    <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/icon/course-orange.png?raw=true" alt="Course Icon"
                         id='course-icon'>
                     <h6>4 Course Completed</h6>
                 </div>

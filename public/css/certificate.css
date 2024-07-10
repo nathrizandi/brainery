@@ -66,8 +66,8 @@ body, html {
 #certificate-icon,
 #course-icon {
     padding-right: 10px;
-    width: 70px;
-    height: 60px
+    width: 3vw;
+    height: 5vh;
 }
 
 .text-primary-orange {
@@ -84,7 +84,7 @@ body, html {
 }
 
 #small-image {
-    width: 7%;
-    height: 7%;
+    width: 3vw;
+    height: 5vh;
     padding-right: 5px;
 }
