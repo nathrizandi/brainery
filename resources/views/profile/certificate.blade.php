@@ -5,7 +5,7 @@
 @section('custom-csspage', '/css/certificate.css')
 
 @section('content')
-
+<div class="container">
 <div class="row">
     <div class="col">
 
@@ -35,10 +35,9 @@
             <div class="col-md-6">
                 <div class="achievement-card">
                     <div class="achievement-content">
-                        <img src="{{ asset('assets/image/Certificate-Course-Icon.png') }}"
-                            class="achievement-icon" alt="Achievement Icon">
+                        <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/icon/field.png?raw=true" class="achievement-icon" alt="Achievement Icon" style="width: 8vw">
                         <div class="achievement-content-content">
-                            <h5>Achievement</h5>
+                            <h3>Achievement</h3>
                             <h2 class="text-primary-orange">Backend Developer</h2>
                             <div class="d-flex flex-col">
                                 <img src="{{ asset('assets/image/Certificate-Learning-Method.png') }}"
@@ -62,10 +61,10 @@
             <div class="col-md-6">
                 <div class="achievement-card">
                     <div class="achievement-content">
-                        <img src="{{ asset('assets/image/Certificate-Course-Icon.png') }}"
-                            class="achievement-icon" alt="Achievement Icon">
+                        <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/icon/field.png?raw=true"
+                            class="achievement-icon" alt="Achievement Icon" style="width: 8vw">
                         <div class="achievement-content-content">
-                            <h5>Achievement</h5>
+                            <h3>Achievement</h3>
                             <h2 class="text-primary-orange">Backend Developer</h2>
                             <div class="d-flex flex-col">
                                 <img src="{{ asset('assets/image/Certificate-Learning-Method.png') }}"
@@ -89,10 +88,10 @@
             <div class="col-md-6">
                 <div class="achievement-card">
                     <div class="achievement-content">
-                        <img src="{{ asset('assets/image/Certificate-Course-Icon.png') }}"
-                            class="achievement-icon" alt="Achievement Icon">
+                        <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/icon/field.png?raw=true"
+                            class="achievement-icon" alt="Achievement Icon" style="width: 8vw">
                         <div class="achievement-content-content">
-                            <h5>Achievement</h5>
+                            <h3>Achievement</h5>
                             <h2 class="text-primary-orange">Backend Developer</h2>
                             <div class="d-flex flex-col">
                                 <img src="{{ asset('assets/image/Certificate-Learning-Method.png') }}"
@@ -116,10 +115,10 @@
             <div class="col-md-6">
                 <div class="achievement-card">
                     <div class="achievement-content">
-                        <img src="{{ asset('assets/image/Certificate-Course-Icon.png') }}"
-                            class="achievement-icon" alt="Achievement Icon">
+                        <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/icon/field.png?raw=true"
+                            class="achievement-icon" alt="Achievement Icon" style="width: 8vw">
                         <div class="achievement-content-content">
-                            <h5>Achievement</h5>
+                            <h3>Achievement</h3>
                             <h2 class="text-primary-orange">Backend Developer</h2>
                             <div class="d-flex flex-col">
                                 <img src="{{ asset('assets/image/Certificate-Learning-Method.png') }}"
@@ -143,5 +142,5 @@
         </div>
     </div>
 </div>
-
+</div>
 @endsection
