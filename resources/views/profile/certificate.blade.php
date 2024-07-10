@@ -42,17 +42,17 @@
                             <div class="d-flex flex-col">
                                 <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/icon/self-paced.png?raw=true"
                                     alt="" id="small-image">
-                                <p>Self-paced</p>
+                                <p class="mt-1">Self-paced</p>
                             </div>
                             <div class="d-flex flex-col">
-                                <img src="{{ asset('assets/image/Certificate-Book-Course.png') }}"
+                                <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/icon/book.png?raw=true"
                                     alt="" id="small-image">
-                                <p>Introduction to Backend</p>
+                                <p class="mt-1">Introduction to Backend</p>
                             </div>
                             <div class="d-flex flex-col">
-                                <img src="{{ asset('assets/image/Certificate-Date.png') }}" alt=""
+                                <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/icon/date.png?raw=true" alt=""
                                     id="small-image">
-                                <p>Date Received: 10 November 2023</p>
+                                <p class="mt-1">Date Received: 10 November 2023</p>
                             </div>
                         </div>
                     </div>
@@ -69,17 +69,17 @@
                             <div class="d-flex flex-col">
                                 <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/icon/self-paced.png?raw=true"
                                     alt="" id="small-image">
-                                <p>Self-paced</p>
+                                <p class="mt-1">Self-paced</p>
                             </div>
                             <div class="d-flex flex-col">
-                                <img src="{{ asset('assets/image/Certificate-Book-Course.png') }}"
+                                <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/icon/book.png?raw=true"
                                     alt="" id="small-image">
-                                <p>Introduction to Backend</p>
+                                <p class="mt-1">Introduction to Backend</p>
                             </div>
                             <div class="d-flex flex-col">
-                                <img src="{{ asset('assets/image/Certificate-Date.png') }}" alt=""
+                                <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/icon/date.png?raw=true" alt=""
                                     id="small-image">
-                                <p>Date Received: 10 November 2023</p>
+                                <p class="mt-1">Date Received: 10 November 2023</p>
                             </div>
                         </div>
                     </div>
@@ -96,17 +96,17 @@
                             <div class="d-flex flex-col">
                                 <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/icon/self-paced.png?raw=true"
                                     alt="" id="small-image">
-                                <p>Self-paced</p>
+                                <p class="mt-1">Self-paced</p>
                             </div>
                             <div class="d-flex flex-col">
-                                <img src="{{ asset('assets/image/Certificate-Book-Course.png') }}"
+                                <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/icon/book.png?raw=true"
                                     alt="" id="small-image">
-                                <p>Introduction to Backend</p>
+                                <p class="mt-1">Introduction to Backend</p>
                             </div>
                             <div class="d-flex flex-col">
-                                <img src="{{ asset('assets/image/Certificate-Date.png') }}" alt=""
+                                <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/icon/date.png?raw=true" alt=""
                                     id="small-image">
-                                <p>Date Received: 10 November 2023</p>
+                                <p class="mt-1">Date Received: 10 November 2023</p>
                             </div>
                         </div>
                     </div>
@@ -123,17 +123,17 @@
                             <div class="d-flex flex-col">
                                 <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/icon/self-paced.png?raw=true"
                                     alt="" id="small-image">
-                                <p>Self-paced</p>
+                                <p class="mt-1">Self-paced</p>
                             </div>
                             <div class="d-flex flex-col">
-                                <img src="{{ asset('assets/image/Certificate-Book-Course.png') }}"
+                                <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/icon/book.png?raw=true"
                                     alt="" id="small-image">
-                                <p>Introduction to Backend</p>
+                                <p class="mt-1">Introduction to Backend</p>
                             </div>
                             <div class="d-flex flex-col">
-                                <img src="{{ asset('assets/image/Certificate-Date.png') }}" alt=""
+                                <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/icon/date.png?raw=true" alt=""
                                     id="small-image">
-                                <p>Date Received: 10 November 2023</p>
+                                <p class="mt-1">Date Received: 10 November 2023</p>
                             </div>
                         </div>
                     </div>
