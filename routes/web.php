@@ -43,3 +43,12 @@ Route::get('/checkout-success', function () {
 Route::get('/search-result', function () {
     return view('search-result');
 });
+
+Route::prefix('profile')->group(function(){
+    Route::get('/manage', function () {
+        return view('profile.manage');
+    });
+    Route::get('/edit', function () {
+        return view('profile.edit');
+    });
+});

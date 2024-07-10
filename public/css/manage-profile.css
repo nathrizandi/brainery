@@ -1,0 +1,89 @@
+@font-face {
+    font-family: 'Apercu-bold';
+    src: url('/fonts/apercu_bold_pro.otf') format('opentype');
+    font-style: bold;
+    text-decoration: none;
+}
+@font-face {
+    font-family: 'Apercu-regular';
+    src: url('/fonts/apercu_regular_pro.otf') format('opentype');
+    font-style: normal;
+    text-decoration: none;
+}
+
+* {
+    font-family: 'Apercu-regular';
+}
+
+body {
+    background-color: #FEF8F3;
+}
+
+.row {
+    background-color: #F9F6F3;
+}
+
+.container {
+    max-width: 1728px;
+}
+
+.profile-header {
+    background-color: #F9F6F3;
+}
+
+.bg-light {
+    background-color: #FDE7D5 !important;
+}
+
+.text-primary {
+    color: #E4723C !important;
+}
+
+button.btn-outline-dark {
+    background-color: #FDE7D5;
+    border: 1px solid #FDE7D5;
+    color: #333;
+}
+
+button.btn-outline-dark i {
+    margin-right: 5px;
+}
+
+.card-body h5 {
+    color: #E4723C;
+}
+
+.card-body p {
+    color: #333;
+}
+
+.fas.fa-chevron-right {
+    color: #333;
+}
+
+#small-image {
+    width: 50%;
+    height: 50%;
+}
+
+.full-div {
+    width: 3vw;
+}
+
+#items {
+    widows: 100%;
+}
+
+#bold {
+    font-weight: bold;
+    color: black;
+}
+
+.col-2 {
+    padding-left: 0px;
+    padding-right: 15px;
+}
+
+.text-muteds {
+    color: black;
+}
