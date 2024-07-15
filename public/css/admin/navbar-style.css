@@ -1,0 +1,9 @@
+.nav-button{
+    --bs-navbar-active-color: white;
+}
+
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+    color: var(--bs-navbar-active-color);
+    background-color: #F76D3B;
+    border-radius: 10px;
+}

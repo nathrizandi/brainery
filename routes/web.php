@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 
 Route::get('/', function () {
     return view('/template/layout');
@@ -76,4 +77,14 @@ Route::prefix('course')->group(function(){
 
 Route::get('/mylearning', function () {
     return view('mylearning');
+});
+
+Route::prefix('admin')->group(function(){
+    Route::get("/login", [AdminController::class, "login"])->name("Login");
+    Route::get("/home", [AdminController::class, "index"]) ->name("Home");
+    Route::get("/profile", [AdminController::class, "profile"]) ->name("Profile");
+    Route::get("/user", [AdminController::class, "manageUser"]) ->name("User");
+    Route::get("/course", [AdminController::class, "manageCourse"]) ->name("Course");
+    Route::get("/purchase", [AdminController::class, "managePurchaseHistory"]) ->name("Purchase");
+    Route::get("/bootcamp", [AdminController::class, "manageBootcamp"]) ->name("Bootcamp");
 });

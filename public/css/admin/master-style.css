@@ -1,0 +1,62 @@
+
+.main-div{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: red; */
+}
+
+.side-nav-container, .main-container{
+    height: 100%;
+}
+
+.profile-h5{
+    color: #F76D3B;
+}
+
+/* Card */
+.card-header, .card-footer{
+    background-color: white;
+    border: none;
+}
+
+.card{
+    border: none;
+}
+
+/* Button */
+.btn-primary{
+    --bs-btn-bg: #F76D3B;
+    --bs-btn-border-color: #F76D3B;
+    --bs-btn-hover-bg: #fb855a;
+    --bs-btn-hover-border-color: #fb855a;
+    --bs-navbar-active-color: #fb855a;
+    --bs-btn-active-bg: #fb855a;
+    --bs-btn-active-border-color: #fb855a;
+}
+
+.btn-trash{
+    --bs-btn-bg: #000;
+    --bs-btn-border-color: #000;
+    --bs-btn-hover-bg: #2b2b2b;
+    --bs-btn-hover-border-color: #2b2b2b;
+    --bs-navbar-active-color: #2b2b2b;
+    --bs-btn-active-bg: #2b2b2b;
+    --bs-btn-active-border-color: #2b2b2b;
+}
+
+/* Modal */
+.modal{
+    --bs-border-width: 0;
+}
+
+.modal-content{
+    background: #FEF8F3;
+}
+
+.modal-header, .modal-footer{
+    border-bottom: transparent;
+    border-top: transparent;
+}
+

@@ -1,0 +1,13 @@
+
+.main-div{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FEF8F3;
+}
+
+.custom-btn{
+    background: #F76D3B;
+    border-color: #F76D3B;
+}
