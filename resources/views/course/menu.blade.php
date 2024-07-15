@@ -19,8 +19,7 @@
                                 <div class="card d-flex justify-content-center">
                                     <div class="card-properties">
                                         <div class="card_img overlay1">
-                                            <img class="card-image" src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/course.jpg?raw=true" alt="">
-                                            {{-- <img class="card-image" src='{{ asset('/Images/course.png') }}' alt=""> --}}
+                                            <img class="card-image" src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/couseMenu.png?raw=true" alt="">
                                         </div>
                                         <div class="card-body">
                                             <h3 class="card-title">Docker Bootcamp: Conquer Docker with Real-World Projects</h3>
@@ -59,7 +58,7 @@
                                 <div class="card d-flex justify-content-center">
                                     <div class="card-properties">
                                         <div class="card_img overlay1">
-                                            <img class="card-image" src='{{ asset('/Images/course.png') }}' alt="">
+                                            <img class="card-image" src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/couseMenu.png?raw=true" alt="">
                                         </div>
                                         <div class="card-body">
                                             <h3 class="card-title">Docker Bootcamp: Conquer Docker with Real-World Projects</h3>
@@ -98,7 +97,7 @@
                                 <div class="card d-flex justify-content-center">
                                     <div class="card-properties">
                                         <div class="card_img overlay1">
-                                            <img class="card-image" src='{{ asset('/Images/course.png') }}' alt="">
+                                            <img class="card-image" src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/couseMenu.png?raw=true" alt="">
                                         </div>
                                         <div class="card-body">
                                             <h3 class="card-title">Docker Bootcamp: Conquer Docker with Real-World Projects</h3>
@@ -124,6 +123,4 @@
             </div>
         </div>
     </div>
-
-    <script src="/js/courseMenu.js"></script>
 @endsection

@@ -4,7 +4,7 @@
 }
 
 .course-properties {
-    width: 80%;
+    width: 100%;
 }
 
 .course-properties .col-3 {
@@ -21,7 +21,7 @@
 }
 
 .card {
-    width: 350px;
+    width: 320px;
     height: 400px;
     background-color: white;
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
@@ -34,9 +34,16 @@
     height: 380px;
 }
 
-.card-image {
+.card_img{
     width: 330px;
+    display: flex;
+    justify-content: center;
+}
+
+.card-image {
+    width: 300px;
     border-radius: 20px;
+    justify-self: center;
 }
 
 .card-title {
