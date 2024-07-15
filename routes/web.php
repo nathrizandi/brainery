@@ -69,6 +69,9 @@ Route::prefix('course')->group(function(){
     Route::get('/detail', function () {
         return view('course.detail');
     });
+    Route::get('/media', function () {
+        return view('course.media');
+    });
 });
 
 Route::get('/mylearning', function () {
