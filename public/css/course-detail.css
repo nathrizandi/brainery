@@ -1,0 +1,88 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.course-detail {
+    display: flex;
+    width: 100%;
+    flex: 1 0 auto;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 15vw;
+    margin-top: 3%;
+    background-color: #FDE7D5;
+    padding-top: 60px; /* Adjust according to the height of your navbar */
+}
+
+.sidebar-course {
+    width: 100%;
+    background-color: #FDE7D5;
+    height: calc(100% - 60px); /* Adjust according to the height of your navbar */
+}
+
+.sidebar-title {
+    text-align: center;
+    margin: 0;
+}
+
+.notes,
+.course-info {
+    padding: 10px 0 10px 20px;
+    background-color: #FDE7D5;
+}
+
+.accordion {
+    --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 0%);
+    --bs-accordion-active-bg: #fde7d5;
+}
+
+.accordion-button.collapsed {
+    background-color: #FDE7D5;
+}
+
+.accordion-button.collapsed:hover {
+    background-color: #ffffffbb;
+    transition: 300ms;
+}
+
+.accordion-body {
+    padding: 10px 0 10px 20px;
+    background-color: #FCF4EE;
+}
+
+.choose {
+    border: 1px solid rgba(115, 115, 115, 1);
+    border-left-width: 5px;
+    background-color: white;
+}
+
+.sidebar-item:hover {
+    background-color: #ffffffbb;
+    transition: 300ms;
+}
+
+.course-info-content {
+    text-align: justify;
+}
+
+.content-area {
+    margin-left: 17vw; /* Add margin to the left to create space between sidebar and content */
+    padding: 20px;
+    width: calc(100% - 17vw); /* Adjust width to fill the remaining space */
+}
+
+.footer {
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    flex-shrink: 0;
+}

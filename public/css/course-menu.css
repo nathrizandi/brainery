@@ -1,0 +1,55 @@
+.course-properties-title {
+    font-weight: bold;
+    color: #F76D3B;
+}
+
+.course-properties {
+    width: 80%;
+}
+
+.course-properties .col-3 {
+    display: none;
+    padding-top: 20px;
+}
+
+
+.course-properties .col-3:nth-child(1),
+.course-properties .col-3:nth-child(2),
+.course-properties .col-3:nth-child(3),
+.course-properties .col-3:nth-child(4) {
+    display: inline-block;
+}
+
+.card {
+    width: 350px;
+    height: 400px;
+    background-color: white;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    align-items: center;
+}
+
+.card-properties {
+    width: 330px;
+    height: 380px;
+}
+
+.card-image {
+    width: 330px;
+    border-radius: 20px;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+
+.course-more .col {
+    padding-top: 30px;
+}
+
+.course-more .btn {
+    background-color: white;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+}

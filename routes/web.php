@@ -55,3 +55,22 @@ Route::prefix('profile')->group(function(){
         return view('profile.certificate');
     });
 });
+
+Route::prefix('course')->group(function(){
+    Route::get('/subs', function () {
+        return view('course.subscription');
+    });
+    Route::get('/menu', function () {
+        return view('course.menu');
+    });
+    Route::get('/view', function () {
+        return view('course.view');
+    });
+    Route::get('/detail', function () {
+        return view('course.detail');
+    });
+});
+
+Route::get('/mylearning', function () {
+    return view('mylearning');
+});
