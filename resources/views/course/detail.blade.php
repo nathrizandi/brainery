@@ -51,7 +51,6 @@
                 <div class="accordion" id="accordionExample">
                     <div class="course-week-content" data-content="week-1">
                         @for ($i = 1; $i <= 4; $i++)
-                            <a href="/course/media" style="text-decoration: none; color: inherit; display: block">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="heading{{ $i }}">
                                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
@@ -62,14 +61,15 @@
                                     </h2>
                                     <div id="collapse{{ $i }}" class="accordion-collapse collapse"
                                         aria-labelledby="heading{{ $i }}" data-bs-parent="#accordionExample">
-                                        @for ($j = 1; $j <= 5; $j++)
-                                            <div class="accordion-body">
-                                                Week {{ $i }} - Sub title {{ $j }}
-                                            </div>
-                                        @endfor
+                                        <a href="/course/media" style="text-decoration: none; color: inherit; display: block">
+                                            @for ($j = 1; $j <= 5; $j++)
+                                                <div class="accordion-body">
+                                                    Week {{ $i }} - Sub title {{ $j }}
+                                                </div>
+                                            @endfor
+                                        </a>
                                     </div>
                                 </div>
-                            </a>
                         @endfor
                     </div>
 
