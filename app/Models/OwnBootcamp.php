@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class OwnBootcamp extends Model
 {
     use HasFactory;
+    protected $table = "own_bootcamps";
+    protected $guarded = [];
 }
