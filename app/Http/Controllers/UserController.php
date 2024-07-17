@@ -44,6 +44,6 @@ class UserController extends Controller
             'membership_type' => 'free'
         ]);
 
-        return redirect()->back();
+        return redirect()->intended(route('home'));
     }
 }
