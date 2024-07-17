@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('subscriptions', function (Blueprint $table) {
             $table->id();
-            $table->integer('price');
+            $table->double('price');
             $table->integer('duration'); //in minute
             $table->timestamps();
         });

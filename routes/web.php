@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
-
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('/template/layout');
@@ -10,14 +10,14 @@ Route::get('/', function () {
 
 Route::get('/home', function () {
     return view('home');
-});
+})->name('home');
 
-Route::get('/login', function () {
-    return view('login');
-});
-Route::get('/register', function () {
-    return view('register');
-});
+
+Route::get('/login', [UserController::class, 'loginView']);
+Route::post('/user/login', [UserController::class, 'login'])->name('UserLogin');
+
+Route::get('/register', [UserController::class, 'registerView']);
+Route::post('/user/register', [UserController::class, 'register'])->name('UserRegister');
 
 Route::get('/bootcamp', function () {
     return view('bootcamp.bootcamp');
@@ -80,9 +80,10 @@ Route::get('/mylearning', function () {
     return view('mylearning');
 });
 
+
 Route::prefix('admin')->group(function(){
-    Route::get("/login", [AdminController::class, "login"])->name("Login");
-    Route::get("/home", [AdminController::class, "index"]) ->name("Home");
+    // Route::get("/login", [AdminController::class, "login"])->name("AdminLogin");
+    Route::get("/home", [AdminController::class, "index"]) ->name("AdminHome");
     Route::get("/profile", [AdminController::class, "profile"]) ->name("Profile");
     Route::get("/user", [AdminController::class, "manageUser"]) ->name("User");
     Route::get("/course", [AdminController::class, "manageCourse"]) ->name("Course");
