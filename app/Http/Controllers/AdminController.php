@@ -8,7 +8,7 @@ class AdminController extends Controller
 {
     //
     public function login(){
-        return view('admin.login');
+        // return view('admin.login');
     }
 
     public function index(){
