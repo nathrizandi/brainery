@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             CourseMaterialDetailSeeder::class,
             CourseMaterialSeeder::class,
             CourseSeeder::class,
+            MethodSeeder::class
         ]);
 
     }

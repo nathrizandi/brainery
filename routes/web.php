@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
@@ -35,12 +36,11 @@ Route::prefix('bootcamp')->group(function(){
     });
 });
 
-Route::get('/checkout', function () {
-    return view('checkout.checkout');
-});
-Route::get('/checkout-success', function () {
-    return view('checkout.success');
-});
+Route::post('/checkout', [SubscriptionController::class, 'checkoutSubs'])->name('checkout');
+Route::post('/checkout-success', [SubscriptionController::class, 'checkoutSuccess'])->name('checkoutSuccess');
+// Route::get('/checkout-success', function () {
+//     return view('checkout.success');
+// });
 
 Route::get('/search-result', function () {
     return view('search-result');
@@ -59,9 +59,7 @@ Route::prefix('profile')->group(function(){
 });
 
 Route::prefix('course')->group(function(){
-    Route::get('/subs', function () {
-        return view('course.subscription');
-    });
+    Route::get('/subs',[SubscriptionController::class, 'getSubs']);
     Route::get('/menu', function () {
         return view('course.menu');
     });
