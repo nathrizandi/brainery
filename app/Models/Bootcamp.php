@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Bootcamp extends Model
 {
     use HasFactory;
+    protected $table = "bootcamps";
+    protected $guarded = [];
 }
