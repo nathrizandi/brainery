@@ -13,25 +13,26 @@
                     <h1 class="course-properties-title">Most Popular</h1>
                 </div>
                 <div class="row course-properties all-card">
-                    @for ($i = 0; $i < 16; $i++)
-                        <div class="col-3 course-card">
-                            <a href="/course/view" style="text-decoration: none; color: inherit; display: block">
-                                <div class="card d-flex justify-content-center">
-                                    <div class="card-properties">
-                                        <div class="card_img overlay1">
-                                            <img class="card-image" src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/couseMenu.png?raw=true" alt="">
-                                        </div>
-                                        <div class="card-body">
-                                            <h3 class="card-title">Docker Bootcamp: Conquer Docker with Real-World Projects</h3>
-                                            <p class="card-writer">by : Donald Davidson </p>
-                                            <p class="card-description">Containerize Apps, Manage Microservices, and Deploy to
-                                                the Cloud with Docker!</p>
-                                        </div>
+                    {{-- @for ($i = 0; $i < 16; $i++) --}}
+                    @foreach ($courseMenu as $item)
+                    <div class="col-3 course-card">
+                        <a href="/course/view" style="text-decoration: none; color: inherit; display: block">
+                            <div class="card d-flex justify-content-center">
+                                <div class="card-properties">
+                                    <div class="card_img overlay1">
+                                        <img class="card-image" src="{{asset($item->courseImage)}}" alt="">
+                                    </div>
+                                    <div class="card-body">
+                                        <h3 class="card-title">{{$item->title}}</h3>
+                                        <p class="card-writer">by: {{$item->nama}}</p>
+                                        <p class="card-description">{{$item->description}}</p>
                                     </div>
                                 </div>
-                            </a>
-                        </div>
-                    @endfor
+                            </div>
+                        </a>
+                    </div>
+                    @endforeach
+                    {{-- @endfor --}}
                 </div>
                 <div class="row course-properties course-more">
                     <div class="col">
@@ -52,25 +53,27 @@
                     <h1 class="course-properties-title">Trending Course</h1>
                 </div>
                 <div class="row course-properties all-card">
-                    @for ($i = 0; $i < 16; $i++)
+                    {{-- @for ($i = 0; $i < 16; $i++) --}}
+                    @foreach ($courseMenu as $item)
                         <div class="col-3 course-card">
                             <a href="/course/view" style="text-decoration: none; color: inherit; display: block">
                                 <div class="card d-flex justify-content-center">
                                     <div class="card-properties">
                                         <div class="card_img overlay1">
-                                            <img class="card-image" src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/couseMenu.png?raw=true" alt="">
+                                            <img class="card-image" src="{{asset($item->courseImage)}}" alt="">
                                         </div>
                                         <div class="card-body">
-                                            <h3 class="card-title">Docker Bootcamp: Conquer Docker with Real-World Projects</h3>
-                                            <p class="card-writer">by : Donald Davidson </p>
-                                            <p class="card-description">Containerize Apps, Manage Microservices, and Deploy to
-                                                the Cloud with Docker!</p>
+                                            <h3 class="card-title">{{$item->title}}</h3>
+                                            <p class="card-writer">by: {{$item->nama}}</p>
+                                            <p class="card-description">{{$item->description}}</p>
                                         </div>
                                     </div>
                                 </div>
                             </a>
                         </div>
-                    @endfor
+                        
+                    @endforeach
+                    {{-- @endfor --}}
                 </div>
                 <div class="row course-properties course-more">
                     <div class="col">
@@ -91,25 +94,26 @@
                     <h1 class="course-properties-title">New Course</h1>
                 </div>
                 <div class="row course-properties all-card">
-                    @for ($i = 0; $i < 16; $i++)
+                    {{-- @for ($i = 0; $i < 16; $i++) --}}
+                    @foreach ($courseMenu as $item)
                         <div class="col-3 course-card">
                             <a href="/course/view" style="text-decoration: none; color: inherit; display: block">
                                 <div class="card d-flex justify-content-center">
                                     <div class="card-properties">
                                         <div class="card_img overlay1">
-                                            <img class="card-image" src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/couseMenu.png?raw=true" alt="">
+                                            <img class="card-image" src="{{asset($item->courseImage)}}" alt="">
                                         </div>
                                         <div class="card-body">
-                                            <h3 class="card-title">Docker Bootcamp: Conquer Docker with Real-World Projects</h3>
-                                            <p class="card-writer">by : Donald Davidson </p>
-                                            <p class="card-description">Containerize Apps, Manage Microservices, and Deploy to
-                                                the Cloud with Docker!</p>
+                                            <h3 class="card-title">{{$item->title}}</h3>
+                                            <p class="card-writer">by: {{$item->nama}}</p>
+                                            <p class="card-description">{{$item->description}}</p>
                                         </div>
                                     </div>
                                 </div>
                             </a>
                         </div>
-                    @endfor
+                    @endforeach
+                    {{-- @endfor --}}
                 </div>
                 <div class="row course-properties course-more">
                     <div class="col">

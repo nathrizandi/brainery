@@ -18,7 +18,7 @@ class CourseSeeder extends Seeder
         for ($i = 0; $i < 10; $i++) {
             Course::create([
                 "title"=> $faker->sentence(3),
-                "image"=> "assets/courseBanner/course/".rand(3,4).".jpeg",
+                "image"=> "assets/courseBanner/course".rand(3,7).".jpeg",
                 "speaker_id"=> rand(1, 10),
                 "description"=> $faker->sentence(10),
             ]);

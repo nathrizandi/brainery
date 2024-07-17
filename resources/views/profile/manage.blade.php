@@ -17,7 +17,7 @@
     <div class="col-8 card">
         <p class="mt-3 bold">Subscription</p>
         <h2 class="text-orange">Premium Annual</h2>
-        <h3>Your bill is $131.88 due at 07/06/24</h3>
+        <h3>Your bill is $131.88 due at 07/06/24</h3>   
 
     </div>
     <div class="col-2 card" style="margin-left: 1vw">

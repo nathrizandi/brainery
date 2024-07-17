@@ -2,7 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\BootcampController;
 
 Route::get('/', function () {
     return view('/template/layout');
@@ -24,9 +27,7 @@ Route::get('/bootcamp', function () {
 });
 
 Route::prefix('bootcamp')->group(function(){
-    Route::get('/menu', function () {
-        return view('bootcamp.menu');
-    });
+    Route::get('/menu', [BootcampController::class,'bootcampMenu']);
     Route::get('/list', function () {
         return view('bootcamp.list');
     });
@@ -46,7 +47,7 @@ Route::get('/search-result', function () {
     return view('search-result');
 });
 
-Route::prefix('profile')->group(function(){
+Route::prefix('/profile')->group(function(){
     Route::get('/manage', function () {
         return view('profile.manage');
     });
@@ -62,9 +63,7 @@ Route::prefix('course')->group(function(){
     Route::get('/subs', function () {
         return view('course.subscription');
     });
-    Route::get('/menu', function () {
-        return view('course.menu');
-    });
+    Route::get('/menu', [CourseController::class,'courseMenu']);
     Route::get('/view', function () {
         return view('course.view');
     });

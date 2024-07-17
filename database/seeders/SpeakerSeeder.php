@@ -15,7 +15,12 @@ class SpeakerSeeder extends Seeder
         for ($i = 0; $i < 10; $i++) {
             Speaker::create([
                 "nama"=> $faker->name,
-                "image"=>"assets/speaker/".rand(1,5).".jpg",
+                "image"=>"assets/speaker".rand(1,5).".jpg",
+            ]);
+        } for ($i = 0; $i < 10; $i++) {
+            Speaker::create([
+                "nama"=> $faker->name,
+                "image"=>"assets/speaker".rand(1,5).".jpg",
             ]);
         }
     }
