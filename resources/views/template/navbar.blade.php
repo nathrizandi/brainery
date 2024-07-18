@@ -2,7 +2,8 @@
     <div class="container-fluid">
 
         <a class="navbar-brand mx-md me-auto" href="/" height="80">
-            <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/logo/orange.png?raw=true" alt="" height="60" style="margin-left: 5vh">
+            <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/logo/orange.png?raw=true"
+                alt="" height="60" style="margin-left: 5vh">
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -13,10 +14,12 @@
         <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
             <div class="container col-7">
                 <div class="row d-flex justify-content-center">
-                    <form class="d-flex" role="search">
-                        <input class="form-control" type="search" style="border-radius: 8px" placeholder="" aria-label="Search">
+                    <form action='{{ route('search') }}' method='GET' class="d-flex" role="search">
+                        {{-- @csrf --}}
+                        <input name='search' class="form-control" type="search" style="border-radius: 8px"
+                            placeholder="" aria-label="Search">
                         <span class="search-button" style="border-radius: 8px">
-                            <a href="">
+                            <a type='submit' href="">
                                 <i class="fa fa-search"></i>
                             </a>
                         </span>
@@ -45,10 +48,10 @@
         {{-- <a href="#" class="login-btn" style="margin-right: 5vh">Login</a> --}}
         <div class="row">
             <div class="col-5">
-                <a href="/login" type="button" class="btn btn-outline btn-sm login-btn">Login</a> 
+                <a href="/login" type="button" class="btn btn-outline btn-sm login-btn">Login</a>
             </div>
             <div class="col-5">
-                <a href="/register" type="button" class="btn btn-outline btn-sm regist-btn">Register</a> 
+                <a href="/register" type="button" class="btn btn-outline btn-sm regist-btn">Register</a>
             </div>
         </div>
 
