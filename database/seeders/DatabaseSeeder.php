@@ -21,11 +21,11 @@ class DatabaseSeeder extends Seeder
         // ]);
         $this->call([
             UserSeeder::class,
-            SpeakerSeeder::class,
+            // SpeakerSeeder::class,
             SubscriptionSeeder::class,
-            CourseMaterialDetailSeeder::class,
+            // CourseMaterialDetailSeeder::class,
             CourseMaterialSeeder::class,
-            CourseSeeder::class,
+            // CourseSeeder::class,
             MethodSeeder::class,
             PublisherSeeder::class,
             BootcampSeeder::class,
