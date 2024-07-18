@@ -37,13 +37,9 @@ Route::prefix('bootcamp')->group(function(){
 
 Route::post('/checkout', [SubscriptionController::class, 'checkoutSubs'])->name('checkout');
 Route::post('/checkout-success', [SubscriptionController::class, 'checkoutSuccess'])->name('checkoutSuccess');
-// Route::get('/checkout-success', function () {
-//     return view('checkout.success');
-// });
 
-Route::get('/search-result', function () {
-    return view('search-result');
-});
+
+Route::get('/search-result', [CourseController::class, 'search'])->name('search');
 
 Route::prefix('/profile')->group(function(){
     Route::get('/manage', function () {
