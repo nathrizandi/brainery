@@ -17,4 +17,11 @@ class BootcampController extends Controller
 
         return view("bootcamp.menu", compact("bootcampMenu"));
     }
+    public function bootcampList() {
+        $bootcampList = Bootcamp::join("publishers", "publishers.id", "=", "bootcamps.publisher_id")
+        ->select(["publishers.image as pubImage", "bootcamps.title", "bootcamps.image as bootImage"])
+        ->get();
+
+        return view("bootcamp.list", compact("bootcampList"));
+    }
 }

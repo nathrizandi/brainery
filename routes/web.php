@@ -29,9 +29,7 @@ Route::get('/bootcamp', function () {
 
 Route::prefix('bootcamp')->group(function(){
     Route::get('/menu', [BootcampController::class,'bootcampMenu']);
-    Route::get('/list', function () {
-        return view('bootcamp.list');
-    });
+    Route::get('/list', [BootcampController::class,'bootcampList']);
     Route::get('/detail', function () {
         return view('bootcamp.detail');
     });
