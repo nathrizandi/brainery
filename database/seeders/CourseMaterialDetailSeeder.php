@@ -2,11 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\CourseMaterialDetail;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Faker\Factory as Faker;
-use App\Models\Course;
-use App\Models\CourseMaterial;
 
 class CourseMaterialDetailSeeder extends Seeder
 {
@@ -15,8 +13,7 @@ class CourseMaterialDetailSeeder extends Seeder
      */
     public function run(): void
     {
-        $faker = Faker::create('id_ID');
-        $courseMaterial = CourseMaterial::all();
-        
+        //
+        // CourseMaterialDetail::factory(20)->create();
     }
 }
