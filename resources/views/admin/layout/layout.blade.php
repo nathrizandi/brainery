@@ -17,13 +17,13 @@
     <!-- DRAWER -->
     @include("admin.components.drawer")
 
-    <div class="main-div pt-3">
-        <div class="row pt-3 w-100 min-vh-100">
+    <div class="main-div d-flex flex-column">
+        <div class="row pt-5 w-100 min-vh-100">
             <div class="col-3">
             </div>
             <div class="col-9" style=" background: #FEF8F3">
                 <!-- CONTENT -->
-                <div class="d-flex justify-content-center pt-5">
+                <div class="d-flex justify-content-start py-3 px-3">
                     @yield('Content')
                 </div>
             </div>

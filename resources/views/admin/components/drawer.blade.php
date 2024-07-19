@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <nav class="navbar d-flex justify-content-center fixed-top shadow-sm w-25" style="background: #2A3242; height: 100vh; z-index:2">
+    <nav class="navbar d-flex flex-column justify-content-start fixed-top shadow-sm w-25 py-3 gap-3" style="background: #2A3242; height: 100vh; z-index:2">
         <div class="d-grid w-75">
             <img class="img-fluid" src="https://github.com/nathrizandi/brainery/blob/main/public/assets/logo/white.png?raw=true" alt="">
         </div>
