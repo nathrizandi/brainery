@@ -5,30 +5,28 @@
 @section('custom-csspage', '/css/course-view.css')
 
 @section('content')
+@foreach ($courseView as $item)
     <div class="course-view-top" style="border-radius: 8px">
         <div class="row p-5">
             <div class="col ">
-                <h1 class="course-view-title">Foundations of User Experience (UX) Design</h1>
+                <h1 class="course-view-title">{{$item->title}}</h1>
                 <div class="col course-view-image mt-3 mb-3">
-                    <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/course.jpg?raw=true" alt="" srcset="">
+                    <img src="{{asset($item->courseImage)}}" alt="" srcset="">
+                        
                 </div>
                 <div class="row justify-content-between">
                     <div class="col-3">
-                        <h3 class="course-view-writers mb-3" style="opacity: 70%">by : Donald Davidson</h3>
+                        <h3 class="course-view-writers mb-3" style="opacity: 70%">by : {{$item->nama}}</h3>
                     </div>
                     <div class="col-6 ratings">
                         <p>4.8 <i class="fa fa-star rating-color"></i></p>
                     </div>
                 </div>
                 <p class="course-view-decs mb-4" style="width: 1000px; text-align: justify">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae molestias, esse beatae
-                    vitae odit, ratione mollitia ducimus impedit, nam a illum est sequi odio magnam. Fugiat nihil
-                    nam doloremque sequi. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat
-                    cupiditate laborum nam sequi. Nisi dolorem impedit maxime a fuga praesentium autem, quisquam
-                    reprehenderit, velit dolorum inventore cupiditate voluptatum possimus nemo.
+                    {{$item->description}}
                 </p>
-
-                <a class="btn btn-dark" href="/course/detail" role="button">Start Enroll</a>
+                
+                <a class="btn btn-dark" href="{{route("courseMaterial", $item->id)}}" role="button">Start Enroll</a>
             </div>
 
         </div>
@@ -45,20 +43,21 @@
                         maiores corporis earum deserunt deleniti consequuntur iusto dolores debitis dolor sapiente, et
                         ea labore animi voluptas. Est, autem minus!
                     </div>
-                    </p>
+                </p>
                 </div>
             @endfor
-
+            
         </div>
         <div class="row">
             <div class="col">
                 <h3 class="gap-3 mb-3" style="font-weight: bold">Skills you'll gain</h3>
                 @for ($i = 0; $i < 4; $i++)
                     <button type="button" class="btn btn-outline-dark">Web programming</button>
-                @endfor
+                    @endfor
 
             </div>
         </div>
     </div>
 
+    @endforeach
 @endsection

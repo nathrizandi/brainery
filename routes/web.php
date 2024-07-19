@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CourseMaterialController;
+use App\Http\Controllers\CourseMaterialDetailController;
 use App\Http\Controllers\BootcampController;
 
 Route::get('/', function () {
@@ -30,9 +32,7 @@ Route::get('/bootcamp', function () {
 Route::prefix('bootcamp')->group(function(){
     Route::get('/menu', [BootcampController::class,'bootcampMenu']);
     Route::get('/list', [BootcampController::class,'bootcampList']);
-    Route::get('/detail', function () {
-        return view('bootcamp.detail');
-    });
+    Route::get('/detail/{id}', [BootcampController::class,'bootcampDetail'])->name('bootcampDetail');
 });
 
 Route::post('/checkout', [SubscriptionController::class, 'checkoutSubs'])->name('checkout');
@@ -56,12 +56,8 @@ Route::prefix('/profile')->group(function(){
 Route::prefix('course')->group(function(){
     Route::get('/subs',[SubscriptionController::class, 'getSubs']);
     Route::get('/menu', [CourseController::class,'courseMenu']);
-    Route::get('/view', function () {
-        return view('course.view');
-    });
-    Route::get('/detail', function () {
-        return view('course.detail');
-    });
+    Route::get('/view/{id}', [CourseController::class,'courseView'])->name('courseView');
+    Route::get('/detail/{id}', [CourseMaterialController::class,'courseMaterial'])->name('courseMaterial');
     Route::get('/media', function () {
         return view('course.media');
     });

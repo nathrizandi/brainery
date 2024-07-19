@@ -9,7 +9,7 @@
     <div class="row">
         @foreach ($bootcampList as $item)
                 <div class="col-4 mt-2">
-                    <a href="/bootcamp/detail" style="text-decoration: none; color: inherit; display: block">
+                    <a href="{{route('bootcampDetail', $item->id)}}" style="text-decoration: none; color: inherit; display: block">
                         <div class="card shadow-sm mb-3" >
                             <img src="{{ asset($item->bootImage) }}" class="card-img-top" alt="...">
                             <div class="card-body d-flex align-items-center">

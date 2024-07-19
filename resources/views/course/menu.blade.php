@@ -16,7 +16,7 @@
                     {{-- @for ($i = 0; $i < 16; $i++) --}}
                     @foreach ($courseMenu as $item)
                     <div class="col-3 course-card">
-                        <a href="/course/view" style="text-decoration: none; color: inherit; display: block">
+                        <a href="{{route('courseView', $item->id)}}" style="text-decoration: none; color: inherit; display: block">
                             <div class="card d-flex justify-content-center">
                                 <div class="card-properties">
                                     <div class="card_img overlay1">
@@ -56,7 +56,7 @@
                     {{-- @for ($i = 0; $i < 16; $i++) --}}
                     @foreach ($courseMenu as $item)
                         <div class="col-3 course-card">
-                            <a href="/course/view" style="text-decoration: none; color: inherit; display: block">
+                            <a href="{{route('courseView', $item->id)}}" style="text-decoration: none; color: inherit; display: block">
                                 <div class="card d-flex justify-content-center">
                                     <div class="card-properties">
                                         <div class="card_img overlay1">
@@ -97,7 +97,7 @@
                     {{-- @for ($i = 0; $i < 16; $i++) --}}
                     @foreach ($courseMenu as $item)
                         <div class="col-3 course-card">
-                            <a href="/course/view" style="text-decoration: none; color: inherit; display: block">
+                            <a href="{{route('courseView', $item->id)}}" style="text-decoration: none; color: inherit; display: block">
                                 <div class="card d-flex justify-content-center">
                                     <div class="card-properties">
                                         <div class="card_img overlay1">

@@ -16,7 +16,7 @@
                 <div class="row row-cols-1 row-cols-md-2">
                     @foreach ($bootcampMenu as $item)   
                     <div class="col-md">
-                        <a href="/bootcamp/detail" style="text-decoration: none; color: inherit; display: block">
+                        <a href="{{route('bootcampDetail', $item->id)}}" style="text-decoration: none; color: inherit; display: block">
                         <div class="card shadow-sm mb-3">
                             <img src="{{asset($item->bootImage)}}" class="card-img-top" alt="...">
                             <div class="card-body d-flex aligdan-items-center">
@@ -41,7 +41,7 @@
                 <div class="row row-cols-1 row-cols-md-2">
                     @foreach ($bootcampMenu as $item)   
                     <div class="col-md">
-                        <a href="/bootcamp/detail" style="text-decoration: none; color: inherit; display: block">
+                        <a href="{{route('bootcampDetail', $item->id)}}" style="text-decoration: none; color: inherit; display: block">
                         <div class="card shadow-sm mb-3">
                             <img src="{{asset($item->bootImage)}}" class="card-img-top" alt="...">
                             <div class="card-body d-flex align-items-center">
@@ -55,7 +55,7 @@
                     </div>
                     @endforeach
                   </div>
-                
-        </div>
+                </div>
+                <a href="/bootcamp/list" class="btn" style="background-color: #F76D3B; color: white">View More</a>    
     </section>
 @endsection
