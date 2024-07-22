@@ -61,7 +61,7 @@
             </div>
             <div class="modal-body">
             <!-- Content -->
-                <form action="" method="" enctype="multipart/form-data">
+                <form action="{{ route() }}" method="POST" enctype="multipart/form-data">
                     <!-- token form -->
                     @csrf
                     <div class="mb-3">
@@ -70,19 +70,18 @@
                         <!-- error message -->
                         @error('courseName')
                         <div class="invalid-feedback" role="alert">
-                            {{-- {{ $message }} --}}Test
+                            {{ $message }}
                         </div>
                         @enderror
                     </div>
                     <div class="mb-3">
                         <label for="courseDesc">Course Description</label>
                         <textarea name="courseDesc" id="courseDesc" class="form-control @error('courseDesc') is-invalid @enderror" required>
-
                         </textarea>
                         <!-- error message -->
                         @error('courseDesc')
                         <div class="invalid-feedback" role="alert">
-                            {{-- {{ $message }} --}}Test
+                            {{ $message }}
                         </div>
                         @enderror
                     </div>
@@ -100,7 +99,7 @@
                         <!-- error message -->
                         @error('speakers')
                         <div class="invalid-feedback" role="alert">
-                            {{-- {{ $message }} --}}Test
+                            {{ $message }}
                         </div>
                         @enderror
                     </div>
@@ -111,7 +110,7 @@
                         <!-- error message untuk password -->
                         @error('courseImage')
                         <div class="invalid-feedback" role="alert">
-                            {{-- {{ $message }} --}}Test
+                            {{ $message }}
                         </div>
                         @enderror
                     </div>
@@ -125,7 +124,7 @@
                                 <!-- error message -->
                                 @error('courseWeek1Title')
                                 <div class="invalid-feedback" role="alert">
-                                    {{-- {{ $message }} --}}Test
+                                    {{ $message }}
                                 </div>
                                 @enderror
                             </div>
@@ -136,7 +135,7 @@
                                 <!-- error message untuk password -->
                                 @error('courseWeek1Video')
                                 <div class="invalid-feedback" role="alert">
-                                    {{-- {{ $message }} --}}Test
+                                    {{ $message }}
                                 </div>
                                 @enderror
                             </div>
@@ -148,7 +147,7 @@
                                 <!-- error message -->
                                 @error('courseWeek1Desc')
                                 <div class="invalid-feedback" role="alert">
-                                    {{-- {{ $message }} --}}Test
+                                    {{ $message }}
                                 </div>
                                 @enderror
                             </div>
@@ -163,7 +162,7 @@
                                 <!-- error message -->
                                 @error('courseWeek2Title')
                                 <div class="invalid-feedback" role="alert">
-                                    {{-- {{ $message }} --}}Test
+                                    {{ $message }}
                                 </div>
                                 @enderror
                             </div>
@@ -174,7 +173,7 @@
                                 <!-- error message untuk password -->
                                 @error('courseWeek2Video')
                                 <div class="invalid-feedback" role="alert">
-                                    {{-- {{ $message }} --}}Test
+                                    {{ $message }}
                                 </div>
                                 @enderror
                             </div>
@@ -186,7 +185,7 @@
                                 <!-- error message -->
                                 @error('courseWeek2Desc')
                                 <div class="invalid-feedback" role="alert">
-                                    {{-- {{ $message }} --}}Test
+                                    {{ $message }}
                                 </div>
                                 @enderror
                             </div>
@@ -201,7 +200,7 @@
                                 <!-- error message -->
                                 @error('courseWeek3Title')
                                 <div class="invalid-feedback" role="alert">
-                                    {{-- {{ $message }} --}}Test
+                                    {{ $message }}
                                 </div>
                                 @enderror
                             </div>
@@ -212,7 +211,7 @@
                                 <!-- error message untuk password -->
                                 @error('courseWeek3Video')
                                 <div class="invalid-feedback" role="alert">
-                                    {{-- {{ $message }} --}}Test
+                                    {{ $message }}
                                 </div>
                                 @enderror
                             </div>
@@ -224,7 +223,7 @@
                                 <!-- error message -->
                                 @error('courseWeek3Desc')
                                 <div class="invalid-feedback" role="alert">
-                                    {{-- {{ $message }} --}}Test
+                                    {{ $message }}
                                 </div>
                                 @enderror
                             </div>
@@ -239,7 +238,7 @@
                                 <!-- error message -->
                                 @error('courseWeek4Title')
                                 <div class="invalid-feedback" role="alert">
-                                    {{-- {{ $message }} --}}Test
+                                    {{ $message }}
                                 </div>
                                 @enderror
                             </div>
@@ -250,7 +249,7 @@
                                 <!-- error message untuk password -->
                                 @error('courseWeek4Video')
                                 <div class="invalid-feedback" role="alert">
-                                    {{-- {{ $message }} --}}Test
+                                    {{ $message }}
                                 </div>
                                 @enderror
                             </div>
@@ -262,7 +261,7 @@
                                 <!-- error message -->
                                 @error('courseWeek4Desc')
                                 <div class="invalid-feedback" role="alert">
-                                    {{-- {{ $message }} --}}Test
+                                    {{ $message }}
                                 </div>
                                 @enderror
                             </div>

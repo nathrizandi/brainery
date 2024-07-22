@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminCourseController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\SubscriptionController;
@@ -72,7 +73,7 @@ Route::prefix('admin')->group(function(){
     Route::get("/home", [AdminController::class, "index"]) ->name("AdminHome");
     Route::get("/profile", [AdminController::class, "profile"]) ->name("Profile");
     Route::get("/user", [AdminController::class, "manageUser"]) ->name("User");
-    Route::get("/course", [AdminController::class, "manageCourse"]) ->name("Course");
+    Route::get("/course", [AdminCourseController::class, "manageCourse"]) ->name("Course");
     Route::get("/purchase", [AdminController::class, "managePurchaseHistory"]) ->name("Purchase");
     Route::get("/bootcamp", [AdminController::class, "manageBootcamp"]) ->name("Bootcamp");
 });
