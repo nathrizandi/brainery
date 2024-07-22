@@ -83,13 +83,11 @@ class AdminCourseController extends Controller
         $validator = Validator::make($request->all(), $rules, $message);
 
         if($validator->fails()) {
-            // Log::info('Validation failed');
             return redirect()->back()
             ->withInput()
             ->withErrors($validator)
             ->with('danger', 'Make sure all fields are filled!');
         } else {
-            // Log::info('Validation passed, creating course');
             $createCourse = Course::create([
                 'title' => $request->courseName,
                 'image' => $request->courseImage,
@@ -113,19 +111,68 @@ class AdminCourseController extends Controller
                 ]);
             };
 
-            // dd($createCourse);
-
             return redirect()->intended(route('Course'));
         };
     }
 
-    public function update(Request $request){
+    public function update(Request $request, Course $course, CourseMaterial $courseMaterial, CourseMaterialDetail $courseMaterialDetail){
+        $rules = [
+            "courseName" => "required",
+            "courseDesc" => "required|string|min:3|max:255",
+            "speakers" => "required",
+            // "courseImage" => "required|mimes:jpg,png,jpeg,gif:max:2048",
+            "courseImage" => "required",
+            "courseWeek1Title" => "required",
+            "courseWeek1Video" => "required",
+            "courseWeek1Desc" => "required|string|min:3|max:255",
+            "courseWeek2Title" => "required",
+            "courseWeek2Video" => "required",
+            "courseWeek2Desc" => "required|string|min:3|max:255",
+            "courseWeek3Title" => "required",
+            "courseWeek3Video" => "required",
+            "courseWeek3Desc" => "required|string|min:3|max:255",
+            "courseWeek4Title" => "required",
+            "courseWeek4Video" => "required",
+            "courseWeek4Desc" => "required|string|min:3|max:255",
+        ];
 
+        $message = [
+            'required' => ':attribute has to be filled',
+            'min' => ':attribute must have at least :min character',
+            'max' => ':attribute maximum character is :max',
+            // 'courseImage.image' => ':attribute must be an image file',
+            // 'courseImage.mimes' => ':attribute must be in these formats: jpg, png, jpeg, gif',
+            // 'courseImage.max' => ':attribute cannot be greater than 2 MB'
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $message);
+
+        if($validator->fails()) {
+            return redirect()->back()
+            ->withInput()
+            ->withErrors($validator)
+            ->with('danger', 'Make sure all fields are filled!');
+        } else {
+            $course->title = $request->courseName;
+            $course->image = $request->courseImage;
+            $course->speaker_id = $request->speakers;
+            $course->description = $request->courseDesc;
+
+            for($i = 1; $i <= 4; $i++){
+                $courseMaterialDetail->title = $request->input('courseWeek'.$i.'Title');
+                $courseMaterialDetail->video = $request->input('courseWeek'.$i.'Video');
+                $courseMaterialDetail->description = $request->input('courseWeek'.$i.'Desc');
+            };
+
+            $course->save();
+            $courseMaterialDetail->save();
+            return redirect()->intended(route('Course'));
+        }
     }
 
-    public function destroy(Course $course)
+    public function destroy($id)
     {
-        $course->delete();
-        return redirect()->route('admin.dashboards.manageCourse')->with('success','Delete Data Pemeriksaan Berhasil');
+        Course::destroy($id);
+        return redirect()->intended(route('Course'));
     }
 }
