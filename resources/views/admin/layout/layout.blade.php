@@ -19,7 +19,7 @@
 
     <div class="main-div d-flex flex-column">
         <div class="row pt-5 w-100 min-vh-100">
-            <div class="col-3">
+            <div class="col-3" style="background: #2A3242">
             </div>
             <div class="col-9" style=" background: #FEF8F3">
                 <!-- CONTENT -->
