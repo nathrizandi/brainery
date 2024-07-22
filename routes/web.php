@@ -74,7 +74,10 @@ Route::prefix('admin')->group(function(){
     Route::get("/home", [AdminController::class, "index"]) ->name("AdminHome");
     Route::get("/profile", [AdminController::class, "profile"]) ->name("Profile");
     Route::get("/user", [AdminController::class, "manageUser"]) ->name("User");
+
     Route::get("/course", [AdminCourseController::class, "manageCourse"]) ->name("Course");
+    Route::post("/course/create-course", [AdminCourseController::class, "store"]) ->name("Course.store");
+
     Route::get("/purchase", [AdminController::class, "managePurchaseHistory"]) ->name("Purchase");
     Route::get("/bootcamp", [AdminController::class, "manageBootcamp"]) ->name("Bootcamp");
 });
