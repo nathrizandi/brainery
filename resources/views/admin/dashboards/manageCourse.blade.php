@@ -18,7 +18,7 @@
                         <th scope="col">Course Name</th>
                         <th scope="col">Speaker</th>
                         <th scope="col">Description</th>
-                        <th scope="col">Action</th>
+                        <th scope="col" style="width: 15%">Action</th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
@@ -32,8 +32,8 @@
                                 <div class="d-flex flex-row justify-content-between btn-group py-2 gap-2" role="group" aria-label="Action">
                                     <button type="button" class="btn btn-sm btn-edit" data-bs-toggle="modal" data-bs-target="#EditCourse">EDIT</button>
                                     <form onsubmit="" action="" method="">
-                                        {{-- @csrf
-                                        @method('DELETE') --}}
+                                        @csrf
+                                        @method('DELETE')
                                         <button type="submit" class="btn btn-sm btn-danger">DELETE</button>
                                     </form>
                                 </div>
@@ -61,12 +61,12 @@
             </div>
             <div class="modal-body">
             <!-- Content -->
-                <form action="{{ route() }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('Course.store') }}" method="POST" enctype="multipart/form-data">
                     <!-- token form -->
                     @csrf
                     <div class="mb-3">
                         <label for="courseName">Course Title</label>
-                        <input type="text" name="courseName" id="courseName" class="form-control @error('courseName') is-invalid @enderror" required>
+                        <input type="text" name="courseName" id="courseName" value="{{ old('courseName') }}" class="form-control @error('courseName') is-invalid @enderror" required>
                         <!-- error message -->
                         @error('courseName')
                         <div class="invalid-feedback" role="alert">
@@ -77,6 +77,7 @@
                     <div class="mb-3">
                         <label for="courseDesc">Course Description</label>
                         <textarea name="courseDesc" id="courseDesc" class="form-control @error('courseDesc') is-invalid @enderror" required>
+                            {{ old('courseDesc') }}
                         </textarea>
                         <!-- error message -->
                         @error('courseDesc')
@@ -105,7 +106,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="courseImage">Course Image</label>
-                        <input type="file" id="courseImage" name="courseImage" value="{{ old('courseImage') }}" class="form-control @error('courseImage') is-invalid @enderror" required>
+                        <input type="url" id="courseImage" name="courseImage" value="{{ old('courseImage') }}" class="form-control @error('courseImage') is-invalid @enderror" required>
 
                         <!-- error message untuk password -->
                         @error('courseImage')
@@ -120,7 +121,7 @@
                         <div class="d-flex flex-column">
                             <div class="mb-3">
                                 <label for="courseWeek1Title">Title</label>
-                                <input type="text" name="courseWeek1Title" id="courseWeek1Title" class="form-control @error('courseWeek1Title') is-invalid @enderror" required>
+                                <input type="text" name="courseWeek1Title" id="courseWeek1Title" value="{{ old('courseWeek1Title') }}" class="form-control @error('courseWeek1Title') is-invalid @enderror" required>
                                 <!-- error message -->
                                 @error('courseWeek1Title')
                                 <div class="invalid-feedback" role="alert">
@@ -142,7 +143,7 @@
                             <div class="mb-3">
                                 <label for="courseWeek1Desc">Description</label>
                                 <textarea name="courseWeek1Desc" id="courseWeek1Desc" class="form-control @error('courseWeek1Desc') is-invalid @enderror" required>
-
+                                    {{ old('courseWeek1Desc') }}
                                 </textarea>
                                 <!-- error message -->
                                 @error('courseWeek1Desc')
@@ -158,7 +159,7 @@
                         <div class="d-flex flex-column">
                             <div class="mb-3">
                                 <label for="courseWeek2Title">Title</label>
-                                <input type="text" name="courseWeek2Title" id="courseWeek2Title" class="form-control @error('courseWeek2Title') is-invalid @enderror" required>
+                                <input type="text" name="courseWeek2Title" id="courseWeek2Title" value="{{ old('courseWeek2Title') }}" class="form-control @error('courseWeek2Title') is-invalid @enderror" required>
                                 <!-- error message -->
                                 @error('courseWeek2Title')
                                 <div class="invalid-feedback" role="alert">
@@ -180,7 +181,7 @@
                             <div class="mb-3">
                                 <label for="courseWeek2Desc">Description</label>
                                 <textarea name="courseWeek2Desc" id="courseWeek2Desc" class="form-control @error('courseWeek2Desc') is-invalid @enderror" required>
-
+                                    {{ old('courseWeek2Desc') }}
                                 </textarea>
                                 <!-- error message -->
                                 @error('courseWeek2Desc')
@@ -196,7 +197,7 @@
                         <div class="d-flex flex-column">
                             <div class="mb-3">
                                 <label for="courseWeek3Title">Title</label>
-                                <input type="text" name="courseWeek3Title" id="courseWeek3Title" class="form-control @error('courseWeek3Title') is-invalid @enderror" required>
+                                <input type="text" name="courseWeek3Title" id="courseWeek3Title" value="{{ old('courseWeek3Title') }}" class="form-control @error('courseWeek3Title') is-invalid @enderror" required>
                                 <!-- error message -->
                                 @error('courseWeek3Title')
                                 <div class="invalid-feedback" role="alert">
@@ -218,7 +219,7 @@
                             <div class="mb-3">
                                 <label for="courseWeek3Desc">Description</label>
                                 <textarea name="courseWeek3Desc" id="courseWeek3Desc" class="form-control @error('courseWeek3Desc') is-invalid @enderror" required>
-
+                                    {{ old('courseWeek3Desc') }}
                                 </textarea>
                                 <!-- error message -->
                                 @error('courseWeek3Desc')
@@ -234,7 +235,7 @@
                         <div class="d-flex flex-column">
                             <div class="mb-3">
                                 <label for="courseWeek4Title">Title</label>
-                                <input type="text" name="courseWeek4Title" id="courseWeek4Title" class="form-control @error('courseWeek4Title') is-invalid @enderror" required>
+                                <input type="text" name="courseWeek4Title" id="courseWeek4Title" value="{{ old('courseWeek4Title') }}" class="form-control @error('courseWeek4Title') is-invalid @enderror" required>
                                 <!-- error message -->
                                 @error('courseWeek4Title')
                                 <div class="invalid-feedback" role="alert">
@@ -256,7 +257,7 @@
                             <div class="mb-3">
                                 <label for="courseWeek4Desc">Description</label>
                                 <textarea name="courseWeek4Desc" id="courseWeek4Desc" class="form-control @error('courseWeek4Desc') is-invalid @enderror" required>
-
+                                    {{ old('courseWeek4Desc') }}
                                 </textarea>
                                 <!-- error message -->
                                 @error('courseWeek4Desc')
