@@ -37,25 +37,35 @@
                         <div class="myLearning-area">
                             <div class="row myLearning-properties-wrap most-popular d-flex justify-content-center">
                                 <div class="row myLearning-properties all-card">
-                                    @for ($i = 0; $i < 16; $i++)
+                                    {{-- @for ($i = 0; $i < 16; $i++) --}}
+                                    @foreach ($myLearningCourse as $item)
                                         <div class="col-3 myLearning-card">
-                                            <a href="/course/view" style="text-decoration: none; color: inherit; display: block">
+                                            <a href="/course/detail"
+                                                style="text-decoration: none; color: inherit; display: block">
                                                 <div class="card d-flex justify-content-center">
                                                     <div class="card-properties">
                                                         <div class="card_img overlay1">
-                                                            <img class="card-image" src='https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/course2.jpg?raw=true'
+                                                            <img class="card-image"
+                                                                src='https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/course2.jpg?raw=true'
                                                                 style="width: 15.6vw">
                                                         </div>
                                                         <div class="card-body">
-                                                            <h2 class="card-title">Docker Bootcamp: Conquer Docker with Real-World Projects</h3>
-                                                            <p class="card-writer">by : Donald Davidson </p>
-                                                            <p class="card-description">Containerize Apps, Manage Microservices, and Deploy to the Cloud with Docker!</p>
+                                                            {{-- <h2 class="card-title">Docker Bootcamp: Conquer Docker with Real-World Projects</h3> --}}
+                                                            <h2 class="card-title">{{ $item->title }}</h3>
+                                                                {{-- <p class="card-writer">by : Donald Davidson </p> --}}
+                                                                <p class="card-writer">by : {{ $item->nama }} </p>
+                                                                {{-- <p class="card-description">Containerize Apps, Manage
+                                                                        Microservices, and Deploy to the Cloud with Docker!
+                                                                    </p> --}}
+                                                                <p class="card-description">{{ $item->description }}
+                                                                </p>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </a>
                                         </div>
-                                    @endfor
+                                    @endforeach
+                                    {{-- @endfor --}}
                                 </div>
                             </div>
                         </div>
@@ -68,10 +78,12 @@
                         <div class="myLearning-area">
                             <div class="row myLearning-properties-wrap most-popular d-flex justify-content-center">
                                 <div class="row myLearning-properties all-card">
-                                    @for ($i = 0; $i < 16; $i++)
+                                    {{-- @for ($i = 0; $i < 16; $i++) --}}
+                                    @foreach ($myLearningBootcamp as $item)
                                         <div class="col-3 myLearning-card">
-                                            <a href="/bootcamp/detail" style="text-decoration: none; color: inherit; display: block">
-                                                <div class="card d-flex justify-content-center">
+                                            <a href="/bootcamp/detail"
+                                                style="text-decoration: none; color: inherit; display: block">
+                                                <div class="card d-flex justifpy-content-center">
                                                     <div class="card-properties">
                                                         <div class="card_img overlay1">
                                                             <img class="card-image"
@@ -79,9 +91,11 @@
                                                                 style="width: 100%">
                                                         </div>
                                                         <div class="card-body d-flex flex-column justify-content-between">
-                                                            <h2 class="card-title">Docker Bootcamp: Conquer Docker with Real-World Projects</h2>
-                                                            <div class="card-footer d-flex justify-content-between align-items-center">
-                                                                <p class="card-writer m-0">May, 26th 2024</p>
+                                                            <h2 class="card-title">{{ $item->title }}</h2>
+                                                            <div
+                                                                class="card-footer d-flex justify-content-between align-items-center">
+                                                                {{-- <p class="card-writer m-0">May, 26th 2024</p> --}}
+                                                                <p class="card-writer m-0">{{ $item->formattedDate }}</p>
                                                                 <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/logo/sunib.png?raw=true"
                                                                     style="width: 2.5vw">
                                                             </div>
@@ -90,7 +104,8 @@
                                                 </div>
                                             </a>
                                         </div>
-                                    @endfor
+                                    @endforeach
+                                    {{-- @endfor --}}
                                 </div>
                             </div>
                         </div>
