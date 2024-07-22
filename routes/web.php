@@ -85,8 +85,6 @@ Route::prefix('admin')->group(function(){
     Route::post("/course/create-course", [AdminCourseController::class, "store"]) ->name("Course.store");
     Route::delete("/course/delete-course/{cId}", [AdminCourseController::class, "destroy"]) ->name("Course.delete");
 
-    
-
     Route::get("/purchase", [AdminController::class, "managePurchaseHistory"]) ->name("Purchase");
     Route::get("/bootcamp", [AdminController::class, "manageBootcamp"]) ->name("Bootcamp");
 });

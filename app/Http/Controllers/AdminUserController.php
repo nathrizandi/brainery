@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class AdminUserController extends Controller
 {
@@ -12,7 +13,11 @@ class AdminUserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::paginate(10);
+
+        $count = count($users);
+
+        return view("admin.dashboards.manageUser", compact("users", "count"));
     }
 
     /**
@@ -28,7 +33,41 @@ class AdminUserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = [
+            "username" => "required",
+            // "courseDesc" => "required|string|min:3|max:255",
+            "userEmail" => "required",
+            "password" => "required",
+            "membership_type" => "required",
+        ];
+
+        $message = [
+            'required' => ':attribute has to be filled',
+            'min' => ':attribute must have at least :min character',
+            'max' => ':attribute maximum character is :max',
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $message);
+
+        if ($validator->fails()) {
+            // Log::info('Validation failed');
+            return redirect()->back()
+                ->withInput()
+                ->withErrors($validator)
+                ->with('danger', 'Make sure all fields are filled!');
+        } else {
+            // Log::info('Validation passed, creating course');
+            $createUser = User::create([
+                'username' => $request->username,
+                'userEmail' => $request->email,
+                'password' => $request->password,
+                'membership_type' => $request->membership_type,
+            ]);
+
+            // dd($createUser);
+
+            return redirect()->intended(route('User'));
+        };
     }
 
     /**
