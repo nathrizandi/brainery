@@ -45,9 +45,11 @@
                         <input name='password' type="password" class="form-control form-control-custom"
                             id="exampleInputPassword1" placeholder="*********">
                     </div>
-                    <div class="mb-3 form-check mt-5">
-                        <h3 style="color: red">Error Message</h3>
-                    </div>
+                    @if (session('error'))
+                        <div class="mb-3 form-check mt-5">
+                            <h3 style="color: red; visibility: {{ session('visibility') }}">{{ session('error') }}</h3>
+                        </div>
+                    @endif
                     <button type="submit" class="btn regist-btn" style="width: 30vw">Register</button>
                 </form>
                 <div class="row mt-5">
