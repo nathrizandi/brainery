@@ -18,7 +18,7 @@
                         <th scope="col">Course Name</th>
                         <th scope="col">Speaker</th>
                         <th scope="col">Description</th>
-                        <th scope="col">Action</th>
+                        <th scope="col" style="width: 15%">Action</th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">

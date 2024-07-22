@@ -53,8 +53,7 @@ class AdminCourseController extends Controller
     public function store(Request $request){
         $rules = [
             "courseName" => "required",
-            // "courseDesc" => "required|string|min:3|max:255",
-            "courseDesc" => "required",
+            "courseDesc" => "required|string|min:3|max:255",
             "speakers" => "required",
             // "courseImage" => "required|mimes:jpg,png,jpeg,gif:max:2048",
             "courseImage" => "required",
