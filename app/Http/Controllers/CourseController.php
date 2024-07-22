@@ -10,10 +10,19 @@ class CourseController extends Controller
 {
     public function courseMenu() {
         $courseMenu = Course::join("speakers", "courses.speaker_id", "=", "speakers.id")
-        ->select(["courses.image as courseImage", "courses.title", "speakers.*", "courses.description"])
+        ->select(["courses.id", "courses.image as courseImage", "courses.title", "speakers.nama", "courses.description"])
         ->get();
 
         return view("course.menu", compact("courseMenu"));
+    }
+
+    public function courseView($id) {
+        $courseView = Course::join("speakers", "courses.speaker_id", "=", "speakers.id")
+        ->select(["courses.id", "courses.image as courseImage", "courses.title", "speakers.nama", "speakers.image as spkImage", "courses.description"])
+        ->where("courses.id", $id)
+        ->get();
+
+        return view("course.view", compact("courseView"));
     }
 
     public function search(Request $request){
