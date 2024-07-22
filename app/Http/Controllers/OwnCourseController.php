@@ -15,15 +15,14 @@ class OwnCourseController extends Controller
         $myLearningCourse = OwnCourse::join('users', 'own_courses.user_id', '=', 'users.id')
         ->join('courses', 'own_courses.course_id', '=', 'courses.id')
         ->join('speakers', 'speakers.id', '=', 'courses.speaker_id')
-        ->select('courses.title', 'speakers.nama', 'courses.image', 'courses.description')
-        ->where('user_id', '=', $user->id)
+        ->select('own_courses.course_id','courses.title', 'speakers.nama', 'courses.image', 'courses.description')
+        ->where('own_courses.user_id', '=', $user->id)
         ->get();
 
         $myLearningBootcamp = OwnBootcamp::join('users', 'own_bootcamps.user_id', '=', 'users.id')
         ->join('bootcamps', 'own_bootcamps.bootcamp_id', '=', 'bootcamps.id')
-        ->join('speakers', 'speakers.id', '=', 'bootcamps.speaker_id')
-        ->select('bootcamps.title', 'bootcamps.date')
-        ->where('user_id', '=', $user->id)
+        ->select('bootcamps.id','bootcamps.title', 'bootcamps.date')
+        ->where('own_bootcamps.user_id', '=', $user->id)
         ->get();
 
         foreach ($myLearningBootcamp as $bootcamp) {

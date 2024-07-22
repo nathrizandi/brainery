@@ -40,7 +40,7 @@
                                     {{-- @for ($i = 0; $i < 16; $i++) --}}
                                     @foreach ($myLearningCourse as $item)
                                         <div class="col-3 myLearning-card">
-                                            <a href="/course/detail"
+                                            <a href="{{ route('courseMaterial', $item->course_id) }}"
                                                 style="text-decoration: none; color: inherit; display: block">
                                                 <div class="card d-flex justify-content-center">
                                                     <div class="card-properties">
@@ -81,7 +81,7 @@
                                     {{-- @for ($i = 0; $i < 16; $i++) --}}
                                     @foreach ($myLearningBootcamp as $item)
                                         <div class="col-3 myLearning-card">
-                                            <a href="/bootcamp/detail"
+                                            <a href="{{ route('bootcampDetail', $item->id) }}"
                                                 style="text-decoration: none; color: inherit; display: block">
                                                 <div class="card d-flex justifpy-content-center">
                                                     <div class="card-properties">
@@ -94,7 +94,6 @@
                                                             <h2 class="card-title">{{ $item->title }}</h2>
                                                             <div
                                                                 class="card-footer d-flex justify-content-between align-items-center">
-                                                                {{-- <p class="card-writer m-0">May, 26th 2024</p> --}}
                                                                 <p class="card-writer m-0">{{ $item->formattedDate }}</p>
                                                                 <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/logo/sunib.png?raw=true"
                                                                     style="width: 2.5vw">
