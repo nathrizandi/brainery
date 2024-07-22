@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminCourseController;
+use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\SubscriptionController;
@@ -76,9 +77,15 @@ Route::prefix('admin')->group(function(){
     Route::get("/profile", [AdminController::class, "profile"]) ->name("Profile");
     Route::get("/user", [AdminController::class, "manageUser"]) ->name("User");
 
+    Route::get("/user", [AdminUserController::class, "index"])->name("User");
+    Route::delete("/user/{id}", [AdminUserController::class, "destroy"])->name("User.destroy");
+    Route::post("/user/create-user", [AdminCourseController::class, "store"])->name("User.store");
+
     Route::get("/course", [AdminCourseController::class, "manageCourse"]) ->name("Course");
     Route::post("/course/create-course", [AdminCourseController::class, "store"]) ->name("Course.store");
     Route::delete("/course/delete-course/{cId}", [AdminCourseController::class, "destroy"]) ->name("Course.delete");
+
+    
 
     Route::get("/purchase", [AdminController::class, "managePurchaseHistory"]) ->name("Purchase");
     Route::get("/bootcamp", [AdminController::class, "manageBootcamp"]) ->name("Bootcamp");
