@@ -15,10 +15,9 @@ return new class extends Migration
             $table->id();;
             $table->unsignedBigInteger('subscription_id');
             $table->foreign('subscription_id')->references('id')->on('subscriptions')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->unsignedBigInteger('method_id');
-            $table->foreign('method_id')->references('id')->on('methods')->cascadeOnDelete()->cascadeOnUpdate();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->string('status');
             $table->timestamps();
         });
     }

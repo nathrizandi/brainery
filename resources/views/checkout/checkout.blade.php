@@ -30,77 +30,57 @@
                 </div>
             </div>
         </div>
-
-        <form action="{{ route('checkoutSuccess') }}" method="POST">
-            @csrf
-            <div class="row mt-4">
-                <div class="col-12" style="background-color: white; border-radius: 7px; height: 35vh">
-                    <div class="container row mt-3">
-                        <h2>Payment Method</h2>
-                        <input hidden name='id' value={{ $item->id }}>
-                    </div>
-
-                    <div class="container mt-3">
-                        <div class="form-check">
-                            <div class="d-flex align-items-center">
-                                <label class="form-check-label custom-form-check-label" for="flexRadioDefault1"
-                                    style="margin-right: 75%">
-                                    <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/logo/sunib.png?raw=true"
-                                        class="me-2">
-                                    <h3 class="custom-text">BCA Virtual Account</h3>
-                                </label>
-                                <input class="form-check-input" type="radio" name="method" value="1"
-                                    id="flexRadioDefault1" checked>
-                            </div>
-                        </div>
-                        <div class="form-check mt-2">
-                            <div class="d-flex align-items-center">
-                                <label class="form-check-label custom-form-check-label" for="flexRadioDefault2"
-                                    style="margin-right: 73.2%">
-                                    <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/logo/sunib.png?raw=true"
-                                        class="me-2">
-                                    <h3 class="custom-text">Mandiri Virtual Account</h3>
-                                </label>
-                                <input class="form-check-input" type="radio" name="method" value="2"
-                                    id="flexRadioDefault2">
-                            </div>
-                        </div>
-                        <div class="form-check mt-2">
-                            <div class="d-flex align-items-center">
-                                <label class="form-check-label custom-form-check-label" for="flexRadioDefault3"
-                                    style="margin-right: 84.15%">
-                                    <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/logo/sunib.png?raw=true"
-                                        class="me-2">
-                                    <h3 class="custom-text">OVO</h3>
-                                </label>
-                                <input class="form-check-input" type="radio" name="method" value="3"
-                                    id="flexRadioDefault3">
-                            </div>
-                        </div>
-                        <div class="form-check mt-2">
-                            <div class="d-flex align-items-center">
-                                <label class="form-check-label custom-form-check-label" for="flexRadioDefault3"
-                                    style="margin-right: 83.10%">
-                                    <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/logo/sunib.png?raw=true"
-                                        class="me-2">
-                                    <h3 class="custom-text">Gopay</h3>
-                                </label>
-                                <input class="form-check-input" type="radio" name="method"value="4"
-                                    id="flexRadioDefault3">
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="row mt-3">
-                    <div class="col-10"></div>
-                    <div class="col-2">
-                        <button type="submit" class="btn btn-outline btn-sm checkout-btn"
-                            style="margin-left: 3vw">Submit</button>
-                    </div>
-                </div>
-        </form>
+        <div class="row mt-3">
+            <div class="col-10"></div>
+            <div class="col-2">
+                <button id="pay-button" type="button" class="btn btn-outline btn-sm checkout-btn"
+                    style="margin-left: 3vw">Submit</button>
+            </div>
         </div>
     @endforeach
 
+    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ config('midtrans.client_key') }}">
+    </script>
+    <script type="text/javascript">
+        var payButton = document.getElementById('pay-button');
+        payButton.addEventListener('click', function() {
+            window.snap.pay('{{ $snapToken }}', {
+                onSuccess: function(result) {
+                    alert("Payment successful!");
+                    console.log(result);
+
+                    // Send an AJAX request to update the payment status
+                    fetch("{{ route('checkout.success') }}", {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                            },
+                            body: JSON.stringify({
+                                payment_id: '{{ $id }}'
+                            })
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log(data.message);
+                            if (data.status === 'success') {
+                                window.location.href = '{{ route('payment.success') }}';
+                            }
+                        })
+                        .catch(error => console.error('Error:', error));
+                },
+                onPending: function(result) {
+                    alert("Waiting for your payment!");
+                    console.log(result);
+                },
+                onError: function(result) {
+                    alert("Payment failed!");
+                    console.log(result);
+                },
+                onClose: function() {
+                    alert('You closed the popup without finishing the payment');
+                }
+            });
+        });
+    </script>
 @endsection

@@ -38,7 +38,8 @@ Route::prefix('bootcamp')->group(function(){
 });
 
 Route::post('/checkout', [SubscriptionController::class, 'checkoutSubs'])->name('checkout');
-Route::post('/checkout-success', [SubscriptionController::class, 'checkoutSuccess'])->name('checkoutSuccess');
+Route::post('/checkout-success-confirmation', [SubscriptionController::class, 'checkoutSuccess'])->name('checkout.success');
+Route::get('/checkout-success', [SubscriptionController::class, 'checkoutSuccessPage'])->name('payment.success');
 
 
 Route::get('/search-result', [CourseController::class, 'search'])->name('search');
