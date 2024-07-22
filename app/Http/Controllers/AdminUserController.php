@@ -36,7 +36,7 @@ class AdminUserController extends Controller
         $rules = [
             "username" => "required",
             // "courseDesc" => "required|string|min:3|max:255",
-            "userEmail" => "required",
+            "email" => "required",
             "password" => "required",
             "membership_type" => "required",
         ];
@@ -59,7 +59,7 @@ class AdminUserController extends Controller
             // Log::info('Validation passed, creating course');
             $createUser = User::create([
                 'username' => $request->username,
-                'userEmail' => $request->email,
+                'email' => $request->email,
                 'password' => $request->password,
                 'membership_type' => $request->membership_type,
             ]);

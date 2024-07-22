@@ -32,10 +32,10 @@ Route::get('/bootcamp', function () {
     return view('bootcamp.bootcamp');
 });
 
-Route::prefix('bootcamp')->group(function(){
-    Route::get('/menu', [BootcampController::class,'bootcampMenu']);
-    Route::get('/list', [BootcampController::class,'bootcampList']);
-    Route::get('/detail/{id}', [BootcampController::class,'bootcampDetail'])->name('bootcampDetail');
+Route::prefix('bootcamp')->group(function () {
+    Route::get('/menu', [BootcampController::class, 'bootcampMenu']);
+    Route::get('/list', [BootcampController::class, 'bootcampList']);
+    Route::get('/detail/{id}', [BootcampController::class, 'bootcampDetail'])->name('bootcampDetail');
 });
 
 Route::post('/checkout', [SubscriptionController::class, 'checkoutSubs'])->name('checkout');
@@ -45,7 +45,7 @@ Route::get('/checkout-success', [SubscriptionController::class, 'checkoutSuccess
 
 Route::get('/search-result', [CourseController::class, 'search'])->name('search');
 
-Route::prefix('/profile')->group(function(){
+Route::prefix('/profile')->group(function () {
     Route::get('/manage', function () {
         return view('profile.manage');
     });
@@ -58,11 +58,11 @@ Route::prefix('/profile')->group(function(){
     });
 });
 
-Route::prefix('course')->group(function(){
-    Route::get('/subs',[SubscriptionController::class, 'getSubs']);
-    Route::get('/menu', [CourseController::class,'courseMenu']);
-    Route::get('/view/{id}', [CourseController::class,'courseView'])->name('courseView');
-    Route::get('/detail/{id}', [CourseMaterialController::class,'courseMaterial'])->name('courseMaterial');
+Route::prefix('course')->group(function () {
+    Route::get('/subs', [SubscriptionController::class, 'getSubs']);
+    Route::get('/menu', [CourseController::class, 'courseMenu']);
+    Route::get('/view/{id}', [CourseController::class, 'courseView'])->name('courseView');
+    Route::get('/detail/{id}', [CourseMaterialController::class, 'courseMaterial'])->name('courseMaterial');
     Route::get('/media', function () {
         return view('course.media');
     });
@@ -71,20 +71,20 @@ Route::prefix('course')->group(function(){
 Route::get('/mylearning', [OwnCourseController::class, 'myLearning']);
 
 
-Route::prefix('admin')->group(function(){
+Route::prefix('admin')->group(function () {
     // Route::get("/login", [AdminController::class, "login"])->name("AdminLogin");
-    Route::get("/home", [AdminController::class, "index"]) ->name("AdminHome");
-    Route::get("/profile", [AdminController::class, "profile"]) ->name("Profile");
-    Route::get("/user", [AdminController::class, "manageUser"]) ->name("User");
+    Route::get("/home", [AdminController::class, "index"])->name("AdminHome");
+    Route::get("/profile", [AdminController::class, "profile"])->name("Profile");
+    Route::get("/user", [AdminController::class, "manageUser"])->name("User");
 
     Route::get("/user", [AdminUserController::class, "index"])->name("User");
     Route::delete("/user/{id}", [AdminUserController::class, "destroy"])->name("User.destroy");
-    Route::post("/user/create-user", [AdminCourseController::class, "store"])->name("User.store");
+    Route::post("/user/create-user", [AdminUserController::class, "store"])->name("User.store");
 
-    Route::get("/course", [AdminCourseController::class, "manageCourse"]) ->name("Course");
-    Route::post("/course/create-course", [AdminCourseController::class, "store"]) ->name("Course.store");
-    Route::delete("/course/delete-course/{cId}", [AdminCourseController::class, "destroy"]) ->name("Course.delete");
+    Route::get("/course", [AdminCourseController::class, "manageCourse"])->name("Course");
+    Route::post("/course/create-course", [AdminCourseController::class, "store"])->name("Course.store");
+    Route::delete("/course/delete-course/{cId}", [AdminCourseController::class, "destroy"])->name("Course.delete");
 
-    Route::get("/purchase", [AdminController::class, "managePurchaseHistory"]) ->name("Purchase");
-    Route::get("/bootcamp", [AdminController::class, "manageBootcamp"]) ->name("Bootcamp");
+    Route::get("/purchase", [AdminController::class, "managePurchaseHistory"])->name("Purchase");
+    Route::get("/bootcamp", [AdminController::class, "manageBootcamp"])->name("Bootcamp");
 });

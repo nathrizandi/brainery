@@ -81,11 +81,11 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="userEmail">User Email</label>
-                            <input type="text" name="userEmail" id="userEmail" value="{{ old('userEmail') }}"
-                                class="form-control @error('userEmail') is-invalid @enderror" required>
+                            <label for="email">User Email</label>
+                            <input type="text" name="email" id="email" value="{{ old('email') }}"
+                                class="form-control @error('email') is-invalid @enderror" required>
                             <!-- error message -->
-                            @error('userEmail')
+                            @error('email')
                                 <div class="invalid-feedback" role="alert">
                                     {{ $message }}
                                 </div>
