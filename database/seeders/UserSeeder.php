@@ -25,5 +25,11 @@ class UserSeeder extends Seeder
                 'membership_type'=> 'free'
             ]);
         }
+        User::create([
+            'email' => 'abc@gmail.com',
+            'username' => 'abraham',
+            'password' => '123',
+            'membership_type' => 'paid'
+        ]);
     }
 }

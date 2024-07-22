@@ -7,6 +7,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BootcampController;
+use App\Http\Controllers\OwnCourseController;
 
 Route::get('/', function () {
     return view('/template/layout');
@@ -67,9 +68,7 @@ Route::prefix('course')->group(function(){
     });
 });
 
-Route::get('/mylearning', function () {
-    return view('mylearning');
-});
+Route::get('/mylearning', [OwnCourseController::class, 'myLearning']);
 
 
 Route::prefix('admin')->group(function(){

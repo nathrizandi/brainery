@@ -29,6 +29,8 @@ class DatabaseSeeder extends Seeder
             MethodSeeder::class,
             PublisherSeeder::class,
             BootcampSeeder::class,
+            ownCourseSeeder::class,
+            ownBootcampSeeder::class
         ]);
 
     }

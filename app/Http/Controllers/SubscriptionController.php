@@ -39,7 +39,7 @@ class SubscriptionController extends Controller
         ]);
 
         $user2 = User::findOrFail($user->id);
-        $user2->membership_type = 'Paid';
+        $user2->membership_type = 'paid';
         $user2->save();
 
         return view('checkout.success');
