@@ -78,8 +78,11 @@ Route::prefix('admin')->group(function () {
     Route::get("/user", [AdminController::class, "manageUser"])->name("User");
 
     Route::get("/user", [AdminUserController::class, "index"])->name("User");
-    Route::delete("/user/{id}", [AdminUserController::class, "destroy"])->name("User.destroy");
+    Route::delete("/user/delete-user/{uid}", [AdminUserController::class, "destroy"])->name("User.delete");
     Route::post("/user/create-user", [AdminUserController::class, "store"])->name("User.store");
+    Route::put("/user/update-user/{uid}", [AdminUserController::class, "update"])->name("User.update");
+    Route::get("/user/edit-user/{uid}/edit", [AdminUserController::class, "edit"])->name("User.edit");
+
 
     Route::get("/course", [AdminCourseController::class, "manageCourse"])->name("Course");
     Route::post("/course/create-course", [AdminCourseController::class, "store"])->name("Course.store");
