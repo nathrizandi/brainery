@@ -22,7 +22,7 @@ Route::get('/home', function () {
 })->name('home');
 
 
-Route::get('/login', [UserController::class, 'loginView']);
+Route::get('/login', [UserController::class, 'loginView'])->name('loginView');
 Route::post('/user/login', [UserController::class, 'login'])->name('UserLogin');
 
 Route::get('/register', [UserController::class, 'registerView']);
@@ -59,7 +59,7 @@ Route::prefix('/profile')->group(function () {
 });
 
 Route::prefix('course')->group(function () {
-    Route::get('/subs', [SubscriptionController::class, 'getSubs']);
+    Route::get('/subs', [SubscriptionController::class, 'getSubs'])->name('subs');
     Route::get('/menu', [CourseController::class, 'courseMenu']);
     Route::get('/view/{id}', [CourseController::class, 'courseView'])->name('courseView');
     Route::get('/detail/{id}', [CourseMaterialController::class, 'courseMaterial'])->name('courseMaterial');

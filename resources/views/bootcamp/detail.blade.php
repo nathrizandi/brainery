@@ -26,7 +26,11 @@
             <p>
                 {{$bootcampDetail->description}}
             </p>
-            <a href="#" class="btn mt-3" style="background-color: #F76D3B; color: white;">Join Bootcamp</a>
+            @if (Auth::check())
+                <a href="#" class="btn mt-3" style="background-color: #F76D3B; color: white;">Join Bootcamp</a>
+            @else
+                <a href="{{route('loginView')}}" class="btn mt-3" style="background-color: #F76D3B; color: white;">Join Bootcamp</a>
+            @endif
         </div>
         <div class="detailcard col-md-4">
             <div class="card" style="width: 18rem;">
