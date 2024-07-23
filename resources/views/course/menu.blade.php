@@ -13,34 +13,31 @@
                     <h1 class="course-properties-title">Most Popular</h1>
                 </div>
                 <div class="row course-properties all-card">
-                    {{-- @for ($i = 0; $i < 16; $i++) --}}
+
                     @foreach ($courseMenu as $item)
-                    <div class="col-3 course-card">
-                        <a href="{{route('courseView', $item->id)}}" style="text-decoration: none; color: inherit; display: block">
-                            <div class="card d-flex justify-content-center">
-                                <div class="card-properties">
-                                    <div class="card_img overlay1">
-                                        <img class="card-image" src="{{asset($item->courseImage)}}" alt="">
-                                    </div>
-                                    <div class="card-body">
-                                        <h3 class="card-title">{{$item->title}}</h3>
-                                        <p class="card-writer">by: {{$item->nama}}</p>
-                                        <p class="card-description">{{$item->description}}</p>
+                        <div class="col-3 course-card">
+                            <a href="{{ route('courseView', $item->id) }}"
+                                style="text-decoration: none; color: inherit; display: block">
+                                <div class="card d-flex justify-content-center">
+                                    <div class="card-properties">
+                                        <div class="card_img overlay1">
+                                            <img class="card-image" src="{{ asset($item->courseImage) }}" alt="">
+                                        </div>
+                                        <div class="card-body">
+                                            <h3 class="card-title">{{ $item->title }}</h3>
+                                            <p class="card-writer">by: {{ $item->nama }}</p>
+                                            <p class="card-description">{{ $item->description }}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
                     @endforeach
-                    {{-- @endfor --}}
+
                 </div>
                 <div class="row course-properties course-more">
                     <div class="col">
-                        <button class="btn btn-light" type="button" data-bs-toggle="collapse"
-                            data-bs-target=".multi-collapse" aria-expanded="false"
-                            aria-controls="multiCollapseExample1 multiCollapseExample2" id="btn-show-more-popular">Show
-                            More</button>
-                        </p>
+                        <a href="/course/list" class="btn btn-light" type="button"> Show More </a>
                     </div>
                 </div>
             </div>
@@ -53,35 +50,31 @@
                     <h1 class="course-properties-title">Trending Course</h1>
                 </div>
                 <div class="row course-properties all-card">
-                    {{-- @for ($i = 0; $i < 16; $i++) --}}
+
                     @foreach ($courseMenu as $item)
                         <div class="col-3 course-card">
-                            <a href="{{route('courseView', $item->id)}}" style="text-decoration: none; color: inherit; display: block">
+                            <a href="{{ route('courseView', $item->id) }}"
+                                style="text-decoration: none; color: inherit; display: block">
                                 <div class="card d-flex justify-content-center">
                                     <div class="card-properties">
                                         <div class="card_img overlay1">
-                                            <img class="card-image" src="{{asset($item->courseImage)}}" alt="">
+                                            <img class="card-image" src="{{ asset($item->courseImage) }}" alt="">
                                         </div>
                                         <div class="card-body">
-                                            <h3 class="card-title">{{$item->title}}</h3>
-                                            <p class="card-writer">by: {{$item->nama}}</p>
-                                            <p class="card-description">{{$item->description}}</p>
+                                            <h3 class="card-title">{{ $item->title }}</h3>
+                                            <p class="card-writer">by: {{ $item->nama }}</p>
+                                            <p class="card-description">{{ $item->description }}</p>
                                         </div>
                                     </div>
                                 </div>
                             </a>
                         </div>
-                        
                     @endforeach
-                    {{-- @endfor --}}
+
                 </div>
                 <div class="row course-properties course-more">
                     <div class="col">
-                        <button class="btn btn-light" type="button" data-bs-toggle="collapse"
-                            data-bs-target=".multi-collapse" aria-expanded="false"
-                            aria-controls="multiCollapseExample1 multiCollapseExample2" id="btn-show-more-trend">Show
-                            More</button>
-                        </p>
+                        <a href="/course/list" class="btn btn-light" type="button"> Show More </a>
                     </div>
                 </div>
             </div>
@@ -94,34 +87,31 @@
                     <h1 class="course-properties-title">New Course</h1>
                 </div>
                 <div class="row course-properties all-card">
-                    {{-- @for ($i = 0; $i < 16; $i++) --}}
+
                     @foreach ($courseMenu as $item)
                         <div class="col-3 course-card">
-                            <a href="{{route('courseView', $item->id)}}" style="text-decoration: none; color: inherit; display: block">
+                            <a href="{{ route('courseView', $item->id) }}"
+                                style="text-decoration: none; color: inherit; display: block">
                                 <div class="card d-flex justify-content-center">
                                     <div class="card-properties">
                                         <div class="card_img overlay1">
-                                            <img class="card-image" src="{{asset($item->courseImage)}}" alt="">
+                                            <img class="card-image" src="{{ asset($item->courseImage) }}" alt="">
                                         </div>
                                         <div class="card-body">
-                                            <h3 class="card-title">{{$item->title}}</h3>
-                                            <p class="card-writer">by: {{$item->nama}}</p>
-                                            <p class="card-description">{{$item->description}}</p>
+                                            <h3 class="card-title">{{ $item->title }}</h3>
+                                            <p class="card-writer">by: {{ $item->nama }}</p>
+                                            <p class="card-description">{{ $item->description }}</p>
                                         </div>
                                     </div>
                                 </div>
                             </a>
                         </div>
                     @endforeach
-                    {{-- @endfor --}}
+
                 </div>
                 <div class="row course-properties course-more">
                     <div class="col">
-                        <button class="btn btn-light" type="button" data-bs-toggle="collapse"
-                            data-bs-target=".multi-collapse" aria-expanded="false"
-                            aria-controls="multiCollapseExample1 multiCollapseExample2" id="btn-show-more-new">Show
-                            More</button>
-                        </p>
+                        <a href="/course/list" class="btn btn-light" type="button"> Show More </a>
                     </div>
                 </div>
             </div>
