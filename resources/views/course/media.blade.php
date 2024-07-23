@@ -12,13 +12,18 @@
     </div>
     <div class="video-container mt-2" style="margin-left: 2%">
         <div class="row">
-            <iframe width="1691" height="622" src="https://www.youtube.com/embed/R9PTBwOzceo?list=PLBlnK6fEyqRj9lld8sWIUNwlKfdUoPd1Y" title="Introduction to Linked List" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            @foreach ($courseMedia as $item)
+            <iframe width="1691" height="622" src="{{$item->video}}" title="Introduction to Linked List" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            @endforeach
         </div>
     </div>
     <div class="row mt-5" style="margin-left: 2%">
         <div class="col-10">
-            <h1 class="text-orange">Title</h1>
-            <p>description fdkgklgklgmkldgmdkdgmggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg</p>
+            @foreach ($courseMedia as $item)
+            <h1 class="text-orange">{{$item->title}}</h1>
+            <p>{{$item->desc}}</p>
+                
+            @endforeach
         </div>
         <div class="col-2">
             <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/brain8.png?raw=true" style="width: 8vw">
