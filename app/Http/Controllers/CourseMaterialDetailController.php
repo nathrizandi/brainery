@@ -11,10 +11,10 @@ class CourseMaterialDetailController extends Controller
     public function courseMedia($id) {
         $courseMedia = CourseMaterialDetail::join("course_materials","course_materials.id","=","course_material_details.courseMaterial_id")
         ->select([
-            // "course_materials.id as cmId", 
+            "course_materials.id as cmId", 
             "course_materials.title as week",
             "course_material_details.title as title",
-            "course_material_details.courseMaterial_id as cmId",
+            "course_material_details.courseMaterial_id as cmedId",
             "course_material_details.id",
             "course_material_details.description as desc",
             "course_material_details.video as video",

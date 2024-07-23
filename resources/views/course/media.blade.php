@@ -6,9 +6,12 @@
 
 @section('content')
     <div class="row">
-        <a href="/course/detail" style="text-decoration: none; color: inherit; display: block">
+        @foreach ($courseMedia as $item)
+        <a href="{{route("courseMaterial", $item->cmId)}}" style="text-decoration: none; color: inherit; display: block">
             <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/icon/back.png?raw=true" style="width: 3.5vw">
         </a>
+            
+        @endforeach
     </div>
     <div class="video-container mt-2" style="margin-left: 2%">
         <div class="row">
