@@ -30,7 +30,16 @@
                             <td> {{$item->description}} </td>
                             <td>
                                 <div class="d-flex flex-row justify-content-between btn-group py-2 gap-2" role="group" aria-label="Action">
-                                    <button type="button" class="btn btn-sm btn-edit" data-bs-toggle="modal" data-bs-target="#EditCourse">EDIT</button>
+                                    <button type="button" class="btn btn-sm btn-edit open-edit-modal"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#EditCourse"
+                                    data-course-courseid = "{{$item->cId}}"
+                                    data-course-title = "{{$item->title}}"
+                                    data-course-nama = "{{$item->nama}}"
+                                    data-course-desc = "{{$item->description}}"
+                                    data-course-materials = "{{ htmlspecialchars(json_encode($courseMaterialData[$item->cId])) }}"
+                                    >
+                                    EDIT</button>
                                     <form onsubmit="return confirm('Are you sure?');" action="course/delete-course/{{$item->cId}}" method="POST">
                                         @csrf
                                         @method('DELETE')
@@ -281,7 +290,6 @@
         <div class="modal-content px-3 py-1">
             <div class="modal-header">
             <h1 class="modal-title fs-5" id="EditCourseLabel">Edit Course</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
             <!-- Content -->
@@ -289,24 +297,23 @@
                     <!-- token form -->
                     @csrf
                     @method("PUT")
-                    <p>Item ID: <span id="edit-item-id"></span></p>
                     <div class="mb-3">
-                        <label for="courseName">Course Title</label>
-                        <input type="text" name="courseName" id="courseName" value="{{ old('courseName') }}" class="form-control @error('courseName') is-invalid @enderror" required>
-                        <!-- error message -->
-                        @error('courseName')
+                        <label for="courseNameEdit">Course Title</label>
+                        <input type="text" name="courseNameEdit" id="courseNameEdit" value="{{ old('courseNameEdit') }}" class="form-control @error('courseNameEdit') is-invalid @enderror" required>
+
+                        @error('courseNameEdit')
                         <div class="invalid-feedback" role="alert">
                             {{ $message }}
                         </div>
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="courseDesc">Course Description</label>
-                        <textarea name="courseDesc" id="courseDesc" class="form-control @error('courseDesc') is-invalid @enderror" required>
-                            {{ old('courseDesc') }}
+                        <label for="courseDescEdit">Course Description</label>
+                        <textarea name="courseDescEdit" id="courseDescEdit" class="form-control @error('courseDescEdit') is-invalid @enderror" required>
+                            {{ old('courseDescEdit') }}
                         </textarea>
-                        <!-- error message -->
-                        @error('courseDesc')
+
+                        @error('courseDescEdit')
                         <div class="invalid-feedback" role="alert">
                             {{ $message }}
                         </div>
@@ -314,28 +321,26 @@
                     </div>
                     <h5>Course Detail</h5>
                     <div class="mb-3">
-                        <label for="speakers">Speaker Name</label>
-                        <select id="speakers" name="speakers" class="form-control @error('speakers') is-invalid @enderror" required>
+                        <label for="speakersEdit">Speaker Name</label>
+                        <select id="speakersEdit" name="speakersEdit" class="form-control @error('speakersEdit') is-invalid @enderror" required>
                             <option value="" selected>--- Choose ---</option>
                             @foreach ($speakerData as $item)
-                            <option value="{{ $item->id }}" {{ old('speakers')== $item->id ? 'selected':''  }}>{{ $item->nama }}</option>
+                            <option value="{{ $item->id }}" {{ old('speakersEdit')== $item->id ? 'selected':''  }}>{{ $item->nama }}</option>
                             @endforeach
 
                         </select>
 
-                        <!-- error message -->
-                        @error('speakers')
+                        @error('speakersEdit')
                         <div class="invalid-feedback" role="alert">
                             {{ $message }}
                         </div>
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="courseImage">Course Image</label>
-                        <input type="url" id="courseImage" name="courseImage" value="{{ old('courseImage') }}" class="form-control @error('courseImage') is-invalid @enderror" required>
+                        <label for="courseImageEdit">Course Image</label>
+                        <input type="url" id="courseImageEdit" name="courseImageEdit" value="{{ old('courseImageEdit') }}" class="form-control @error('courseImageEdit') is-invalid @enderror" required>
 
-                        <!-- error message untuk password -->
-                        @error('courseImage')
+                        @error('courseImageEdit')
                         <div class="invalid-feedback" role="alert">
                             {{ $message }}
                         </div>
@@ -346,33 +351,32 @@
                         <h6>Week 1</h6>
                         <div class="d-flex flex-column">
                             <div class="mb-3">
-                                <label for="courseWeek1Title">Title</label>
-                                <input type="text" name="courseWeek1Title" id="courseWeek1Title" value="{{ old('courseWeek1Title') }}" class="form-control @error('courseWeek1Title') is-invalid @enderror" required>
-                                <!-- error message -->
-                                @error('courseWeek1Title')
-                                <div class="invalid-feedback" role="alert">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-                            <div class="mb-3">
-                                <label for="courseWeek1Video">Video</label>
-                                <input type="url" id="courseWeek1Video" name="courseWeek1Video" value="{{ old('courseWeek1Video') }}" class="form-control @error('courseWeek1Video') is-invalid @enderror" required>
+                                <label for="courseWeek1TitleEdit">Title</label>
+                                <input type="text" name="courseWeek1TitleEdit" id="courseWeek1TitleEdit" value="{{ old('courseWeek1TitleEdit') }}" class="form-control @error('courseWeek1TitleEdit') is-invalid @enderror" required>
 
-                                <!-- error message untuk password -->
-                                @error('courseWeek1Video')
+                                @error('courseWeek1TitleEdit')
                                 <div class="invalid-feedback" role="alert">
                                     {{ $message }}
                                 </div>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="courseWeek1Desc">Description</label>
-                                <textarea name="courseWeek1Desc" id="courseWeek1Desc" class="form-control @error('courseWeek1Desc') is-invalid @enderror" required>
-                                    {{ old('courseWeek1Desc') }}
+                                <label for="courseWeek1VideoEdit">Video</label>
+                                <input type="url" id="courseWeek1VideoEdit" name="courseWeek1VideoEdit" value="{{ old('courseWeek1VideoEdit') }}" class="form-control @error('courseWeek1VideoEdit') is-invalid @enderror" required>
+
+                                @error('courseWeek1VideoEdit')
+                                <div class="invalid-feedback" role="alert">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="courseWeek1DescEdit">Description</label>
+                                <textarea name="courseWeek1DescEdit" id="courseWeek1DescEdit" class="form-control @error('courseWeek1DescEdit') is-invalid @enderror" required>
+                                    {{ old('courseWeek1DescEdit') }}
                                 </textarea>
-                                <!-- error message -->
-                                @error('courseWeek1Desc')
+
+                                @error('courseWeek1DescEdit')
                                 <div class="invalid-feedback" role="alert">
                                     {{ $message }}
                                 </div>
@@ -384,32 +388,32 @@
                         <h6>Week 2</h6>
                         <div class="d-flex flex-column">
                             <div class="mb-3">
-                                <label for="courseWeek2Title">Title</label>
-                                <input type="text" name="courseWeek2Title" id="courseWeek2Title" value="{{ old('courseWeek2Title') }}" class="form-control @error('courseWeek2Title') is-invalid @enderror" required>
+                                <label for="courseWeek2TitleEdit">Title</label>
+                                <input type="text" name="courseWeek2TitleEdit" id="courseWeek2TitleEdit" value="{{ old('courseWeek2TitleEdit') }}" class="form-control @error('courseWeek2TitleEdit') is-invalid @enderror" required>
 
-                                @error('courseWeek2Title')
+                                @error('courseWeek2TitleEdit')
                                 <div class="invalid-feedback" role="alert">
                                     {{ $message }}
                                 </div>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="courseWeek2Video">Video</label>
-                                <input type="url" id="courseWeek2Video" name="courseWeek2Video" value="{{ old('courseWeek2Video') }}" class="form-control @error('courseWeek2Video') is-invalid @enderror" required>
+                                <label for="courseWeek2VideoEdit">Video</label>
+                                <input type="url" id="courseWeek2VideoEdit" name="courseWeek2VideoEdit" value="{{ old('courseWeek2VideoEdit') }}" class="form-control @error('courseWeek2VideoEdit') is-invalid @enderror" required>
 
-                                @error('courseWeek2Video')
+                                @error('courseWeek2VideoEdit')
                                 <div class="invalid-feedback" role="alert">
                                     {{ $message }}
                                 </div>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="courseWeek2Desc">Description</label>
-                                <textarea name="courseWeek2Desc" id="courseWeek2Desc" class="form-control @error('courseWeek2Desc') is-invalid @enderror" required>
-                                    {{ old('courseWeek2Desc') }}
+                                <label for="courseWeek2DescEdit">Description</label>
+                                <textarea name="courseWeek2DescEdit" id="courseWeek2DescEdit" class="form-control @error('courseWeek2DescEdit') is-invalid @enderror" required>
+                                    {{ old('courseWeek2DescEdit') }}
                                 </textarea>
 
-                                @error('courseWeek2Desc')
+                                @error('courseWeek2DescEdit')
                                 <div class="invalid-feedback" role="alert">
                                     {{ $message }}
                                 </div>
@@ -421,32 +425,32 @@
                         <h6>Week 3</h6>
                         <div class="d-flex flex-column">
                             <div class="mb-3">
-                                <label for="courseWeek3Title">Title</label>
-                                <input type="text" name="courseWeek3Title" id="courseWeek3Title" value="{{ old('courseWeek3Title') }}" class="form-control @error('courseWeek3Title') is-invalid @enderror" required>
+                                <label for="courseWeek3TitleEdit">Title</label>
+                                <input type="text" name="courseWeek3TitleEdit" id="courseWeek3TitleEdit" value="{{ old('courseWeek3TitleEdit') }}" class="form-control @error('courseWeek3TitleEdit') is-invalid @enderror" required>
 
-                                @error('courseWeek3Title')
+                                @error('courseWeek3TitleEdit')
                                 <div class="invalid-feedback" role="alert">
                                     {{ $message }}
                                 </div>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="courseWeek3Video">Video</label>
-                                <input type="url" id="courseWeek3Video" name="courseWeek3Video" value="{{ old('courseWeek3Video') }}" class="form-control @error('courseWeek3Video') is-invalid @enderror" required>
+                                <label for="courseWeek3VideoEdit">Video</label>
+                                <input type="url" id="courseWeek3VideoEdit" name="courseWeek3VideoEdit" value="{{ old('courseWeek3VideoEdit') }}" class="form-control @error('courseWeek3VideoEdit') is-invalid @enderror" required>
 
-                                @error('courseWeek3Video')
+                                @error('courseWeek3VideoEdit')
                                 <div class="invalid-feedback" role="alert">
                                     {{ $message }}
                                 </div>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="courseWeek3Desc">Description</label>
-                                <textarea name="courseWeek3Desc" id="courseWeek3Desc" class="form-control @error('courseWeek3Desc') is-invalid @enderror" required>
-                                    {{ old('courseWeek3Desc') }}
+                                <label for="courseWeek3DescEdit">Description</label>
+                                <textarea name="courseWeek3DescEdit" id="courseWeek3DescEdit" class="form-control @error('courseWeek3DescEdit') is-invalid @enderror" required>
+                                    {{ old('courseWeek3DescEdit') }}
                                 </textarea>
 
-                                @error('courseWeek3Desc')
+                                @error('courseWeek3DescEdit')
                                 <div class="invalid-feedback" role="alert">
                                     {{ $message }}
                                 </div>
@@ -458,32 +462,32 @@
                         <h6>Week 4</h6>
                         <div class="d-flex flex-column">
                             <div class="mb-3">
-                                <label for="courseWeek4Title">Title</label>
-                                <input type="text" name="courseWeek4Title" id="courseWeek4Title" value="{{ old('courseWeek4Title') }}" class="form-control @error('courseWeek4Title') is-invalid @enderror" required>
+                                <label for="courseWeek4TitleEdit">Title</label>
+                                <input type="text" name="courseWeek4TitleEdit" id="courseWeek4TitleEdit" value="{{ old('courseWeek4TitleEdit') }}" class="form-control @error('courseWeek4TitleEdit') is-invalid @enderror" required>
 
-                                @error('courseWeek4Title')
+                                @error('courseWeek4TitleEdit')
                                 <div class="invalid-feedback" role="alert">
                                     {{ $message }}
                                 </div>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="courseWeek4Video">Video</label>
-                                <input type="url" id="courseWeek4Video" name="courseWeek4Video" value="{{ old('courseWeek4Video') }}" class="form-control @error('courseWeek4Video') is-invalid @enderror" required>
+                                <label for="courseWeek4VideoEdit">Video</label>
+                                <input type="url" id="courseWeek4VideoEdit" name="courseWeek4VideoEdit" value="{{ old('courseWeek4VideoEdit') }}" class="form-control @error('courseWeek4VideoEdit') is-invalid @enderror" required>
 
-                                @error('courseWeek4Video')
+                                @error('courseWeek4VideoEdit')
                                 <div class="invalid-feedback" role="alert">
                                     {{ $message }}
                                 </div>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="courseWeek4Desc">Description</label>
-                                <textarea name="courseWeek4Desc" id="courseWeek4Desc" class="form-control @error('courseWeek4Desc') is-invalid @enderror" required>
-                                    {{ old('courseWeek4Desc') }}
+                                <label for="courseWeek4DescEdit">Description</label>
+                                <textarea name="courseWeek4DescEdit" id="courseWeek4DescEdit" class="form-control @error('courseWeek4DescEdit') is-invalid @enderror" required>
+                                    {{ old('courseWeek4DescEdit') }}
                                 </textarea>
 
-                                @error('courseWeek4Desc')
+                                @error('courseWeek4DescEdit')
                                 <div class="invalid-feedback" role="alert">
                                     {{ $message }}
                                 </div>

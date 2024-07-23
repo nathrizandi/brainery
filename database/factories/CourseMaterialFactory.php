@@ -43,12 +43,12 @@ class CourseMaterialFactory extends Factory
                     continue;
                 }
 
-                CourseMaterial::create([
+                $newCourseMaterial = CourseMaterial::create([
                     "course_id"=> $courseMaterial->course_id,
                     "title"=>$week,
                 ]);
                 CourseMaterialDetail::factory()->create([
-                    "courseMaterial_id" => $courseMaterial->id,
+                    "courseMaterial_id" => $newCourseMaterial->id,
                 ]);
             }
         });

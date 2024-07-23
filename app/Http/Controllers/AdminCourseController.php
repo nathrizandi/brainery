@@ -30,24 +30,37 @@ class AdminCourseController extends Controller
         ])
         ->paginate(10);
 
-        $courseDetailData = CourseMaterial::join("course_material_details", "course_material_details.courseMaterial_id", "=", "course_materials.id")
+        $speakerData = Speaker::all();
+        $courseMaterialData = Course::join("course_materials", "course_materials.course_id", "=", "courses.id")
+        ->join("course_material_details", "courseMaterial_id", "=", "course_materials.id")
+        ->join("speakers", "speakers.id", "=", "courses.speaker_id")
         ->select([
+            "courses.*",
             "course_materials.*",
-            "course_materials.id as cmId",
-            "course_materials.title as cmTitle",
             "course_material_details.*",
+            "speakers.*",
+            "courses.id as cId",
+            "courses.image as cImage",
+            "courses.title as cTitle",
+            "courses.image as cImage",
+            "courses.description as cDesc",
+            "course_materials.id as cmId",
+            "course_materials.course_id as cmCourseId",
+            "course_materials.title as cmTitle",
             "course_material_details.id as cmdId",
             "course_material_details.title as cmdTitle",
             "course_material_details.video as cmdVideo",
             "course_material_details.description as cmdDesc",
+            "speakers.id as sId",
+            "speakers.nama as sNama",
+            "speakers.image as sImage"
         ])
-        ->get();
+        ->get()
+        ->groupBy("cmCourseId");
 
-        $speakerData = Speaker::all();
+        $count = count($courseMaterialData);
 
-        $count = count($courseDetailData)/4;
-
-        return view("admin.dashboards.manageCourse", compact("courseData", "courseDetailData", "speakerData", "count"));
+        return view("admin.dashboards.manageCourse", compact("courseData", "speakerData", "courseMaterialData", "count"));
     }
 
     public function store(Request $request){
