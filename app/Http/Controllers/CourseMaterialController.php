@@ -22,7 +22,9 @@ class CourseMaterialController extends Controller
             "course_materials.id as cmId", 
             "course_materials.title as week",
             "course_material_details.title as subTitle",
-            "courses.description as desc"
+            "course_material_details.id as mediaId",
+            "courses.description as desc",
+            "course_material_details.description as medDesc"
         ])
         ->where("courses.id", $id)
         ->first();
@@ -39,6 +41,7 @@ class CourseMaterialController extends Controller
             "course_materials.id as cmId", 
             "course_materials.title as week",
             "course_material_details.title as subTitle",
+            "course_material_details.id as mediaId",
             "courses.description as desc"
         ])
         ->where("course_materials.id", $id)

@@ -15,7 +15,7 @@
                 </span>
                 
                 <div class="sidebar-item">
-                    <div class="accordion" id="sidebar-accordion btn-sidebar-itm">
+                    <div class="accordion" id="sidebar-accordion">
                         <h3 class="accordion-header" id="flush-headingOne">
                             <button class="accordion-button collapsed" data-bs-toggle="collapse"
                             data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
@@ -24,30 +24,24 @@
                         </h3>
                         
                         <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
-                        data-bs-parent="#accordionFlushExample">
-                        @foreach ($courseWeek as $item)
-                        @if ($item->cmId == $courseMaterial->courseId)
-                        <div class="accordion-body choose" data-content="week-1">
-                            {{$item->week}}
-                        </div>
-                            
-                        @endif
-                            
-                        @endforeach
-                        {{-- <div class="accordion-body" data-content="week-2">
-                            Week 2
+                        data-bs-parent="#sidebar-accordion">
+                            <div class="accordion-body choose" data-content="week-1">
+                                Week 1
+                            </div>    
+                            <div class="accordion-body" data-content="week-2">
+                                Week 2
                             </div>
                             <div class="accordion-body" data-content="week-3">
                                 Week 3
                             </div>
                             <div class="accordion-body" data-content="week-4">
                                 Week 4
-                            </div> --}}
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="sidebar-item course-info" data-content="course-info" id="btn-sidebar-itm">
+                <div class="sidebar-item course-info" data-content="course-info">
                     Course Info
                 </div>
             </div>
@@ -68,26 +62,87 @@
                         </h2>
                         <div id="collapse{{ $i }}" class="accordion-collapse collapse"
                                         aria-labelledby="heading{{ $i }}" data-bs-parent="#accordionExample">
-                                        <a href="/course/media" style="text-decoration: none; color: inherit; display: block">
-                                            @for ($j = 1; $j <= 5; $j++)
-                                            <div class="accordion-body">
-                                                {{$courseMaterial->subTitle}}
-                                            </div>
-                                            @endfor
-                                        </a>
+                                        @foreach ($courseWeek as $item)
+                                        <a href="{{route("courseMedia", $item->mediaId)}}" style="text-decoration: none; color: inherit; display: block">
+                                                <div class="accordion-body">
+                                                    {{$item->subTitle}}
+                                                </div>
+                                            </a>
+                                            @endforeach
                                     </div>
                                 </div>
                                 @endfor
                             </div>
                             
                             <div class="course-week-content" data-content="week-2">
-                                <!-- Week 2 content here -->
+                                @for ($i = 1; $i <= 4; $i++)
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading{{ $i }}">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapse{{ $i }}" aria-expanded="false"
+                                aria-controls="collapse{{ $i }}">
+                                Week {{ $i }} 
+                            </button>
+                        </h2>
+                        <div id="collapse{{ $i }}" class="accordion-collapse collapse"
+                                        aria-labelledby="heading{{ $i }}" data-bs-parent="#accordionExample">
+                                        @foreach ($courseWeek as $item)
+                                        <a href="{{route("courseMedia", $item->mediaId)}}" style="text-decoration: none; color: inherit; display: block">
+                                                <div class="accordion-body">
+                                                    {{$item->subTitle}}
+                                                </div>
+                                            </a>
+                                            @endforeach
+                                    </div>
+                                </div>
+                                @endfor
                             </div>
+                    
                     <div class="course-week-content" data-content="week-3">
-                        <!-- Week 3 content here -->
+                        @for ($i = 1; $i <= 4; $i++)
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading{{ $i }}">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapse{{ $i }}" aria-expanded="false"
+                                aria-controls="collapse{{ $i }}">
+                                Week {{ $i }} 
+                            </button>
+                        </h2>
+                        <div id="collapse{{ $i }}" class="accordion-collapse collapse"
+                                        aria-labelledby="heading{{ $i }}" data-bs-parent="#accordionExample">
+                                        @foreach ($courseWeek as $item)
+                                        <a href="{{route("courseMedia", $item->mediaId)}}" style="text-decoration: none; color: inherit; display: block">
+                                                <div class="accordion-body">
+                                                    {{$item->subTitle}}
+                                                </div>
+                                            </a>
+                                            @endforeach
+                                    </div>
+                                </div>
+                                @endfor
                     </div>
                     <div class="course-week-content" data-content="week-4">
-                        <!-- Week 4 content here -->
+                        @for ($i = 1; $i <= 4; $i++)
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading{{ $i }}">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapse{{ $i }}" aria-expanded="false"
+                                aria-controls="collapse{{ $i }}">
+                                Week {{ $i }} 
+                            </button>
+                        </h2>
+                        <div id="collapse{{ $i }}" class="accordion-collapse collapse"
+                                        aria-labelledby="heading{{ $i }}" data-bs-parent="#accordionExample">
+                                        @foreach ($courseWeek as $item)
+                                        <a href="{{route("courseMedia", $item->mediaId)}}" style="text-decoration: none; color: inherit; display: block">
+                                                <div class="accordion-body">
+                                                    {{$item->subTitle}}
+                                                </div>
+                                            </a>
+                                            @endforeach
+                                    </div>
+                                </div>
+                                @endfor
                     </div>
                     
                     <div class="notes-content" data-content="course-info">
@@ -95,21 +150,19 @@
                         <div class="course-info-content pb-3 mt-5">
                             <p>
                                 <h2>About this Course</h2>
-                                In the first course of the Machine Learning Specialization, you will:
                                 <ul>
+                                    @foreach ($courseWeek as $item)
                                     <li>
-                                        Build machine learning models in Python using popular machine learning libraries NumPy
-                                        and scikit-learn.
+                                        {{$item->desc}}
                                     </li>
-                                    <li>
                                         
-                                    </li>
+                                    @endforeach
                                 </ul>
-                                {{$courseMaterial->desc}}
+                                {{$courseMaterial->medDesc}}
                                 
                         </p>
                     </div>
-                    @for ($i = 0; $i < 3; $i++)
+                    {{-- @for ($i = 0; $i < 3; $i++) --}}
                     <hr>
                     <div class="course-info-writers p-3 d-flex gap-4">
                         <div class="">
@@ -120,10 +173,10 @@
                             <h3>Taught by:</h3>
                             <p>{{$courseMaterial->spkName}}</p>
                             <h3>Company:</h3>
-                            <p>Di sini senang, di sana senang, dimana-mana hatiku senang</p>
+                            <p>Bina Nusantara</p>
                         </div>
                     </div>
-                    @endfor
+                    {{-- @endfor --}}
                 </div>
             </div>
         </div>
@@ -132,30 +185,38 @@
 </div>
 
 <script>
-    document.querySelectorAll('.accordion-body, .course-info').forEach(item => {
-        item.addEventListener('click', event => {
-            // Remove 'choose' class from all items
-            document.querySelectorAll('.accordion-body, .course-info').forEach(body => {
-                body.classList.remove('choose');
-            });
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initially show only the content for "Week 1"
+        document.querySelectorAll('.course-week-content, .notes-content').forEach(contentItem => {
+            if (contentItem.getAttribute('data-content') === 'week-1') {
+                contentItem.style.display = 'block';
+            } else {
+                contentItem.style.display = 'none';
+            }
+        });
 
-            // Add 'choose' class to the clicked item
-            event.target.classList.add('choose');
+        // Add event listeners to sidebar items
+        document.querySelectorAll('.accordion-body, .course-info').forEach(item => {
+            item.addEventListener('click', event => {
+                // Remove 'choose' class from all items
+                document.querySelectorAll('.accordion-body, .course-info').forEach(body => {
+                    body.classList.remove('choose');
+                });
 
-            // Show the corresponding content
-            const content = event.target.getAttribute('data-content');
-            document.querySelectorAll('.course-week-content, .notes-content').forEach(contentItem => {
-                if (contentItem.getAttribute('data-content') === content) {
-                    contentItem.style.display = 'block';
-                } else {
-                    contentItem.style.display = 'none';
-                }
+                // Add 'choose' class to the clicked item
+                event.target.classList.add('choose');
+
+                // Show the corresponding content
+                const content = event.target.getAttribute('data-content');
+                document.querySelectorAll('.course-week-content, .notes-content').forEach(contentItem => {
+                    if (contentItem.getAttribute('data-content') === content) {
+                        contentItem.style.display = 'block';
+                    } else {
+                        contentItem.style.display = 'none';
+                    }
+                });
             });
         });
     });
-
-    // Initial setup to show the first week's content by default
-    document.querySelector('.course-week-content[data-content="week-1"]').style.display = 'block';
-    document.querySelector('.notes-content[data-content="course-info"]').style.display = 'none';
 </script>
 @endsection
