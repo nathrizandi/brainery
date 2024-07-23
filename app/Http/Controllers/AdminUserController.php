@@ -79,23 +79,20 @@ class AdminUserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $user)
+    public function edit($id)
     {
-
-        $user = User::findOrFail($user->id);
-        dd($user);
-        return view('admin.dashboards.manageUser', $user);
+        $user = User::findOrFail($id);
+        return response()->json($user);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
         $rules = [
             "username" => "required",
             "email" => "required",
-            "password" => "required",
             "membership_type" => "required",
         ];
 
@@ -113,14 +110,16 @@ class AdminUserController extends Controller
                 ->withErrors($validator)
                 ->with('danger', 'Make sure all fields are filled!');
         } else {
-            $user->username->$request->username;
-            $user->email->$request->email;
-            $user->membership_type->$request->membership_type;
+            $user = User::findOrFail($id);
+            $user->username = $request->username;
+            $user->email = $request->email;
+            $user->membership_type = $request->membership_type;
             $user->save();
 
-            return redirect()->intended(route('User'));
+            return redirect()->route('User')->with('success', 'User has been updated!');
         }
     }
+
 
     /**
      * Remove the specified resource from storage.

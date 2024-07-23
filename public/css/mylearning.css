@@ -1,7 +1,7 @@
 .card-body {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     height: 100%;
 }
 
@@ -13,7 +13,7 @@
 }
 
 .card-title {
-    margin-bottom: 10px; /* Add some space between the title and the rest of the content */
+    margin-bottom: 1vw; /* Add some space between the title and the rest of the content */
 }
 
 .card-writer {

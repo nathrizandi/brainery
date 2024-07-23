@@ -28,15 +28,19 @@
                             <th scope="row"> {{ $item->id }} </th>
                             <td> {{ $item->email }} </td>
                             <td> {{ $item->username }} </td>
-                            <td> {{ $item->password }} </td>
+                            <td>
+                                @php
+                                    $maskedPassword = str_repeat('*', strlen($item->password));
+                                @endphp
+                                {{ $maskedPassword }}
+                            </td>
                             <td> {{ $item->membership_type }} </td>
                             <td>
                                 <div class="d-flex flex-row justify-content-between btn-group py-2 gap-2" role="group"
                                     aria-label="Action">
                                     <button type="button" class="btn btn-sm btn-edit" data-bs-toggle="modal"
-                                        data-bs-target="#EditUser"
-                                        onclick="window.location='{{ route('User.edit', $item->id) }}">EDIT</button>
-                                    <form onsubmit="return confirm('Apakah Anda Yakin ?');"
+                                        data-bs-target="#EditUser" data-item="{{ json_encode($item) }}">EDIT</button>
+                                    <form onsubmit="return confirm('Are You Sure?');"
                                         action="{{ route('User.delete', $item->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
@@ -111,9 +115,9 @@
                             <select id="membership_type" name="membership_type"
                                 class="form-control @error('membership_type') is-invalid @enderror" required>
                                 <option value="" selected>- Choose -</option>
-                                <option value="Free" {{ old('membership_type') == 'Free' ? 'selected' : '' }}>Free
+                                <option value="free" {{ old('membership_type') == 'free' ? 'selected' : '' }}>free
                                 </option>
-                                <option value="Paid"{{ old('membership_type') == 'Paid' ? 'selected' : '' }}>Paid
+                                <option value="paid"{{ old('membership_type') == 'paid' ? 'selected' : '' }}>paid
                                 </option>
                             </select>
 
@@ -140,18 +144,19 @@
         <div class="modal-dialog modal-dialog-scrollable modal-xl modal-dialog-centered">
             <div class="modal-content px-3 py-1">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="EditUserLabel">Edit User</h1>
+                    <h1 class="modal-title fs-5" id="EditUserLabel"></h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <!-- Content -->
-                    <form action="" method="POST" enctype="multipart/form-data">
+                    <form id="editUserForm" action="{{ route('User.update', ':id') }}" method="POST"
+                        enctype="multipart/form-data">
                         <!-- token form -->
                         @csrf
                         @method('PUT')
                         <div class="mb-3">
-                            <label for="username">Username</label>
-                            <input type="text" name="username" id="username" value="{{ old('username') }}"
+                            <label for="editUsername">Username</label>
+                            <input type="text" name="username" id="editUsername" value="{{ old('username') }}"
                                 class="form-control @error('username') is-invalid @enderror" required>
                             <!-- error message -->
                             @error('username')
@@ -163,23 +168,11 @@
 
 
                         <div class="mb-3">
-                            <label for="email">User Email</label>
-                            <input type="text" name="email" id="email" value="{{ old('email') }}"
+                            <label for="editEmail">User Email</label>
+                            <input type="text" name="email" id="editEmail" value="{{ old('email') }}"
                                 class="form-control @error('email') is-invalid @enderror" required>
                             <!-- error message -->
                             @error('email')
-                                <div class="invalid-feedback" role="alert">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="password" class="form-label">User Password</label>
-                            <input type="password" name="password" id="password" value="{{ old('password') }}"
-                                class="form-control @error('password') is-invalid @enderror" disabled>
-                            <!-- error message -->
-                            @error('password')
                                 <div class="invalid-feedback" role="alert">
                                     {{ $message }}
                                 </div>
@@ -192,10 +185,13 @@
                             <select id="membership_type" name="membership_type"
                                 class="form-control @error('membership_type') is-invalid @enderror" required>
                                 <option value="" selected>- Choose -</option>
-                                <option value="Free" {{ old('membership_type') == 'Free' ? 'selected' : '' }}>Free
-                                </option>
-                                <option value="Paid"{{ old('membership_type') == 'Paid' ? 'selected' : '' }}>Paid
-                                </option>
+                                <option value="free"
+                                    {{ old('membership_type', isset($item) ? $item->membership_type : '') == 'free' ? 'selected' : '' }}>
+                                    free</option>
+                                <option value="paid"
+                                    {{ old('membership_type', isset($item) ? $item->membership_type : '') == 'paid' ? 'selected' : '' }}>
+                                    paid</option>
+
                             </select>
 
                             @error('membership_type')
@@ -225,5 +221,23 @@
             }
             return true;
         }
+
+        $('#EditUser').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget); // Button that triggered the modal
+            var item = button.data('item'); // Extract info from data-* attributes
+            var modal = $(this);
+
+            modal.find('.modal-title').text('Edit User');
+            modal.find('.modal-body #editUsername').val(item.username);
+            modal.find('.modal-body #editEmail').val(item.email);
+            modal.find('.modal-body #editPassword').val(item.password);
+            modal.find('.modal-body #editMember').val(item.password);
+
+            // Update form action with the correct route using item.id
+            var editForm = modal.find('#editUserForm');
+            var actionUrl = "{{ route('User.update', ':id') }}";
+            actionUrl = actionUrl.replace(':id', item.id);
+            editForm.attr('action', actionUrl);
+        });
     </script>
 @endsection

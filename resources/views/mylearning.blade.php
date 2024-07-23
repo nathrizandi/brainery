@@ -30,6 +30,7 @@
                     </div>
                 </ul>
             </div>
+
             <div class="tab-content" id="ex1-content">
                 {{-- course --}}
                 <div class="tab-pane fade show active" id="ex1-tabs-1" role="tabpanel" aria-labelledby="ex1-tab-1">
@@ -42,12 +43,12 @@
                                         <div class="col-3 myLearning-card">
                                             <a href="{{ route('courseMaterial', $item->course_id) }}"
                                                 style="text-decoration: none; color: inherit; display: block">
-                                                <div class="card d-flex justify-content-center">
+                                                <div class="card" style="height: 45vh">
                                                     <div class="card-properties">
                                                         <div class="card-image overlay1">
-                                                            <img class="card-img-top" src='{{ $item->image }}'    
+                                                            <img class="card-img-top" src='{{ $item->image }}'
                                                                 style="width: 100%">
-                                                                
+
                                                         </div>
                                                         <div class="card-body">
                                                             {{-- <h2 class="card-title">Docker Bootcamp: Conquer Docker with Real-World Projects</h3> --}}
@@ -86,8 +87,7 @@
                                                 <div class="card d-flex justifpy-content-center">
                                                     <div class="card-properties">
                                                         <div class="card_img overlay1">
-                                                            <img class="card-img-top"
-                                                                src='{{ $item->image}}'
+                                                            <img class="card-img-top" src='{{ $item->image }}'
                                                                 style="width: 100%">
                                                         </div>
                                                         <div class="card-body d-flex flex-column justify-content-between">
