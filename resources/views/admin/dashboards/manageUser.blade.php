@@ -34,7 +34,8 @@
                                 <div class="d-flex flex-row justify-content-between btn-group py-2 gap-2" role="group"
                                     aria-label="Action">
                                     <button type="button" class="btn btn-sm btn-edit" data-bs-toggle="modal"
-                                        data-bs-target="#EditUser">EDIT</button>
+                                        data-bs-target="#EditUser"
+                                        onclick="window.location='{{ route('User.edit', $item->id) }}">EDIT</button>
                                     <form onsubmit="return confirm('Apakah Anda Yakin ?');"
                                         action="{{ route('User.delete', $item->id) }}" method="POST">
                                         @csrf
@@ -63,6 +64,7 @@
             <div class="modal-content px-3 py-1">
                 <div class="modal-header">
                     <h3 class="modal-title" id="CreateUserLabel">Create User</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <!-- Content -->
@@ -143,14 +145,13 @@
                 </div>
                 <div class="modal-body">
                     <!-- Content -->
-                    <form action="{{ route('User.edit', $user->id) }}" method="POST" enctype="multipart/form-data">
+                    <form action="" method="POST" enctype="multipart/form-data">
                         <!-- token form -->
                         @csrf
                         @method('PUT')
                         <div class="mb-3">
                             <label for="username">Username</label>
-                            <input type="text" name="username" id="username"
-                                value="{{ old('username', $user->username) }}"
+                            <input type="text" name="username" id="username" value="{{ old('username') }}"
                                 class="form-control @error('username') is-invalid @enderror" required>
                             <!-- error message -->
                             @error('username')
@@ -163,8 +164,7 @@
 
                         <div class="mb-3">
                             <label for="email">User Email</label>
-                            <input type="text" name="email" id="email"
-                                value="{{ old('email', $user->email) }}"
+                            <input type="text" name="email" id="email" value="{{ old('email') }}"
                                 class="form-control @error('email') is-invalid @enderror" required>
                             <!-- error message -->
                             @error('email')
@@ -176,8 +176,7 @@
 
                         <div class="mb-3">
                             <label for="password" class="form-label">User Password</label>
-                            <input type="password" name="password" id="password"
-                                value="{{ old('password', $user->password) }}"
+                            <input type="password" name="password" id="password" value="{{ old('password') }}"
                                 class="form-control @error('password') is-invalid @enderror" disabled>
                             <!-- error message -->
                             @error('password')
@@ -210,7 +209,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Create</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
                 </div>
                 </form>
             </div>
