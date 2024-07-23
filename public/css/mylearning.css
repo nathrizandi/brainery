@@ -13,7 +13,8 @@
 }
 
 .card-title {
-    margin-bottom: 10px; /* Add some space between the title and the rest of the content */
+    margin-bottom: 10px;
+    /* Add some space between the title and the rest of the content */
 }
 
 .card-writer {
@@ -24,20 +25,19 @@
     margin-top: 10px;
 }
 
-.card-img {
-    width: 100%;
-    height: auto;
-}
-
 .myLearning-card {
-    margin-bottom: 20px; /* Add some space between the cards */
+    margin-bottom: 20px;
+    /* Add some space between the cards */
 }
 
 .my-learning-wrapper {
-    padding-top: 20px; /* Sesuaikan nilai ini sesuai kebutuhan */
+    padding-top: 20px;
+    /* Sesuaikan nilai ini sesuai kebutuhan */
 }
 
 .my-learning h1 {
-    margin-top: 0; /* Menghapus margin atas jika ada */
-    padding-top: 0; /* Menghapus padding atas jika ada */
+    margin-top: 0;
+    /* Menghapus margin atas jika ada */
+    padding-top: 0;
+    /* Menghapus padding atas jika ada */
 }

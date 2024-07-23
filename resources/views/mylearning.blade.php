@@ -44,10 +44,10 @@
                                                 style="text-decoration: none; color: inherit; display: block">
                                                 <div class="card d-flex justify-content-center">
                                                     <div class="card-properties">
-                                                        <div class="card_img overlay1">
-                                                            <img class="card-image"
-                                                                src='https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/course2.jpg?raw=true'
-                                                                style="width: 15.6vw">
+                                                        <div class="card-image overlay1">
+                                                            <img class="card-img-top" src='{{ $item->image }}'    
+                                                                style="width: 100%">
+                                                                
                                                         </div>
                                                         <div class="card-body">
                                                             {{-- <h2 class="card-title">Docker Bootcamp: Conquer Docker with Real-World Projects</h3> --}}
@@ -86,8 +86,8 @@
                                                 <div class="card d-flex justifpy-content-center">
                                                     <div class="card-properties">
                                                         <div class="card_img overlay1">
-                                                            <img class="card-image"
-                                                                src='https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/course2.jpg?raw=true'
+                                                            <img class="card-img-top"
+                                                                src='{{ $item->image}}'
                                                                 style="width: 100%">
                                                         </div>
                                                         <div class="card-body d-flex flex-column justify-content-between">
