@@ -67,7 +67,7 @@ Route::prefix('course')->group(function () {
     Route::get('/media/{id}', [CourseMaterialDetailController::class, 'courseMedia'])->name('courseMedia');
 });
 
-Route::get('/mylearning', [OwnCourseController::class, 'myLearning']);
+Route::get('/mylearning', [OwnCourseController::class, 'myLearning'])->name('myLearning');
 
 
 Route::prefix('admin')->group(function () {

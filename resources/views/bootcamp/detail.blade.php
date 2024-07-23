@@ -27,7 +27,7 @@
                 {{$bootcampDetail->description}}
             </p>
             @if (Auth::check())
-                <a href="#" class="btn mt-3" style="background-color: #F76D3B; color: white;">Join Bootcamp</a>
+                <a href="{{route('myLearning')}}" class="btn mt-3" style="background-color: #F76D3B; color: white;">Join Bootcamp</a>
             @else
                 <a href="{{route('loginView')}}" class="btn mt-3" style="background-color: #F76D3B; color: white;">Join Bootcamp</a>
             @endif
@@ -64,19 +64,24 @@
         <div class="recommended mt-5">
             <h3>Recommended Bootcamp</h3>
             <div class="row row-cols-1 row-cols-md-4 g-4">
-                @for ($i=0; $i<4; $i++) 
-                    <div class="col">
-                      <div class="card h-80">
-                        <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/course2.jpg?raw=true" class="card-img-top" alt="...">
+                {{-- @for ($i=0; $i<4; $i++)  --}}
+                @foreach ($bootcampListDetail as $item)
+                    
+                <div class="col">
+                    <div class="card h-80">
+                        <a href="{{route('bootcampDetail', $item->id)}}" style="text-decoration: none; color: inherit; display: block">
+                        <img src="{{asset($item->bootImage)}}" class="card-img-top" alt="...">
                         <div class="card-body" style="display: flex; align-items: center; justify-content: space-between;">
-                            <h3 class="card-title" style="margin: 0">Digital Business Training</h3>
+                            <h3 class="card-title" style="margin: 0">{{$item->title}}</h3>
                             <div class="ms-auto">
-                                <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/logo/sunib.png?raw=true" style="width: 3.5vw" class="me-2">
+                                <img src="{{asset($item->pubImage)}}" style="width: 3.5vw" class="me-2">
                             </div>
                         </div>
-                      </div>
+                        </a>
                     </div>
-                @endfor
+                </div>
+                @endforeach
+                {{-- @endfor --}}
               </div>
               <a href="/bootcamp/list" class="btn mt-4" style="background-color: #F76D3B; color: white;">View More</a>
         </div>
