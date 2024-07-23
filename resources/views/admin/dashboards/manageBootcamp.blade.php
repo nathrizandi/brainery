@@ -7,17 +7,21 @@
 @section('Content')
     <div class="card w-100 px-3">
         <div class="card-header d-flex justify-content-between pt-4 fs-5 fw-bold">
-            Total Bootcamp
+            Total Bootcamp ({{ $count }})
             <button href="#" class="btn btn-primary btn-trash px-3"><i class="bi bi-trash"></i> Trash</button>
         </div>
-        <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        </div>
-        <div class="card-footer pb-4">
-            <button type="button" class="btn btn-primary px-3" data-bs-toggle="modal" data-bs-target="#EditBootcamp">Edit</button>
-            <button type="button" class="btn btn-primary px-3" data-bs-toggle="modal" data-bs-target="#DeleteAlert">Delete</button>
-        </div>
+        @forelse ($bootcamps as $item) 
+            <div class="card-body">
+                <h5 class="card-title">{{ $item->title }}</h5>
+                <p class="card-text">Publisher: {{ $item->publisher_name }}</p>
+            </div>
+            <div class="card-footer pb-4">
+                <button type="button" class="btn btn-primary px-3" data-bs-toggle="modal" data-bs-target="#EditBootcamp">Edit</button>
+                <button type="button" class="btn btn-primary px-3" data-bs-toggle="modal" data-bs-target="#DeleteAlert">Delete</button>
+            </div>
+        @empty 
+        
+        @endforelse
     </div>
 
     <!-- Modal -->
@@ -30,7 +34,7 @@
             </div>
             <div class="modal-body">
             <!-- Content -->
-
+                <p>tes</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
