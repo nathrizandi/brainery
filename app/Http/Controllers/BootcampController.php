@@ -38,12 +38,17 @@ class BootcampController extends Controller
             "bootcamps.title as bootTitle",
             "bootcamps.description as description",
             "bootcamps.start_time as startTime",
-            "bootcamps.duration", // Select duration as well
+            "bootcamps.duration", 
             "speakers.image as spkImage",
             "speakers.nama as spkName"
         )
         ->where("bootcamps.id", $id)
-        ->first(); // Use first() to get a single result
+        ->first(); 
+
+        $bootcampListDetail = Bootcamp::join("publishers", "publishers.id", "=", "bootcamps.publisher_id")
+        ->select(["bootcamps.id", "publishers.image as pubImage", "bootcamps.title", "bootcamps.image as bootImage"])
+        ->limit(4)
+        ->get();
 
         if ($bootcampDetail) {
             try {
@@ -58,7 +63,7 @@ class BootcampController extends Controller
                 // For debugging
                 // dd($bootcampDetail);
 
-                return view("bootcamp.detail", compact("bootcampDetail", "formattedStartTime", "formattedEndTime"));
+                return view("bootcamp.detail", compact("bootcampDetail", "formattedStartTime", "formattedEndTime", "bootcampListDetail"));
             } catch (\Exception $e) {
                 dd('Error parsing time: ' . $e->getMessage());
             }
