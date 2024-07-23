@@ -14,7 +14,6 @@ class AdminUserController extends Controller
     public function index()
     {
         $users = User::paginate(10);
-
         $count = count($users);
 
         return view("admin.dashboards.manageUser", compact("users", "count"));
@@ -35,7 +34,6 @@ class AdminUserController extends Controller
     {
         $rules = [
             "username" => "required",
-            // "courseDesc" => "required|string|min:3|max:255",
             "email" => "required",
             "password" => "required",
             "membership_type" => "required",
@@ -81,9 +79,12 @@ class AdminUserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $user)
+    public function edit($id)
     {
-        //
+
+        $user = User::findOrFail($id);
+        dd($user);
+        return view('admin.dashboards.editUser', $user);
     }
 
     /**
@@ -91,14 +92,44 @@ class AdminUserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $rules = [
+            "username" => "required",
+            "email" => "required",
+            "password" => "required",
+            "membership_type" => "required",
+        ];
+
+        $message = [
+            'required' => ':attribute has to be filled',
+            'min' => ':attribute must have at least :min character',
+            'max' => ':attribute maximum character is :max',
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $message);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withInput()
+                ->withErrors($validator)
+                ->with('danger', 'Make sure all fields are filled!');
+        } else {
+            $user->username->$request->username;
+            $user->email->$request->email;
+            $user->membership_type->$request->membership_type;
+            $user->save();
+
+            return redirect()->intended(route('User'));
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        return redirect()->route('User')->with('success', 'User Has Been Deleted');
     }
 }
