@@ -25,8 +25,15 @@
                 <p class="course-view-decs mb-4" style="width: 1000px; text-align: justify">
                     {{$item->description}}
                 </p>
-                
-                <a class="btn btn-dark" href="{{route("courseMaterial", $item->id)}}" role="button">Start Enroll</a>
+                @if (Auth::check())
+                    @if (Auth::user()->membership_type == 'free')
+                        <a class="btn btn-dark" href="{{route('subs')}}" role="button">Start Enroll</a>
+                    @else
+                        <a class="btn btn-dark" href="{{route('courseMaterial', $item->id)}}" role="button">Start Enroll</a>
+                    @endif
+                @else
+                    <a class="btn btn-dark" href="{{route('loginView')}}" role="button">Start Enroll</a>
+                @endif
             </div>
 
         </div>

@@ -59,7 +59,7 @@ Route::prefix('/profile')->group(function () {
 });
 
 Route::prefix('course')->group(function () {
-    Route::get('/subs', [SubscriptionController::class, 'getSubs']);
+    Route::get('/subs', [SubscriptionController::class, 'getSubs'])->name('subs');
     Route::get('/menu', [CourseController::class, 'courseMenu']);
     Route::get('/list', [CourseController::class, 'courseList']);
     Route::get('/view/{id}', [CourseController::class, 'courseView'])->name('courseView');
