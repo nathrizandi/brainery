@@ -13,7 +13,7 @@
     </div>
 
     <div class="row justify-content-center text-center mt-4">
-        <a href="#" type="button" class="btn"
+        <a href="course/menu" type="button" class="btn"
             style="width: 25%; height: 15%; font-weight: bold; background-color: #F76D3B; color: white">View Course List</a>
     </div>
 
