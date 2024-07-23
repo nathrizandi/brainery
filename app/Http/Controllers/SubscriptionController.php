@@ -43,6 +43,7 @@ class SubscriptionController extends Controller
         $params = [
             'transaction_details' => [
                 'order_id' => 'ORDER-'.time().'-'.$id,
+                'payment_id' => $id,
                 'gross_amount' => $price,
             ],
             'customer_details' => [
@@ -62,9 +63,15 @@ class SubscriptionController extends Controller
 
         $payment = Payment::find($request->payment_id);
 
-        $payment->status = 'paid';
-        $payment->save();
+        if ($payment) {
+            $payment->status = 'paid';
+            $payment->save();
 
+            // Update user membership_type to 'paid'
+            $user = User::find($payment->user_id);
+            $user->membership_type = 'paid';
+            $user->save();
+        }
         return response()->json(['message' => 'Payment status updated', 'status' => 'success'], 200);
     }
 
