@@ -36,6 +36,7 @@ Route::prefix('bootcamp')->group(function () {
     Route::get('/menu', [BootcampController::class, 'bootcampMenu']);
     Route::get('/list', [BootcampController::class, 'bootcampList']);
     Route::get('/detail/{id}', [BootcampController::class, 'bootcampDetail'])->name('bootcampDetail');
+    Route::post('/join/{id}', [BootcampController::class, 'joinBootcamp'])->name('joinBootcamp');
 });
 
 Route::post('/checkout', [SubscriptionController::class, 'checkoutSubs'])->name('checkout');
@@ -65,6 +66,7 @@ Route::prefix('course')->group(function () {
     Route::get('/view/{id}', [CourseController::class, 'courseView'])->name('courseView');
     Route::get('/detail/{id}', [CourseMaterialController::class, 'courseMaterial'])->name('courseMaterial');
     Route::get('/media/{id}', [CourseMaterialDetailController::class, 'courseMedia'])->name('courseMedia');
+    Route::post('/course/join/{id}', [CourseController::class, 'joinCourse'])->name('joinCourse');
 });
 
 Route::get('/mylearning', [OwnCourseController::class, 'myLearning'])->name('myLearning');

@@ -27,9 +27,12 @@
                 {{$bootcampDetail->description}}
             </p>
             @if (Auth::check())
-                <a href="{{route('myLearning')}}" class="btn mt-3" style="background-color: #F76D3B; color: white;">Join Bootcamp</a>
+                <form action="{{ route('joinBootcamp', $bootcampDetail->id) }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn mt-3" style="background-color: #F76D3B; color: white;">Join Bootcamp</button>
+                </form>
             @else
-                <a href="{{route('loginView')}}" class="btn mt-3" style="background-color: #F76D3B; color: white;">Join Bootcamp</a>
+                <a href="{{ route('loginView') }}" class="btn mt-3" style="background-color: #F76D3B; color: white;">Join Bootcamp</a>
             @endif
         </div>
         <div class="detailcard col-md-4">
@@ -47,7 +50,6 @@
                 Speakers of this Bootcamp
             </h3>
             <div class="row row-cols-1 row-cols-md-3 g-4">
-                {{-- @for ($i=0; $i<3; $i++)  --}}
                 <div class="col">
                     <div class="user">
                         <div class="user-image" style="text-align: center">
@@ -58,15 +60,12 @@
                         </div>
                     </div>
                 </div>
-                {{-- @endfor --}}
             </div>
         </div>
         <div class="recommended mt-5">
             <h3>Recommended Bootcamp</h3>
             <div class="row row-cols-1 row-cols-md-4 g-4">
-                {{-- @for ($i=0; $i<4; $i++)  --}}
                 @foreach ($bootcampListDetail as $item)
-                    
                 <div class="col">
                     <div class="card h-80">
                         <a href="{{route('bootcampDetail', $item->id)}}" style="text-decoration: none; color: inherit; display: block">
@@ -81,7 +80,6 @@
                     </div>
                 </div>
                 @endforeach
-                {{-- @endfor --}}
               </div>
               <a href="/bootcamp/list" class="btn mt-4" style="background-color: #F76D3B; color: white;">View More</a>
         </div>

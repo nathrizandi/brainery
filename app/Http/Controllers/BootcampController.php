@@ -7,7 +7,8 @@ use App\Models\Bootcamp;
 use App\Models\Publisher;
 use App\Models\Speaker;
 use Carbon\Carbon;
-
+use App\Models\OwnBootcamp; 
+use Illuminate\Support\Facades\Auth;
 
 class BootcampController extends Controller
 {
@@ -34,6 +35,7 @@ class BootcampController extends Controller
             "publishers.nama as pubName",
             "publishers.image as pubImage",
             "bootcamps.image as bootImage", 
+            "bootcamps.id", 
             "bootcamps.date as date",
             "bootcamps.title as bootTitle",
             "bootcamps.description as description",
@@ -72,5 +74,30 @@ class BootcampController extends Controller
             abort(404, 'Bootcamp not found');
         }
 
+    }
+
+    public function joinBootcamp($id) {
+        // Ensure the user is authenticated
+        if (Auth::check()) {
+            // Get the current authenticated user
+            $user = Auth::user();
+            
+            // Check if the user already owns the bootcamp
+            $existingEntry = OwnBootcamp::where('user_id', $user->id)->where('bootcamp_id', $id)->first();
+
+            if (!$existingEntry) {
+                // Store the bootcamp_id into the own_bootcamps table
+                $ownBootcamp = new OwnBootcamp();
+                $ownBootcamp->user_id = $user->id;
+                $ownBootcamp->bootcamp_id = $id;
+                $ownBootcamp->save();
+
+                return redirect()->route('myLearning')->with('success', 'Successfully joined the bootcamp!');
+            } else {
+                return redirect()->route('bootcampDetail', $id)->with('error', 'You have already joined this bootcamp.');
+            }
+        } else {
+            return redirect()->route('loginView')->with('error', 'You need to be logged in to join the bootcamp.');
+        }
     }
 }
