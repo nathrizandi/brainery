@@ -31,7 +31,8 @@ class OwnCourseController extends Controller
 
         $myLearningBootcamp = OwnBootcamp::join('users', 'own_bootcamps.user_id', '=', 'users.id')
             ->join('bootcamps', 'own_bootcamps.bootcamp_id', '=', 'bootcamps.id')
-            ->select('bootcamps.id', 'bootcamps.title', 'bootcamps.date', 'bootcamps.image')
+            ->join('publishers', 'publishers.id', '=', 'bootcamps.publisher_id')
+            ->select('bootcamps.id', 'bootcamps.title', 'bootcamps.date', 'bootcamps.image', 'publishers.image as pubImage')
             ->where('own_bootcamps.user_id', '=', $user->id)
             ->get();
 

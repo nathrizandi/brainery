@@ -57,7 +57,7 @@
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapse{{ $i }}" aria-expanded="false"
                                 aria-controls="collapse{{ $i }}">
-                                Week {{ $i }} 
+                                Session {{ $i }} 
                             </button>
                         </h2>
                         <div id="collapse{{ $i }}" class="accordion-collapse collapse"
@@ -81,7 +81,7 @@
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapse{{ $i }}" aria-expanded="false"
                                 aria-controls="collapse{{ $i }}">
-                                Week {{ $i }} 
+                                Session {{ $i }} 
                             </button>
                         </h2>
                         <div id="collapse{{ $i }}" class="accordion-collapse collapse"
@@ -105,7 +105,7 @@
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapse{{ $i }}" aria-expanded="false"
                                 aria-controls="collapse{{ $i }}">
-                                Week {{ $i }} 
+                                Session {{ $i }} 
                             </button>
                         </h2>
                         <div id="collapse{{ $i }}" class="accordion-collapse collapse"
@@ -128,7 +128,7 @@
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapse{{ $i }}" aria-expanded="false"
                                 aria-controls="collapse{{ $i }}">
-                                Week {{ $i }} 
+                                Session {{ $i }} 
                             </button>
                         </h2>
                         <div id="collapse{{ $i }}" class="accordion-collapse collapse"
@@ -151,12 +151,12 @@
                             <p>
                                 <h2>About this Course</h2>
                                 <ul>
-                                    @foreach ($courseWeek as $item)
+                                    {{-- @foreach ($courseWeek as $item)
                                     <li>
                                         {{$item->desc}}
                                     </li>
                                         
-                                    @endforeach
+                                    @endforeach --}}
                                 </ul>
                                 {{$courseMaterial->medDesc}}
                                 
