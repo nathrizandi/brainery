@@ -67,7 +67,7 @@
                 </div>
             </div>
         </a>
-        <a href="#" style="text-decoration: none; color: inherit; display: block">
+    <a href="{{route('myLearning')}}" style="text-decoration: none; color: inherit; display: block">
             <div class="row">
                 <div class="col-1">
                     <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/icon/course.png?raw=true" style="width: 0.8vw">

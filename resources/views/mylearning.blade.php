@@ -95,7 +95,7 @@
                                                             <div
                                                                 class="card-footer d-flex justify-content-between align-items-center">
                                                                 <p class="card-writer m-0">{{ $item->formattedDate }}</p>
-                                                                <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/logo/sunib.png?raw=true"
+                                                                <img src="{{$item->pubImage}}"
                                                                     style="width: 2.5vw">
                                                             </div>
                                                         </div>
