@@ -15,6 +15,14 @@ class SpeakerSeeder extends Seeder
     public function run(): void
     {
         //
-        Speaker::factory(20)->create();
+        Speaker::factory()->create([
+            "nama" => "Joeliardo Gerald Leviothinel",
+            "image" => "speaker-joel.png"
+        ]);
+        Speaker::factory()->create([
+            "nama" => "Dexter Valerian Krisnadhi",
+            "image" => "speaker-joel.png"
+        ]);
+        Speaker::factory(8)->create();
     }
 }

@@ -26,7 +26,7 @@
             </div>
             <div class="col-9" style=" background: #FEF8F3">
                 <!-- CONTENT -->
-                <div class="d-flex justify-content-start py-3 px-3">
+                <div class="d-flex justify-content-start py-4 px-3">
                     @yield('Content')
                 </div>
             </div>
