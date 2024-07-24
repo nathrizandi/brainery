@@ -293,7 +293,7 @@
             </div>
             <div class="modal-body">
             <!-- Content -->
-                <form action="" method="POST" enctype="multipart/form-data">
+                <form id="editCourseForm" action="{{ route('Course.update', 'cId') }}" method="POST" enctype="multipart/form-data">
                     <!-- token form -->
                     @csrf
                     @method("PUT")
@@ -350,6 +350,7 @@
                     <div class="d-flex flex-column">
                         <h6>Week 1</h6>
                         <div class="d-flex flex-column">
+                            <input type="text" name="courseWeek1Id" id="courseWeek1Id" value="" hidden readonly>
                             <div class="mb-3">
                                 <label for="courseWeek1TitleEdit">Title</label>
                                 <input type="text" name="courseWeek1TitleEdit" id="courseWeek1TitleEdit" value="{{ old('courseWeek1TitleEdit') }}" class="form-control @error('courseWeek1TitleEdit') is-invalid @enderror" required>
@@ -387,6 +388,7 @@
                     <div class="d-flex flex-column">
                         <h6>Week 2</h6>
                         <div class="d-flex flex-column">
+                            <input type="text" name="courseWeek2Id" id="courseWeek2Id" value="" hidden readonly>
                             <div class="mb-3">
                                 <label for="courseWeek2TitleEdit">Title</label>
                                 <input type="text" name="courseWeek2TitleEdit" id="courseWeek2TitleEdit" value="{{ old('courseWeek2TitleEdit') }}" class="form-control @error('courseWeek2TitleEdit') is-invalid @enderror" required>
@@ -424,6 +426,7 @@
                     <div class="d-flex flex-column">
                         <h6>Week 3</h6>
                         <div class="d-flex flex-column">
+                            <input type="text" name="courseWeek3Id" id="courseWeek3Id" value="" hidden readonly>
                             <div class="mb-3">
                                 <label for="courseWeek3TitleEdit">Title</label>
                                 <input type="text" name="courseWeek3TitleEdit" id="courseWeek3TitleEdit" value="{{ old('courseWeek3TitleEdit') }}" class="form-control @error('courseWeek3TitleEdit') is-invalid @enderror" required>
@@ -461,6 +464,7 @@
                     <div class="d-flex flex-column">
                         <h6>Week 4</h6>
                         <div class="d-flex flex-column">
+                            <input type="text" name="courseWeek4Id" id="courseWeek4Id" value="" hidden readonly>
                             <div class="mb-3">
                                 <label for="courseWeek4TitleEdit">Title</label>
                                 <input type="text" name="courseWeek4TitleEdit" id="courseWeek4TitleEdit" value="{{ old('courseWeek4TitleEdit') }}" class="form-control @error('courseWeek4TitleEdit') is-invalid @enderror" required>

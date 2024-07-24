@@ -66,36 +66,39 @@ class AdminCourseController extends Controller
     public function store(Request $request){
         $rules = [
             "courseName" => "required",
-            "courseDesc" => "required|string|min:3|max:255",
+            "courseDesc" => "required|string",
             "speakers" => "required",
             // "courseImage" => "required|mimes:jpg,png,jpeg,gif:max:2048",
             "courseImage" => "required",
             "courseWeek1Title" => "required",
             "courseWeek1Video" => "required",
-            "courseWeek1Desc" => "required|string|min:3|max:255",
+            "courseWeek1Desc" => "required|string",
             "courseWeek2Title" => "required",
             "courseWeek2Video" => "required",
-            "courseWeek2Desc" => "required|string|min:3|max:255",
+            "courseWeek2Desc" => "required|string",
             "courseWeek3Title" => "required",
             "courseWeek3Video" => "required",
-            "courseWeek3Desc" => "required|string|min:3|max:255",
+            "courseWeek3Desc" => "required|string",
             "courseWeek4Title" => "required",
             "courseWeek4Video" => "required",
-            "courseWeek4Desc" => "required|string|min:3|max:255",
+            "courseWeek4Desc" => "required|string",
         ];
 
         $message = [
             'required' => ':attribute has to be filled',
-            'min' => ':attribute must have at least :min character',
-            'max' => ':attribute maximum character is :max',
+            // 'min' => ':attribute must have at least :min character',
+            // 'max' => ':attribute maximum character is :max',
             // 'courseImage.image' => ':attribute must be an image file',
             // 'courseImage.mimes' => ':attribute must be in these formats: jpg, png, jpeg, gif',
             // 'courseImage.max' => ':attribute cannot be greater than 2 MB'
         ];
 
         $validator = Validator::make($request->all(), $rules, $message);
+        // Log::info($request->all());
 
         if($validator->fails()) {
+            // Log::error($validator->errors());
+
             return redirect()->back()
             ->withInput()
             ->withErrors($validator)
@@ -128,31 +131,35 @@ class AdminCourseController extends Controller
         };
     }
 
-    public function update(Request $request, Course $course, CourseMaterial $courseMaterial, CourseMaterialDetail $courseMaterialDetail){
+    public function update(Request $request, $cId){
         $rules = [
-            "courseName" => "required",
-            "courseDesc" => "required|string|min:3|max:255",
-            "speakers" => "required",
+            "courseNameEdit" => "required",
+            "courseDescEdit" => "required|string",
+            "speakersEdit" => "required",
             // "courseImage" => "required|mimes:jpg,png,jpeg,gif:max:2048",
-            "courseImage" => "required",
-            "courseWeek1Title" => "required",
-            "courseWeek1Video" => "required",
-            "courseWeek1Desc" => "required|string|min:3|max:255",
-            "courseWeek2Title" => "required",
-            "courseWeek2Video" => "required",
-            "courseWeek2Desc" => "required|string|min:3|max:255",
-            "courseWeek3Title" => "required",
-            "courseWeek3Video" => "required",
-            "courseWeek3Desc" => "required|string|min:3|max:255",
-            "courseWeek4Title" => "required",
-            "courseWeek4Video" => "required",
-            "courseWeek4Desc" => "required|string|min:3|max:255",
+            "courseImageEdit" => "required",
+            "courseWeek1Id" => "required",
+            "courseWeek1TitleEdit" => "required",
+            "courseWeek1VideoEdit" => "required",
+            "courseWeek1DescEdit" => "required|string",
+            "courseWeek2Id" => "required",
+            "courseWeek2TitleEdit" => "required",
+            "courseWeek2VideoEdit" => "required",
+            "courseWeek2DescEdit" => "required|string",
+            "courseWeek3Id" => "required",
+            "courseWeek3TitleEdit" => "required",
+            "courseWeek3VideoEdit" => "required",
+            "courseWeek3DescEdit" => "required|string",
+            "courseWeek4Id" => "required",
+            "courseWeek4TitleEdit" => "required",
+            "courseWeek4VideoEdit" => "required",
+            "courseWeek4DescEdit" => "required|string",
         ];
 
         $message = [
             'required' => ':attribute has to be filled',
-            'min' => ':attribute must have at least :min character',
-            'max' => ':attribute maximum character is :max',
+            // 'min' => ':attribute must have at least :min character',
+            // 'max' => ':attribute maximum character is :max',
             // 'courseImage.image' => ':attribute must be an image file',
             // 'courseImage.mimes' => ':attribute must be in these formats: jpg, png, jpeg, gif',
             // 'courseImage.max' => ':attribute cannot be greater than 2 MB'
@@ -161,24 +168,28 @@ class AdminCourseController extends Controller
         $validator = Validator::make($request->all(), $rules, $message);
 
         if($validator->fails()) {
+            Log::error($validator->errors());
             return redirect()->back()
             ->withInput()
             ->withErrors($validator)
             ->with('danger', 'Make sure all fields are filled!');
         } else {
-            $course->title = $request->courseName;
-            $course->image = $request->courseImage;
-            $course->speaker_id = $request->speakers;
-            $course->description = $request->courseDesc;
+            Log::alert("success");
+            $course = Course::findOrFail($cId);
+            $course->title = $request->courseNameEdit;
+            $course->image = $request->courseImageEdit;
+            $course->speaker_id = $request->speakersEdit;
+            $course->description = $request->courseDescEdit;
+            $course->save();
 
             for($i = 1; $i <= 4; $i++){
-                $courseMaterialDetail->title = $request->input('courseWeek'.$i.'Title');
-                $courseMaterialDetail->video = $request->input('courseWeek'.$i.'Video');
-                $courseMaterialDetail->description = $request->input('courseWeek'.$i.'Desc');
+                $courseMaterialDetail = CourseMaterialDetail::findorFail($request->input('courseWeek'.$i.'Id'));
+                $courseMaterialDetail->title = $request->input('courseWeek'.$i.'TitleEdit');
+                $courseMaterialDetail->video = $request->input('courseWeek'.$i.'VideoEdit');
+                $courseMaterialDetail->description = $request->input('courseWeek'.$i.'DescEdit');
+                $courseMaterialDetail->save();
             };
 
-            $course->save();
-            $courseMaterialDetail->save();
             return redirect()->intended(route('Course'));
         }
     }
