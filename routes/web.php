@@ -47,16 +47,12 @@ Route::get('/checkout-success', [SubscriptionController::class, 'checkoutSuccess
 Route::get('/search-result', [CourseController::class, 'search'])->name('search');
 
 Route::prefix('/profile')->group(function () {
-    Route::get('/manage', function () {
-        return view('profile.manage');
-    });
+    Route::get('/manage', [UserController::class, 'manage'])->name('manage');
     Route::get('/edit', [UserController::class, 'edit'])->name('profile.edit');
     Route::post('/edit/change-username', [UserController::class, 'changeUsername'])->name('changeUsername');
     Route::post('/edit/change-password', [UserController::class, 'changePassword'])->name('changePassword');
     Route::post('/edit/change-email', [UserController::class, 'changeEmail'])->name('changeEmail');
-    Route::get('/certificate', function () {
-        return view('profile.certificate');
-    });
+    Route::get('/certificate', [UserController::class, 'certificate'])->name('certificate');
 });
 
 Route::prefix('course')->group(function () {
