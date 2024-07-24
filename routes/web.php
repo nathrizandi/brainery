@@ -69,10 +69,14 @@ Route::get('/mylearning', [OwnCourseController::class, 'myLearning'])->name('myL
 
 
 Route::prefix('admin')->group(function () {
-    Route::get("/login", [AdminController::class, "login"])->name("AdminLogin");
+    Route::get("/login", [AdminController::class, "login"])->name("AdminLoginView");
+    Route::post("/login", [AdminController::class, "loginAdmin"])->name("AdminLogin");
     Route::get("/home", [AdminController::class, "index"])->name("AdminHome");
     Route::get("/profile", [AdminController::class, "profile"])->name("Profile");
     Route::get("/user", [AdminController::class, "manageUser"])->name("User");
+    Route::post('/profile/change-username', [AdminController::class, 'changeUsername'])->name('admin.changeUsername');
+    Route::post('/profile/change-password', [AdminController::class, 'changePassword'])->name('admin.changePassword');
+    Route::post('/profile/change-email', [AdminController::class, 'changeEmail'])->name('admin.changeEmail');
 
     Route::get("/user", [AdminUserController::class, "index"])->name("User");
     Route::delete("/user/delete-user/{uid}", [AdminUserController::class, "destroy"])->name("User.delete");
