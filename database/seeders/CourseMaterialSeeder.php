@@ -14,6 +14,6 @@ class CourseMaterialSeeder extends Seeder
     public function run(): void
     {
         //
-        CourseMaterial::factory(20)->create();
+        CourseMaterial::factory(24)->create();
     }
 }

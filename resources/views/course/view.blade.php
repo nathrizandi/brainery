@@ -18,7 +18,7 @@
                         <h3 class="course-view-writers mb-3" style="opacity: 70%">by : {{$item->nama}}</h3>
                     </div>
                     <div class="col-6 ratings">
-                        <p>4.8 <i class="fa fa-star rating-color"></i></p>
+                        <p>{{ $item->rating }}<i class="fa fa-star rating-color"></i></p>
                     </div>
                 </div>
                 <p class="course-view-decs mb-4" style="width: 1000px; text-align: justify">

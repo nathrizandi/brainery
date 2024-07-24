@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('speaker_id');
             $table->foreign('speaker_id')->references('id')->on('speakers')->cascadeOnDelete()->cascadeOnUpdate();
             $table->text('description');
+            $table->double('rating');
             $table->timestamps();
         });
     }

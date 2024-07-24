@@ -31,7 +31,7 @@ class CourseController extends Controller
     public function courseView($id)
     {
         $courseView = Course::join("speakers", "courses.speaker_id", "=", "speakers.id")
-            ->select(["courses.id", "courses.image as courseImage", "courses.title", "speakers.nama", "speakers.image as spkImage", "courses.description"])
+            ->select(["courses.id", "courses.image as courseImage", "courses.title", "speakers.nama", "speakers.image as spkImage", "courses.description", "courses.rating"])
             ->where("courses.id", $id)
             ->get();
 

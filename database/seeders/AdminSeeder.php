@@ -18,7 +18,8 @@ class AdminSeeder extends Seeder
         for ($i = 0; $i < 5; $i++){
             Admin::create([
                 "username" => $faker->firstName(),
-                "password" => bcrypt('admin43R')
+                "password" => bcrypt('admin43R'),
+                "email"=> $faker->email,
             ]);
         }
     }
