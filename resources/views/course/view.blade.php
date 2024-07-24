@@ -12,7 +12,6 @@
                 <h1 class="course-view-title">{{$item->title}}</h1>
                 <div class="col course-view-image mt-3 mb-3">
                     <img src="{{asset($item->courseImage)}}" alt="" srcset="">
-                        
                 </div>
                 <div class="row justify-content-between">
                     <div class="col-3">
@@ -29,13 +28,15 @@
                     @if (Auth::user()->membership_type == 'free')
                         <a class="btn btn-dark" href="{{route('subs')}}" role="button">Start Enroll</a>
                     @else
-                        <a class="btn btn-dark" href="{{route('courseMaterial', $item->id)}}" role="button">Start Enroll</a>
+                        <form action="{{ route('joinCourse', ['id' => $item->id]) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-dark" role="button">Start Enroll</button>
+                        </form>
                     @endif
                 @else
                     <a class="btn btn-dark" href="{{route('loginView')}}" role="button">Start Enroll</a>
                 @endif
             </div>
-
         </div>
     </div>
 
@@ -53,18 +54,15 @@
                 </p>
                 </div>
             @endfor
-            
         </div>
         <div class="row">
             <div class="col">
                 <h3 class="gap-3 mb-3" style="font-weight: bold">Skills you'll gain</h3>
                 @for ($i = 0; $i < 4; $i++)
                     <button type="button" class="btn btn-outline-dark">Web programming</button>
-                    @endfor
-
+                @endfor
             </div>
         </div>
     </div>
-
-    @endforeach
+@endforeach
 @endsection
