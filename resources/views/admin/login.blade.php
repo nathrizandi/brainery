@@ -18,20 +18,21 @@
                 <div class="col-md-4 test"></div>
                 <div class="col-md-3 test"></div>
                 <div class="col-md-6 test">
-                    <form>
-                    <div class="mb-1 mt-3">
-                        <label for="inputUsername" class="form-label">Username/Email</label>
-                        <input type="text" class="form-control" id="inputUsername">
-                        <div id="username-error" class="form-text" hidden>Invalid Username/Email!</div>
-                    </div>
-                    <div>
-                        <label for="inputPassword" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="inputPassword">
-                        <div id="password-error" class="form-text" hidden>Invalid Password!</div>
-                    </div>
-                    <div class="d-flex justify-content-center my-5">
-                        <button type="submit" class="btn btn-primary w-100 custom-btn">Login</button>
-                    </div>
+                    <form action="{{ route('AdminLogin') }}" method="POST">
+                        @csrf
+                        <div class="mb-1 mt-3">
+                            <label for="inputUsername" class="form-label">Username/Email</label>
+                            <input type="text" class="form-control" id="inputUsername" name="email">
+                            <div id="username-error" class="form-text" hidden>Invalid Username/Email!</div>
+                        </div>
+                        <div>
+                            <label for="inputPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="inputPassword" name="password">
+                            <div id="password-error" class="form-text" hidden>Invalid Password!</div>
+                        </div>
+                        <div class="d-flex justify-content-center my-5">
+                            <button type="submit" class="btn btn-primary w-100 custom-btn">Login</button>
+                        </div>
                     </form>
                 </div>
                 <div class="col-md-3 test"></div>
