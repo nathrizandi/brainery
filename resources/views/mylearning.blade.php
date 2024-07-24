@@ -38,7 +38,7 @@
                         <div class="myLearning-area">
                             <div class="row myLearning-properties-wrap most-popular d-flex justify-content-center">
                                 <div class="row myLearning-properties all-card">
-                                    {{-- @for ($i = 0; $i < 16; $i++) --}}
+                                    
                                     @foreach ($myLearningCourse as $item)
                                         <div class="col-3 myLearning-card">
                                             <a href="{{ route('courseMaterial', $item->course_id) }}"
@@ -51,13 +51,11 @@
 
                                                         </div>
                                                         <div class="card-body">
-                                                            {{-- <h2 class="card-title">Docker Bootcamp: Conquer Docker with Real-World Projects</h3> --}}
+                                                           
                                                             <h2 class="card-title">{{ $item->title }}</h3>
-                                                                {{-- <p class="card-writer">by : Donald Davidson </p> --}}
+                                                              
                                                                 <p class="card-writer">by : {{ $item->nama }} </p>
-                                                                {{-- <p class="card-description">Containerize Apps, Manage
-                                                                        Microservices, and Deploy to the Cloud with Docker!
-                                                                    </p> --}}
+                                                               
                                                                 <p class="card-description">{{ $item->description }}
                                                                 </p>
                                                         </div>
@@ -79,7 +77,7 @@
                         <div class="myLearning-area">
                             <div class="row myLearning-properties-wrap most-popular d-flex justify-content-center">
                                 <div class="row myLearning-properties all-card">
-                                    {{-- @for ($i = 0; $i < 16; $i++) --}}
+                    
                                     @foreach ($myLearningBootcamp as $item)
                                         <div class="col-3 myLearning-card">
                                             <a href="{{ route('bootcampDetail', $item->id) }}"

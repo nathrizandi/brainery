@@ -22,6 +22,7 @@ Route::get('/home', function () {
 })->name('home');
 
 
+Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 Route::get('/login', [UserController::class, 'loginView'])->name('loginView');
 Route::post('/user/login', [UserController::class, 'login'])->name('UserLogin');
 

@@ -46,6 +46,7 @@
         </div>
 
         {{-- <a href="#" class="login-btn" style="margin-right: 5vh">Login</a> --}}
+        @guest
         <div class="row">
             <div class="col-5">
                 <a href="/login" type="button" class="btn btn-outline btn-sm login-btn">Login</a>
@@ -54,6 +55,12 @@
                 <a href="/register" type="button" class="btn btn-outline btn-sm regist-btn">Register</a>
             </div>
         </div>
+        @else
+        {{-- Tampilan saat sudah login --}}
+        <a href="{{ route('profile.edit') }}">
+            <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/icon/user.png?raw=true" alt="Profile" height="30" class="rounded-circle">
+        </a>
+        @endguest
 
 
     </div>

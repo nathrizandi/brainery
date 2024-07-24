@@ -13,12 +13,12 @@
         <div class="col-9 d-flex flex-row align-content-center">
             <h4 class="ps-3 pe-5 m-0">@yield('NavbarTitle')</h4>
             <ul class="navbar-nav ms-auto me-5 mb-2 mb-lg-0">
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link nav-button" href="#"><i class="bi bi-gear"></i></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link nav-button" href="#"><i class="bi bi-envelope"></i></a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                   <a class="nav-link nav-button @yield('ProfileActive')" aria-current="page" href="profile"><i class="bi bi-person-gear"></i></a>
                 </li>

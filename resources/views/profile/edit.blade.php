@@ -72,6 +72,9 @@
                     {{-- <p>Abrahamjmk48@gmail.com</p> --}}
                     <p>{{ $user->email }}</p>
                     <a href="#" class="btn btn-danger">Delete Account</a>
+                    <div class="">
+                        <a href="{{ route('logout') }}" class="btn btn-danger">Log out</a>
+                    </div>
                 </div>
             </div>
         </div>
