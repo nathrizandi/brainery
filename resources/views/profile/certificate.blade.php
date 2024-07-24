@@ -13,7 +13,7 @@
             <div class="profile-info d-flex align-items-center">
                 <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/icon/user.png?raw=true" alt="Profile Picture">
                 <div>
-                    <h2>Welcome, jmk39</h2>
+                    <h2>Welcome, {{$user->username}}</h2>
                 </div>
             </div>
             <div class="achievements-info d-flex flex-row">

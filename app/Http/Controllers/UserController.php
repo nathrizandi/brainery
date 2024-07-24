@@ -62,6 +62,18 @@ class UserController extends Controller
         return view('profile.edit', compact('user'));
     }
 
+    public function manage(){
+        $user = Auth::user();
+
+        return view('profile.manage', compact('user'));
+    }
+
+    public function certificate(){
+        $user = Auth::user();
+
+        return view('profile.certificate', compact('user'));
+    }
+
     public function changeUsername(Request $request){
         $user = Auth::user();
 
