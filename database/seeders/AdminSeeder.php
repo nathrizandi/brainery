@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Models\Admin;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Faker\Factory as Faker;
 
 class AdminSeeder extends Seeder
 {
@@ -14,13 +13,25 @@ class AdminSeeder extends Seeder
      */
     public function run(): void
     {
-        $faker = Faker::create('en_US');
-        for ($i = 0; $i < 5; $i++){
-            Admin::create([
-                "username" => $faker->firstName(),
-                "password" => bcrypt('admin43R'),
-                "email"=> $faker->email,
-            ]);
-        }
+        Admin::factory()->create([
+            "username" => "Ener",
+            "email"=> "enerindo@gmail.com"
+        ]);
+        Admin::factory()->create([
+            "username" => "Sella",
+            "email"=> "sellaindo@gmail.com"
+        ]);
+        Admin::factory()->create([
+            "username" => "Joel",
+            "email"=> "joelindo@gmail.com"
+        ]);
+        Admin::factory()->create([
+            "username" => "Metiu",
+            "email"=> "metiuindo@gmail.com"
+        ]);
+        Admin::factory()->create([
+            "username" => "Abr",
+            "email"=> "abrindo@gmail.com"
+        ]);
     }
 }
