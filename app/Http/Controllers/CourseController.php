@@ -53,19 +53,20 @@ class CourseController extends Controller
             ->where('courses.title', 'LIKE', "%{$query}%")
             ->orWhere('courses.description', 'LIKE', "%{$query}%")
             ->orWhere('speakers.nama', 'LIKE', "%{$query}%")
-            ->select('courses.title as title', 'courses.description as description', 'speakers.nama as speaker', 'courses.image as images')
+            ->select('courses.id as id', 'courses.title as title', 'courses.description as description', 'speakers.nama as speaker', 'courses.image as images')
             ->get();
 
         return view('search-result', compact('items', 'query'));
         // return view('search-result', );
     }
 
-    public function joinCourse($id) {
+    public function joinCourse($id)
+    {
         // Ensure the user is authenticated
         if (Auth::check()) {
             // Get the current authenticated user
             $user = Auth::user();
-            
+
             // Check if the user already owns the course
             $existingEntry = OwnCourse::where('user_id', $user->id)->where('course_id', $id)->first();
 
