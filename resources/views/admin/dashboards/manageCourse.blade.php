@@ -115,7 +115,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="courseImage">Course Image</label>
-                        <input type="url" id="courseImage" name="courseImage" value="{{ old('courseImage') }}" class="form-control @error('courseImage') is-invalid @enderror" required>
+                        <input type="text" id="courseImage" name="courseImage" value="{{ old('courseImage') }}" class="form-control @error('courseImage') is-invalid @enderror" required>
 
                         <!-- error message untuk password -->
                         @error('courseImage')
@@ -289,7 +289,7 @@
         <div class="modal-dialog modal-dialog-scrollable modal-xl modal-dialog-centered">
         <div class="modal-content px-3 py-1">
             <div class="modal-header">
-            <h1 class="modal-title fs-5" id="EditCourseLabel">Edit Course</h1>
+            <h3 class="modal-title" id="EditCourseLabel">Edit Course</h3>
             </div>
             <div class="modal-body">
             <!-- Content -->
@@ -338,7 +338,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="courseImageEdit">Course Image</label>
-                        <input type="url" id="courseImageEdit" name="courseImageEdit" value="{{ old('courseImageEdit') }}" class="form-control @error('courseImageEdit') is-invalid @enderror" required>
+                        <input type="text" id="courseImageEdit" name="courseImageEdit" value="{{ old('courseImageEdit') }}" class="form-control @error('courseImageEdit') is-invalid @enderror" required>
 
                         @error('courseImageEdit')
                         <div class="invalid-feedback" role="alert">
