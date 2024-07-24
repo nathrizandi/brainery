@@ -69,7 +69,7 @@ Route::get('/mylearning', [OwnCourseController::class, 'myLearning'])->name('myL
 
 
 Route::prefix('admin')->group(function () {
-    // Route::get("/login", [AdminController::class, "login"])->name("AdminLogin");
+    Route::get("/login", [AdminController::class, "login"])->name("AdminLogin");
     Route::get("/home", [AdminController::class, "index"])->name("AdminHome");
     Route::get("/profile", [AdminController::class, "profile"])->name("Profile");
     Route::get("/user", [AdminController::class, "manageUser"])->name("User");

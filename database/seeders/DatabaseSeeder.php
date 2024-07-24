@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Admin;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -20,6 +21,7 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         $this->call([
+            AdminSeeder::class,
             UserSeeder::class,
             SpeakerSeeder::class,
             SubscriptionSeeder::class,
@@ -30,7 +32,7 @@ class DatabaseSeeder extends Seeder
             PublisherSeeder::class,
             BootcampSeeder::class,
             ownCourseSeeder::class,
-            ownBootcampSeeder::class
+            ownBootcampSeeder::class,
         ]);
 
     }

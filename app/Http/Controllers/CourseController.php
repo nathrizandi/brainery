@@ -53,7 +53,7 @@ class CourseController extends Controller
             ->where('courses.title', 'LIKE', "%{$query}%")
             ->orWhere('courses.description', 'LIKE', "%{$query}%")
             ->orWhere('speakers.nama', 'LIKE', "%{$query}%")
-            ->select('courses.title as title', 'courses.description as description', 'speakers.nama as speaker')
+            ->select('courses.title as title', 'courses.description as description', 'speakers.nama as speaker', 'courses.image as images')
             ->get();
 
         return view('search-result', compact('items', 'query'));

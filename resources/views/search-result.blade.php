@@ -14,7 +14,7 @@
             <div class="col-3 mt-3">
                 <a href="#" style="text-decoration: none; color: inherit; display: block">
                     <div class="card shadow-sm" style="width: 18vw; border-radius: 20px">
-                        <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/course2.jpg?raw=true"
+                        <img src={{ $item->images }}
                             class="card-img-top mt-2 align-self-center"
                             style="width: 95%; height: auto; border-radius: 8px;">
                         <div class="card-body">

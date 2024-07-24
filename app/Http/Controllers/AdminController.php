@@ -12,9 +12,8 @@ use App\Models\User;
 
 class AdminController extends Controller
 {
-    //
     public function login(){
-        // return view('admin.login');
+        return view('admin.login');
     }
 
     public function index(){
@@ -34,7 +33,6 @@ class AdminController extends Controller
         $payments = Payment::join("users", "users.id", "=", "payments.user_id")
         ->join("subscriptions", "subscriptions.id", "=", "payments.subscription_id")
         ->select(["payments.id", "users.username", "users.email", "subscriptions.duration", "subscriptions.price", "payments.status", "payments.updated_at as purchase_date"])
-        // ->where("payments.user_id", $id)
         ->paginate(10);
 
         $count = count($payments);
