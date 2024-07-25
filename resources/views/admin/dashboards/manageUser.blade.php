@@ -7,7 +7,7 @@
 @section('Content')
     <div class="card shadow-sm w-100 px-3">
         <div class="card-header d-flex justify-content-between pt-4 fs-5 fw-bold">
-            Total Course ({{ $count }})
+            Total User ({{ $count }})
             <button type="button" class="btn btn-primary px-5" data-bs-toggle="modal"
                 data-bs-target="#CreateUser">Create</button>
         </div>

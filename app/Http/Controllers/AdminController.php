@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\ActionLogged;
 use Illuminate\Http\Request;
 use App\Models\Bootcamp;
 use App\Models\Payment;
@@ -10,16 +11,37 @@ use App\Models\Publisher;
 use App\Models\Subscription;
 use App\Models\User;
 use App\Models\Admin;
+use App\Models\Log;
+use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
-    public function login(){
+    public function loginView(){
+
         return view('admin.login');
     }
 
     public function index(){
-        return view('admin.dashboards.home');
+        $logs = Log::orderBy('created_at', 'desc')->limit(2)->get();
+
+        // Format the log data
+        $formattedLogs = $logs->map(function ($log) {
+            return [
+                'action' => $log->action,
+                'description' => $log->description,
+                'month' => $log->created_at->format('M'), // Month abbreviation, e.g., DEC
+                'date' => $log->created_at->format('d'), // Day of the month, e.g., 30
+                'year' => $log->created_at->format('Y'), // Year, e.g., 2999
+                'time' => $log->created_at->format('h:i A'), // Time, e.g., 00:00 AM
+            ];
+        });
+
+        // Pass the formatted logs to the view using compact
+        return view('admin.dashboards.home', compact('formattedLogs'));
+
     }
 
     public function profile(){
@@ -53,63 +75,228 @@ class AdminController extends Controller
 
     public function loginAdmin(Request $request){
         $incomingFields = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required']
-        ], [
-            'email.required' => 'Email is required.',
-            'email.email' => 'Please enter a valid email address.',
-            'password.required' => 'Password is required.'
+            'email_or_username' => ['required'],
+            'password' => ['required'],
         ]);
 
-        if (Auth::attempt($incomingFields)) {
-            $request->session()->regenerate();
-            return redirect()->intended(route('AdminHome'));
+
+        // Determine if the input is an email or a username
+        $fieldType = filter_var($request->email_or_username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+
+        // dd($fieldType, $incomingFields);
+
+        // Attempt to log in
+        if (Auth::guard('webAdmin')->attempt([$fieldType => $request->email_or_username, 'password' => $request->password])) {
+            return redirect()->intended(route('AdminHome')); // Redirect to intended page after login
         }
 
-        return back()
-            ->withErrors(['email' => 'The provided credentials do not match our records.'])
-            ->withInput();
-    }
-
-    public function changeUsername(Request $request){
-        $admin = Auth::user();
-
-        $incomingFields = $request->validate([
-            'username' => ['required'],
+        throw ValidationException::withMessages([
+            'email_or_username' => [trans('auth.failed')],
         ]);
 
+        // return back()
+        //     ->withErrors(['email' => 'The provided credentials do not match our records.'])
+        //     ->withInput();
+    }
+
+    // public function changeUsername(Request $request){
+    //     $admin = Auth::user();
+
+    //     $incomingFields = $request->validate([
+    //         'username' => ['required'],
+    //     ]);
+
+    //     $admin2 = Admin::findOrFail($admin->id);
+    //     $admin2->username = $request->username;
+    //     $admin2->save();
+
+    //     event(new ActionLogged('Change Username', 'Changes on Admin: ' . $admin2->username));
+
+
+    //     return redirect()->intended(route('admin.profile'));
+    // }
+
+//     public function changePassword(Request $request){
+//         $admin = Auth::user();
+
+//         $incomingFields = $request->validate([
+//             'password' => ['required'],
+//             'confirmPassword' => ['required']
+//         ]);
+
+//         if ($request->password == $request->confirmPassword) {
+//             $admin2 = Admin::findOrFail($admin->id);
+//             $admin2->password = bcrypt($request->password); // Make sure to hash the password
+//             $admin2->save();
+//             event(new ActionLogged('Change Password', 'Changes on Admin: ' . $admin2->username));
+//             return redirect()->intended(route('admin.profile'));
+//         }
+//     }
+
+//     public function changeEmail(Request $request){
+//         $admin = Auth::user();
+
+//         $incomingFields = $request->validate([
+//             'email' => ['required'],
+//         ]);
+
+//         $admin2 = Admin::findOrFail($admin->id);
+//         $admin2->email = $request->email;
+//         $admin2->save();
+//         event(new ActionLogged('Change Email', 'Changes on Admin: ' . $admin2->username));
+//         return redirect()->intended(route('admin.profile'));
+//     }
+
+public function changeUsername(Request $request)
+{
+    $admin = Auth::guard('webAdmin')->user();
+    // dd($admin);
+
+    $incomingFields = $request->validate([
+        'username' => ['required'],
+    ]);
+
+    // Use a database transaction to ensure atomicity
+    DB::beginTransaction();
+
+    try {
         $admin2 = Admin::findOrFail($admin->id);
         $admin2->username = $request->username;
         $admin2->save();
+
+        $action = 'Change Username';
+        $description = 'Changes on Admin: ' . $admin2->username;
+        $now = now();
+
+        // Check if the log entry already exists
+        $logExists = Log::where('action', $action)
+            ->where('description', $description)
+            ->where('created_at', $now->toDateTimeString())
+            ->where('updated_at', $now->toDateTimeString())
+            ->exists();
+
+        if (!$logExists) {
+            // Log the action
+            Log::create([
+                'action' => $action,
+                'description' => $description,
+                'created_at' => $now,
+                'updated_at' => $now,
+            ]);
+        }
+
+        // Commit the transaction
+        DB::commit();
+
         return redirect()->intended(route('admin.profile'));
+    } catch (\Exception $e) {
+        // Rollback the transaction in case of error
+        DB::rollback();
+
+        return redirect()->back()->withErrors('Error changing username: ' . $e->getMessage());
     }
+}
 
-    public function changePassword(Request $request){
-        $admin = Auth::user();
+public function changePassword(Request $request)
+{
+    $admin = Auth::guard('webAdmin')->user();
 
-        $incomingFields = $request->validate([
-            'password' => ['required'],
-            'confirmPassword' => ['required']
-        ]);
+    $incomingFields = $request->validate([
+        'password' => ['required'],
+        'confirmPassword' => ['required']
+    ]);
 
-        if ($request->password == $request->confirmPassword) {
+    if ($request->password == $request->confirmPassword) {
+        // Use a database transaction to ensure atomicity
+        DB::beginTransaction();
+
+        try {
             $admin2 = Admin::findOrFail($admin->id);
             $admin2->password = bcrypt($request->password); // Make sure to hash the password
             $admin2->save();
+
+            $action = 'Change Password';
+            $description = 'Changes on Admin: ' . $admin2->username;
+            $now = now();
+
+            // Check if the log entry already exists
+            $logExists = Log::where('action', $action)
+                ->where('description', $description)
+                ->where('created_at', $now->toDateTimeString())
+                ->where('updated_at', $now->toDateTimeString())
+                ->exists();
+
+            if (!$logExists) {
+                // Log the action
+                Log::create([
+                    'action' => $action,
+                    'description' => $description,
+                    'created_at' => $now,
+                    'updated_at' => $now,
+                ]);
+            }
+
+            // Commit the transaction
+            DB::commit();
+
             return redirect()->intended(route('admin.profile'));
+        } catch (\Exception $e) {
+            // Rollback the transaction in case of error
+            DB::rollback();
+
+            return redirect()->back()->withErrors('Error changing password: ' . $e->getMessage());
         }
+    } else {
+        return redirect()->back()->withErrors('Passwords do not match.');
     }
+}
 
-    public function changeEmail(Request $request){
-        $admin = Auth::user();
+public function changeEmail(Request $request)
+{
+    $admin = Auth::guard('webAdmin')->user();
 
-        $incomingFields = $request->validate([
-            'email' => ['required'],
-        ]);
+    $incomingFields = $request->validate([
+        'email' => ['required|email'],
+    ]);
 
+    // Use a database transaction to ensure atomicity
+    DB::beginTransaction();
+
+    try {
         $admin2 = Admin::findOrFail($admin->id);
         $admin2->email = $request->email;
         $admin2->save();
+
+        $action = 'Change Email';
+        $description = 'Changes on Admin: ' . $admin2->username;
+        $now = now();
+
+        // Check if the log entry already exists
+        $logExists = Log::where('action', $action)
+            ->where('description', $description)
+            ->where('created_at', $now->toDateTimeString())
+            ->where('updated_at', $now->toDateTimeString())
+            ->exists();
+
+        if (!$logExists) {
+            // Log the action
+            Log::create([
+                'action' => $action,
+                'description' => $description,
+                'created_at' => $now,
+                'updated_at' => $now,
+            ]);
+        }
+
+        // Commit the transaction
+        DB::commit();
+
         return redirect()->intended(route('admin.profile'));
+    } catch (\Exception $e) {
+        // Rollback the transaction in case of error
+        DB::rollback();
+
+        return redirect()->back()->withErrors('Error changing email: ' . $e->getMessage());
     }
+}
 }

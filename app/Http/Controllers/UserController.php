@@ -17,9 +17,27 @@ class UserController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/home');
     }
-    
+
+    public function deleted(Request $request)
+    {
+        $user = Auth::user();
+
+        if($user){
+            Auth::logout();
+            $user = User::find($user->id);
+            if($user){
+                $user->delete();
+                $request->session()->invalidate();
+                $request->session()->regenerateToken();
+                return redirect('/home');
+            }
+        }
+        return redirect('/home');
+
+    }
+
     public function loginView(){
         $visibility = 'hidden';
         $error = 'error';
