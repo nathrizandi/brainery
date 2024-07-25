@@ -71,7 +71,7 @@
                     <h5>{{ $user->username }}</h5>
                     {{-- <p>Abrahamjmk48@gmail.com</p> --}}
                     <p>{{ $user->email }}</p>
-                    <a href="#" class="btn btn-danger">Delete Account</a>
+                    <a href="{{ route('account.delete') }}" class="btn btn-danger">Delete Account</a>
                     <div class="">
                         <a href="{{ route('logout') }}" class="btn btn-danger">Log out</a>
                     </div>

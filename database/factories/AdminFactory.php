@@ -22,7 +22,7 @@ class AdminFactory extends Factory
         return [
             //
             "username" => $faker->firstName(),
-            "password" => bcrypt('admin1234'),
+            "password" => bcrypt('123'),
             "email"=> $faker->email,
         ];
     }
