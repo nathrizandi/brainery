@@ -13,7 +13,7 @@
                     <h1 class="text-orange">Our Bootcamp</h1>
                     <h2>Take a look at our available bootcamp</h2>
                 </div>
-                <div class="row row-cols-1 row-cols-md-2">
+                <div class="row row-cols-1 row-cols-md-2 mt-3">
                     @foreach ($bootcampMenu as $item)   
                     <div class="col-md">
                         <a href="{{route('bootcampDetail', $item->id)}}" style="text-decoration: none; color: inherit; display: block">
@@ -38,7 +38,7 @@
                     <h1 class="text-orange">Popular Bootcamp</h1>
                     <h3>Take a look at our available bootcamp</h3>
                 </div>
-                <div class="row row-cols-1 row-cols-md-2">
+                <div class="row row-cols-1 row-cols-md-2 mt-3">
                     @foreach ($bootcampMenu as $item)   
                     <div class="col-md">
                         <a href="{{route('bootcampDetail', $item->id)}}" style="text-decoration: none; color: inherit; display: block">

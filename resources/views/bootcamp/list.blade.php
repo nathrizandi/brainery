@@ -6,7 +6,7 @@
     <h1 class="text-orange">Bootcamp List</h1>
     <h3>All free bootcamps you can register to</h3>
 
-    <div class="row">
+    <div class="row mt-4">
         @foreach ($bootcampList as $item)
                 <div class="col-4 mt-2">
                     <a href="{{route('bootcampDetail', $item->id)}}" style="text-decoration: none; color: inherit; display: block">

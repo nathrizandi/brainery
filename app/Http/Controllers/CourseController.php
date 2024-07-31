@@ -84,4 +84,5 @@ class CourseController extends Controller
             return redirect()->route('loginView')->with('error', 'You need to be logged in to join the course.');
         }
     }
+
 }

@@ -17,9 +17,7 @@ Route::get('/', function () {
     return view('/template/layout');
 });
 
-Route::get('/home', function () {
-    return view('home');
-})->name('home');
+Route::get('/home', [UserController::class, 'home'])->name('home');
 
 
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');

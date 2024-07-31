@@ -57,7 +57,7 @@
         </div>
         @else
         {{-- Tampilan saat sudah login --}}
-        <a href="{{ route('profile.edit') }}">
+        <a href="/profile/manage">
             <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/icon/user.png?raw=true" alt="Profile" height="30" class="rounded-circle">
         </a>
         @endguest

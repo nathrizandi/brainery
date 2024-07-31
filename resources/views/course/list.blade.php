@@ -4,9 +4,9 @@
 
 @section('content')
     <h1 class="text-orange">Course List</h1>
-    <h3>All free bootcamps you can register to</h3>
+    <h3>Enhance your skills and abilities with new knowledge through the following courses</h3>
 
-    <div class="row">
+    <div class="row mt-5">
         @foreach ($courseList as $item)
             <div class="col-3 mt-2">
                 <a href="{{ route('courseView', $item->id) }}"

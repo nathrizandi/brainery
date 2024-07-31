@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Course;
+use App\Models\Speaker;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -150,5 +152,22 @@ class UserController extends Controller
         $user2->save();
         return redirect()->intended(route('profile.edit'));
 
+    }
+
+    public function home(){
+    $user = Auth::user();
+
+    $highestRatedCourse = Course::join("speakers", "courses.speaker_id", "=", "speakers.id")
+        ->select(["courses.id", "courses.image as courseImage", "courses.title", "speakers.nama", "courses.description"])
+        ->orderBy('courses.rating', 'desc')
+        ->first();
+
+    $newestCourses = Course::join("speakers", "courses.speaker_id", "=", "speakers.id")
+        ->select(["courses.id", "courses.image as courseImage", "courses.title", "speakers.nama", "courses.description"])
+        ->orderBy('courses.created_at', 'desc')
+        ->take(4)
+        ->get();
+
+    return view('home', compact('user', 'highestRatedCourse', 'newestCourses'));
     }
 }
