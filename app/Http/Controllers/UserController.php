@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Course;
 use App\Models\Speaker;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -84,7 +85,7 @@ class UserController extends Controller
             'membership_type' => 'free'
         ]);
 
-        return redirect()->intended(route('home'));
+        return redirect()->intended(route('loginView'));
     }
 
     public function edit(){
@@ -96,7 +97,22 @@ class UserController extends Controller
     public function manage(){
         $user = Auth::user();
 
-        return view('profile.manage', compact('user'));
+        $subscription = User::join('payments', 'payments.user_id', '=', 'users.id')
+        ->join('subscriptions', 'subscriptions.id', '=', 'payments.subscription_id')
+        ->where('payments.status', '=', 'paid')
+        ->select('subscriptions.price as price', 'payments.created_at as start', 'subscriptions.duration as duration')
+        ->orderBy('payments.created_at', 'desc')
+        ->first();
+
+        if($subscription){
+            $startDate = Carbon::parse($subscription->created_at);
+
+            $endDate = $startDate->addMonths($subscription->duration);
+
+            $subscription->end_date = $endDate->format('d/m/Y');
+        }
+
+        return view('profile.manage', compact('user', 'subscription'));
     }
 
     public function certificate(){

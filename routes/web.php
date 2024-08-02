@@ -46,7 +46,7 @@ Route::get('/checkout-success', [SubscriptionController::class, 'checkoutSuccess
 
 Route::get('/search-result', [CourseController::class, 'search'])->name('search');
 
-Route::prefix('/profile')->group(function () {
+Route::prefix('/profile')->group    (function () {
     Route::get('/manage', [UserController::class, 'manage'])->name('manage');
     Route::get('/edit', [UserController::class, 'edit'])->name('profile.edit');
     Route::post('/edit/change-username', [UserController::class, 'changeUsername'])->name('changeUsername');
