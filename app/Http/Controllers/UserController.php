@@ -99,20 +99,25 @@ class UserController extends Controller
 
         $subscription = User::join('payments', 'payments.user_id', '=', 'users.id')
         ->join('subscriptions', 'subscriptions.id', '=', 'payments.subscription_id')
-        ->where('payments.status', '=', 'paid')
-        ->select('subscriptions.price as price', 'payments.created_at as start', 'subscriptions.duration as duration')
+        ->select('subscriptions.price as price', 'payments.created_at as start', 'subscriptions.duration as duration', 'users.membership_type')
         ->orderBy('payments.created_at', 'desc')
         ->first();
 
-        if($subscription){
+        if($subscription->membership_type == 'paid'){
             $startDate = Carbon::parse($subscription->created_at);
 
             $endDate = $startDate->addMonths($subscription->duration);
 
             $subscription->end_date = $endDate->format('d/m/Y');
+            return view('profile.manage', compact('user', 'subscription'));
         }
 
-        return view('profile.manage', compact('user', 'subscription'));
+        else{
+            return view('profile.manage', compact('user', 'subscription'));
+
+        }
+
+
     }
 
     public function certificate(){
