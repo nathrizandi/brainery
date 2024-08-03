@@ -8,11 +8,10 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
-use Illuminate\Support\Facades\Log;
-
 use App\Models\Course;
 use App\Models\CourseMaterial;
 use App\Models\CourseMaterialDetail;
+use App\Models\Log as Log;
 use App\Models\Speaker;
 use Illuminate\Support\Facades\DB;
 
@@ -110,6 +109,8 @@ class AdminCourseController extends Controller
     //             'image' => $request->courseImage,
     //             'speaker_id' => $request->speakers,
     //             'description' => $request->courseDesc,
+    //             'rating' => 0
+
     //         ]);
 
     //         $courseID = $createCourse->id;
@@ -249,6 +250,7 @@ class AdminCourseController extends Controller
                 'image' => $request->courseImage,
                 'speaker_id' => $request->speakers,
                 'description' => $request->courseDesc,
+                'rating' => 0
             ]);
 
             $courseID = $createCourse->id;
@@ -294,6 +296,7 @@ class AdminCourseController extends Controller
             return redirect()->intended(route('Course'));
         } catch (\Exception $e) {
             // Rollback the transaction in case of error
+            dd($e);
             DB::rollback();
 
             return redirect()->back()->withErrors('Error creating course: ' . $e->getMessage());
