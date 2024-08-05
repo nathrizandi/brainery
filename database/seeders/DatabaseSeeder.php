@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             UserSeeder::class,
             SpeakerSeeder::class,
+            CategorySeeder::class,
             SubscriptionSeeder::class,
             // CourseMaterialDetailSeeder::class,
             CourseMaterialSeeder::class,

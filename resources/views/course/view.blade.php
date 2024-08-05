@@ -58,9 +58,7 @@
         <div class="row">
             <div class="col">
                 <h3 class="gap-3 mb-3" style="font-weight: bold">Skills you'll gain</h3>
-                @for ($i = 0; $i < 4; $i++)
-                    <button type="button" class="btn btn-outline-dark">Web programming</button>
-                @endfor
+                <button type="button" class="btn btn-outline-dark">{{$item->catName}}</button>
             </div>
         </div>
     </div>

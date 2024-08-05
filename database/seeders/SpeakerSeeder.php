@@ -17,11 +17,11 @@ class SpeakerSeeder extends Seeder
         //
         Speaker::factory()->create([
             "nama" => "Joeliardo Gerald Leviothinel",
-            "image" => "speaker-joel.png"
+            "image"=>"assets/speaker".rand(1,5).".jpg",
         ]);
         Speaker::factory()->create([
             "nama" => "Dexter Valerian Krisnadhi",
-            "image" => "speaker-joel.png"
+            "image"=>"assets/speaker".rand(1,5).".jpg",
         ]);
         Speaker::factory(8)->create();
     }

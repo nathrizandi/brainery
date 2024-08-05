@@ -16,7 +16,9 @@ return new class extends Migration
             $table->string('title');
             $table->string('image');
             $table->unsignedBigInteger('speaker_id');
+            $table->unsignedBigInteger('category_id');
             $table->foreign('speaker_id')->references('id')->on('speakers')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('category_id')->references('id')->on('categories')->cascadeOnDelete()->cascadeOnUpdate();
             $table->text('description');
             $table->double('rating');
             $table->timestamps();
