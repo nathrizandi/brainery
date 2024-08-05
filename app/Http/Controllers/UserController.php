@@ -97,13 +97,13 @@ class UserController extends Controller
     public function manage(){
         $user = Auth::user();
 
-        $subscription = User::join('payments', 'payments.user_id', '=', 'users.id')
-        ->join('subscriptions', 'subscriptions.id', '=', 'payments.subscription_id')
-        ->select('subscriptions.price as price', 'payments.created_at as start', 'subscriptions.duration as duration', 'users.membership_type')
-        ->orderBy('payments.created_at', 'desc')
-        ->first();
+        if($user->membership_type == 'paid'){
+            $subscription = User::join('payments', 'payments.user_id', '=', 'users.id')
+            ->join('subscriptions', 'subscriptions.id', '=', 'payments.subscription_id')
+            ->select('subscriptions.price as price', 'payments.created_at as start', 'subscriptions.duration as duration', 'users.membership_type')
+            ->orderBy('payments.created_at', 'desc')
+            ->first();
 
-        if($subscription->membership_type == 'paid'){
             $startDate = Carbon::parse($subscription->created_at);
 
             $endDate = $startDate->addMonths($subscription->duration);
@@ -112,8 +112,10 @@ class UserController extends Controller
             return view('profile.manage', compact('user', 'subscription'));
         }
 
+
+
         else{
-            return view('profile.manage', compact('user', 'subscription'));
+            return view('profile.manage', compact('user'));
 
         }
 
