@@ -47,9 +47,7 @@
                 <div class="col-3 d-flex gap-3 pb-5">
                     <p class="benefit-list">
                     <div class=""><i class="fa fa-check"></i></div>
-                    <div class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore sunt sit
-                        maiores corporis earum deserunt deleniti consequuntur iusto dolores debitis dolor sapiente, et
-                        ea labore animi voluptas. Est, autem minus!
+                    <div class="">{{$item->description}}
                     </div>
                 </p>
                 </div>
