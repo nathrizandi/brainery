@@ -32,7 +32,25 @@
                     <button type="submit" class="btn mt-3" style="background-color: #F76D3B; color: white;">Join Bootcamp</button>
                 </form>
             @else
-                <a href="{{ route('loginView') }}" class="btn mt-3" style="background-color: #F76D3B; color: white;">Join Bootcamp</a>
+                <a class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: #F76D3B; color: white;" href="#" role="button">Join Bootcamp</a>
+                {{-- <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn mt-3" style="background-color: #F76D3B; color: white;">Join Bootcamp</a> --}}
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Oops!!</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        You need to login first
+                    </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-dark" href="{{route('loginView')}}" role="button">Login</a>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                {{-- <a href="{{ route('loginView') }}" class="btn mt-3" style="background-color: #F76D3B; color: white;">Join Bootcamp</a> --}}
             @endif
         </div>
         <div class="detailcard col-md-4">

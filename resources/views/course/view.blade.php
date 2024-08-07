@@ -26,15 +26,49 @@
                 </p>
                 @if (Auth::check())
                     @if (Auth::user()->membership_type == 'free')
-                        <a class="btn btn-dark" href="{{route('subs')}}" role="button">Start Enroll</a>
+                    <a class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" href="#" role="button">Start Enroll</a>
+                      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h1 class="modal-title fs-5" id="exampleModalLabel">Oops!!</h1>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              You need to subscribe first
+                            </div>
+                            <div class="modal-footer">
+                              <a class="btn btn-dark" href="{{route('subs')}}" role="button">Subscribe</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    {{-- <a class="btn btn-dark" href="{{route('subs')}}" role="button">Start Enroll</a> --}}
                     @else
-                        <form action="{{ route('joinCourse', ['id' => $item->id]) }}" method="POST">
-                            @csrf
-                            <button type="submit" class="btn btn-dark" role="button">Start Enroll</button>
-                        </form>
+                    <form action="{{ route('joinCourse', ['id' => $item->id]) }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-dark" role="button">Start Enroll</button>
+                    </form>
                     @endif
-                @else
-                    <a class="btn btn-dark" href="{{route('loginView')}}" role="button">Start Enroll</a>
+                    @else
+                    <a class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" href="#" role="button">Start Enroll</a>
+                      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h1 class="modal-title fs-5" id="exampleModalLabel">Oops!!</h1>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              You need to login first
+                            </div>
+                            <div class="modal-footer">
+                              <a class="btn btn-dark" href="{{route('loginView')}}" role="button">Login</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    {{-- <a class="btn btn-dark" href="{{route('loginView')}}" role="button">Start Enroll</a> --}}
                 @endif
             </div>
         </div>

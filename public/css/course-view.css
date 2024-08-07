@@ -51,3 +51,7 @@
     --bs-btn-disabled-bg: #F76D3B;
     --bs-btn-disabled-border-color: #F76D3B;
 }
+
+.modal-body {
+    font-size: 18px;
+}
