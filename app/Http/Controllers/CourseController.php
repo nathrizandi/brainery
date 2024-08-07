@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Course;
+use App\Models\Category;
 use App\Models\Speaker;
 use App\Models\OwnCourse;
 use Illuminate\Support\Facades\Auth;
@@ -12,12 +13,14 @@ class CourseController extends Controller
 {
     public function courseMenu()
     {
-        $courseMenu = Course::join("speakers", "courses.speaker_id", "=", "speakers.id")
-            ->select(["courses.id", "courses.image as courseImage", "courses.title", "speakers.nama", "courses.description"])
+        $courseMenu = Category::join("courses", "courses.category_id", "=", "categories.id")
+            ->join("speakers", "courses.speaker_id", "=", "speakers.id")
+            ->select(["categories.id as catId", "categories.category as catName", "courses.id", "courses.image as courseImage", "courses.title", "speakers.nama", "courses.description"])
             ->get();
 
         return view("course.menu", compact("courseMenu"));
     }
+
 
     public function courseList()
     {
@@ -30,8 +33,9 @@ class CourseController extends Controller
 
     public function courseView($id)
     {
-        $courseView = Course::join("speakers", "courses.speaker_id", "=", "speakers.id")
-            ->select(["courses.id", "courses.image as courseImage", "courses.title", "speakers.nama", "speakers.image as spkImage", "courses.description", "courses.rating"])
+        $courseView = Category::join("courses", "courses.category_id", "=", "categories.id")
+            ->join("speakers", "courses.speaker_id", "=", "speakers.id")
+            ->select(["categories.id as catId", "categories.category as catName", "courses.id", "courses.image as courseImage", "courses.title", "speakers.nama", "courses.description", "courses.rating"])        
             ->where("courses.id", $id)
             ->get();
 

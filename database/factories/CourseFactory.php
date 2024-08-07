@@ -23,6 +23,7 @@ class CourseFactory extends Factory
             //
             "title"=> $faker->sentence(3),
             "image"=> "assets/courseBanner/course".rand(3,7).".jpeg",
+            "category_id"=>rand(1,4),
             "speaker_id"=> rand(1, 10),
             "description"=> $faker->sentence(10),
             "rating"=>  $faker->randomFloat(1, 3.0, 5.0),
