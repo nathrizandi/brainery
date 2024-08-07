@@ -7,3 +7,8 @@
 .bold{
     font-weight: bold;
 }
+
+.logout {
+    position: relative;
+    left: 46.875rem;
+}

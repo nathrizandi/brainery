@@ -12,6 +12,9 @@
             <h2 class="mb-0">{{ $user->username }}</h2>
             <p class="mb-0 text-muted" style="font-weight: bold">{{ $user->email }}</p>
         </div>
+        <div class="logout">
+            <a href="{{ route('logout') }}" class="btn btn-danger">Log out</a>
+        </div>
     </div>
 
     <div class="row mt-6" style="margin-left: 2%; height: 15vh">
