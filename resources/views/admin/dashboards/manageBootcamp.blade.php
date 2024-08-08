@@ -8,7 +8,6 @@
     <div class="card w-100 px-3">
         <div class="card-header d-flex justify-content-between pt-4 fs-5 fw-bold">
             Total Bootcamp ({{ $count }})
-            <button href="#" class="btn btn-primary btn-trash px-3"><i class="bi bi-trash"></i> Trash</button>
         </div>
         @forelse ($bootcamps as $item) 
             <div class="card-body">
