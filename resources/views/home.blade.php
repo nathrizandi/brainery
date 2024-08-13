@@ -8,13 +8,13 @@
         <div id="carouselExampleAutoplaying" class="carousel slide" style="width: 100%; height: 30%;" data-bs-ride="carousel">
             <div class="carousel-inner" style="border-radius: 10px">
             <div class="carousel-item active">
-                <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/jumbotron/banner1.jpg?raw=true" style="width: 100%; height: auto;" class="d-block w-100" alt="...">
+                <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/jumbotron/banner1.png?raw=true" style="width: 100%; height: auto;" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/jumbotron/banner2.jpg?raw=true" style="width: 100%; height: auto;" class="d-block w-100" alt="...">
+                <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/jumbotron/banner2.png?raw=true" style="width: 100%; height: auto;" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/jumbotron/banner3.jpg?raw=true" style="width: 100%; height: auto;" class="d-block w-100" alt="...">
+                <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/jumbotron/banner3.png?raw=true" style="width: 100%; height: auto;" class="d-block w-100" alt="...">
             </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
@@ -30,7 +30,7 @@
     
     <div class="row mt-4">
         @guest
-            <h1 class="text-orange mb-4">Hello, Brainers!</h1>
+            <h1 class="text-orange mb-4 mt-3">Hello, Brainers!</h1>
         @else
         <h1 class="text-orange mb-4">Hello, {{ $user->username }}!</h1>
         @endguest
