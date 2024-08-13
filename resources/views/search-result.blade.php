@@ -16,8 +16,8 @@
                     <div class="card shadow-sm" style="width: 18vw; border-radius: 20px">
                         <img src={{ $item->images }} class="card-img-top mt-2 align-self-center"
                             style="width: 95%; height: auto; border-radius: 8px;">
-                        <div class="card-body">
-                            <h3>{{ $item->title }}</h3>
+                        <div class="card-body" style="height: 20vh">
+                            <h3>{{ $item->title }}</h3>s
                             <b>
                                 <p>By: {{ $item->speaker }}</p>
                             </b>
