@@ -86,93 +86,45 @@
     </div>
     <div class="row mt-3">
         <ul class="nav nav-pills justify-content-start mb-3" id="pills-tab" role="tablist" style="margin-left: 1%">
-            <li class="nav-item" role="presentation" style="margin-right: 1%;">
-                <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-compsci" type="button" role="tab" aria-controls="pills-home" aria-selected="true" style="background-color: #F9BF48; color:white; width: 150px">Computer Science</button>
-            </li>
-            <li class="nav-item" role="presentation" style="margin-right: 1%;">
-                <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-music" type="button" role="tab" aria-controls="pills-profile" aria-selected="false" style="background-color: #67A1EE; color:white; width: 150px">Music</button>
-            </li>
-            <li class="nav-item" role="presentation" style="margin-right: 1%;">
-                <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-english" type="button" role="tab" aria-controls="pills-contact" aria-selected="false" style="background-color: #8FD8B5; color:white; width: 150px">English</button>
-            </li>
-            <li class="nav-item" role="presentation" style="margin-right: 1%;">
-                <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-accounting" type="button" role="tab" aria-controls="pills-contact" aria-selected="false" style="background-color: #2A3242; color:white; width: 150px">Accounting</button>
-            </li>
+            @foreach ($categories as $category)
+                <li class="nav-item" role="presentation" style="margin-right: 1%;">
+                    <button class="nav-link @if($loop->first) active @endif" id="pills-{{ $category->id }}-tab" data-bs-toggle="pill" data-bs-target="#pills-{{ $category->id }}" type="button" role="tab" aria-controls="pills-{{ $category->id }}" aria-selected="{{ $loop->first ? 'true' : 'false' }}"
+                        style="background-color: 
+                            @if($category->id == 1) #F9BF48 
+                            @elseif($category->id == 2) #67A1EE 
+                            @elseif($category->id == 3) #8FD8B5 
+                            @elseif($category->id == 4) #2A3242 
+                            @else #ccc @endif; 
+                        color:white; width: 150px">
+                        {{ $category->category }}
+                    </button>
+                </li>
+            @endforeach
         </ul>
-
-        <!-- Tab content -->
+        
+    
         <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="pills-compsci" role="tabpanel" aria-labelledby="pills-compsci-tab">
-                <div class="row">
-                    @for ($i = 0; $i < 4; $i++)    
-                        <div class="col-3">
-                            <a href="#" style="text-decoration: none; color: inherit; display: block">
-                                <div class="card shadow-sm" style="width: 18vw; border-radius: 20px">
-                                    <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/course2.jpg?raw=true" class="card-img-top mt-2 align-self-center" style="width: 95%; height: auto; border-radius: 8px;">
-                                    <div class="card-body">
-                                        <h3>Nama Course Compsci</h3>
-                                        <b><p>By: Nama Tutor</p></b>
-                                        <p>lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet </p>
+            @foreach ($categories as $category)
+                <div class="tab-pane fade @if($loop->first) show active @endif" id="pills-{{ $category->id }}" role="tabpanel" aria-labelledby="pills-{{ $category->id }}-tab">
+                    <div class="row">
+                        @foreach ($category->courses as $course)
+                            <div class="col-3">
+                                <a href="#" style="text-decoration: none; color: inherit; display: block">
+                                    <div class="card shadow-sm" style="width: 18vw; border-radius: 20px; max-height: 60vh">
+                                        <img src="{{ $course->courseImage }}" class="card-img-top mt-2 align-self-center" style="width: 95%; height: auto ; border-radius: 8px;">
+                                        <div class="card-body">
+                                            <h3>{{ $course->title }}</h3>
+                                            <b><p>By: {{ $course->nama }}</p></b>
+                                            <p>{{ Str::limit($course->description, 35) }}</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
-                        </div>
-                    @endfor
-                </div>
-            </div>
-
-            <div class="tab-pane fade" id="pills-music" role="tabpanel" aria-labelledby="pills-music-tab">
-                <div class="row">
-                    @for ($i = 0; $i < 4; $i++)    
-                        <div class="col-3">
-                            <div class="card shadow-sm" style="width: 18vw; border-radius: 20px">
-                                <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/course2.jpg?raw=true" class="card-img-top mt-2 align-self-center" style="width: 95%; height: auto; border-radius: 8px;">
-                                <div class="card-body">
-                                    <h3>Nama Course Music</h3>
-                                    <b><p>By: Nama Tutor</p></b>
-                                    <p>lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet </p>
-                                </div>
+                                </a>
                             </div>
-                        </div>
-                    @endfor
+                        @endforeach
+                    </div>
                 </div>
-            </div>
-
-            <div class="tab-pane fade" id="pills-english" role="tabpanel" aria-labelledby="pills-english-tab">
-                <div class="row">
-                    @for ($i = 0; $i < 4; $i++)    
-                        <div class="col-3">
-                            <div class="card shadow-sm" style="width: 18vw; border-radius: 20px">
-                                <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/course2.jpg?raw=true" class="card-img-top mt-2 align-self-center" style="width: 95%; height: auto; border-radius: 8px;">
-                                <div class="card-body">
-                                    <h3>Nama Course English</h3>
-                                    <b><p>By: Nama Tutor</p></b>
-                                    <p>lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet </p>
-                                </div>
-                            </div>
-                        </div>
-                    @endfor
-                </div>
-            </div>
-
-            <div class="tab-pane fade" id="pills-accounting" role="tabpanel" aria-labelledby="pills-accounting-tab">
-                <div class="row">
-                    @for ($i = 0; $i < 4; $i++)    
-                        <div class="col-3">
-                            <div class="card shadow-sm" style="width: 18vw; border-radius: 20px">
-                                <img src="https://github.com/nathrizandi/brainery/blob/main/public/assets/courseBanner/course2.jpg?raw=true" class="card-img-top mt-2 align-self-center" style="width: 95%; height: auto; border-radius: 8px;">
-                                <div class="card-body">
-                                    <h3>Nama Course Accounting</h3>
-                                    <b><p>By: Nama Tutor</p></b>
-                                    <p>lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet </p>
-                                </div>
-                            </div>
-                        </div>
-                    @endfor
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
-
 
 @endsection

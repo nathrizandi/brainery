@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Course;
 use App\Models\Speaker;
+use App\Models\Category;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -191,6 +192,17 @@ class UserController extends Controller
         ->take(4)
         ->get();
 
-    return view('home', compact('user', 'highestRatedCourse', 'newestCourses'));
+        $categories = Category::select('categories.id', 'categories.category')
+        ->get();
+
+    foreach ($categories as $category) {
+        $category->courses = Course::join("speakers", "courses.speaker_id", "=", "speakers.id")
+            ->where("courses.category_id", $category->id)
+            ->select(["courses.id", "courses.image as courseImage", "courses.title", "speakers.nama", "courses.description"])
+            ->take(4)
+            ->get();
+    }
+
+    return view('home', compact('user', 'highestRatedCourse', 'newestCourses', 'categories'));
     }
 }
