@@ -66,23 +66,18 @@ class CourseController extends Controller
 
     public function joinCourse($id)
     {
-        // Ensure the user is authenticated
         if (Auth::check()) {
-            // Get the current authenticated user
             $user = Auth::user();
 
-            // Check if the user already owns the course
             $existingEntry = OwnCourse::where('user_id', $user->id)->where('course_id', $id)->first();
 
             if (!$existingEntry) {
-                // Store the course_id into the own_courses table
                 $ownCourse = new OwnCourse();
                 $ownCourse->user_id = $user->id;
                 $ownCourse->course_id = $id;
                 $ownCourse->save();
             }
 
-            // Redirect to the course material page
             return redirect()->route('courseMaterial', $id);
         } else {
             return redirect()->route('loginView')->with('error', 'You need to be logged in to join the course.');

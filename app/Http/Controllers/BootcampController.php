@@ -54,15 +54,12 @@ class BootcampController extends Controller
 
         if ($bootcampDetail) {
             try {
-                // Assuming start_time is stored as HH:MM:SS
                 $startTime = Carbon::createFromFormat('H:i:s', $bootcampDetail->startTime);
                 $endTime = $startTime->copy()->addHours($bootcampDetail->duration);
 
-                // Format start time and end time to HH:MM
                 $formattedStartTime = $startTime->format('H:i');
                 $formattedEndTime = $endTime->format('H:i');
 
-                // For debugging
                 // dd($bootcampDetail);
 
                 return view("bootcamp.detail", compact("bootcampDetail", "formattedStartTime", "formattedEndTime", "bootcampListDetail"));
@@ -70,23 +67,18 @@ class BootcampController extends Controller
                 dd('Error parsing time: ' . $e->getMessage());
             }
         } else {
-            // Handle case where bootcamp detail is not found
             abort(404, 'Bootcamp not found');
         }
 
     }
 
     public function joinBootcamp($id) {
-        // Ensure the user is authenticated
         if (Auth::check()) {
-            // Get the current authenticated user
             $user = Auth::user();
             
-            // Check if the user already owns the bootcamp
             $existingEntry = OwnBootcamp::where('user_id', $user->id)->where('bootcamp_id', $id)->first();
 
             if (!$existingEntry) {
-                // Store the bootcamp_id into the own_bootcamps table
                 $ownBootcamp = new OwnBootcamp();
                 $ownBootcamp->user_id = $user->id;
                 $ownBootcamp->bootcamp_id = $id;

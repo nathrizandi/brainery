@@ -24,7 +24,7 @@
                 </div>
                 <div class="col-2">
                     <br>
-                    <h3>$ {{ $item->price }}</h3>
+                    <h3>Rp {{ $item->price * 16000}}</h3>
                 </div>
             </div>
         </div>

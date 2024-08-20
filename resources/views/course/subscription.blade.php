@@ -18,9 +18,9 @@
                     <div class="card text-center mb-3" style="">
                         <div class="card-body">
                             <h2 class="mt-4">CATEGORY</h3>
-                                <h1 class="text-orange mt-3">${{ $item->price / $item->duration }}</h1>
+                                <h1 class="text-orange mt-3">Rp {{ $item->price / $item->duration * 16000}}</h1>
                                 <p class="text-orange">/month</p>
-                                <p class="card-price-notes">pay ${{ $item->price }} per {{ $item->duration }} month(s)</p>
+                                <p class="card-price-notes">Pay Rp {{ $item->price * 16000}} per {{ $item->duration }} month(s)</p>
                                 <img class="card-image mb-3"
                                     src="https://github.com/nathrizandi/brainery/blob/main/public/assets/brain10.png?raw=true">
                                 <input hidden name='id' value={{ $item->id }}>

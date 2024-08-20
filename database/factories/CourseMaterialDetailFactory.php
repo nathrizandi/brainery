@@ -29,14 +29,29 @@ class CourseMaterialDetailFactory extends Factory
             'https://www.youtube.com/embed/erEgovG9WBs?si=sGcR316fT4XuJdEd'
         ];
 
-        $randomLink = $links[array_rand($links)];;
+        $randomLink = $links[array_rand($links)];
+
+        $titles = [
+            'Introduction to Web Development with HTML and CSS',
+            'Mastering JavaScript for Modern Web Applications',
+            'Understanding the Fundamentals of Machine Learning',
+            'Building RESTful APIs with Node.js and Express',
+            'Data Structures and Algorithms in Python'
+        ];
+
+        $descriptions = [
+            'In this material, you will learn the fundamentals of web development, starting with HTML and CSS to build static web pages.',
+            'This session covers advanced JavaScript techniques, including ES6 features, and how to apply them in modern web apps.',
+            'An introduction to machine learning, focusing on core algorithms and their applications in various industries.',
+            'Learn how to build RESTful APIs using Node.js and Express, covering best practices and practical implementations.',
+            'This material focuses on important data structures and algorithms, with examples in Python to improve problem-solving skills.'
+        ];
 
         return [
-            //
-            "courseMaterial_id"=> $faker->numberBetween(),
-            "title"=> $faker->words(5, true),
-            "video"=> $randomLink,
-            "description"=> $faker->paragraphs(20, true),
+            "courseMaterial_id" => $faker->numberBetween(),
+            "title" => $titles[array_rand($titles)],
+            "video" => $randomLink,
+            "description" => $descriptions[array_rand($descriptions)],
         ];
     }
 }
