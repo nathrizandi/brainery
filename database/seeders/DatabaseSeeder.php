@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Admin;
+use App\Models\Payment;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -34,6 +35,7 @@ class DatabaseSeeder extends Seeder
             BootcampSeeder::class,
             ownCourseSeeder::class,
             ownBootcampSeeder::class,
+            PaymentSeeder::class
         ]);
 
     }
