@@ -241,7 +241,6 @@ class AdminCourseController extends Controller
                 ->with('danger', 'Make sure all fields are filled!');
         }
 
-        // Use a database transaction to ensure atomicity
         DB::beginTransaction();
 
         try {
@@ -273,7 +272,6 @@ class AdminCourseController extends Controller
             $description = 'New Course With Course_id: ' . $createCourse->id;
             $now = now();
 
-            // Check if the log entry already exists
             $logExists = Log::where('action', $action)
                 ->where('description', $description)
                 ->where('created_at', $now->toDateTimeString())
@@ -281,7 +279,6 @@ class AdminCourseController extends Controller
                 ->exists();
 
             if (!$logExists) {
-                // Log the action
                 Log::create([
                     'action' => $action,
                     'description' => $description,
@@ -290,12 +287,10 @@ class AdminCourseController extends Controller
                 ]);
             }
 
-            // Commit the transaction
             DB::commit();
 
             return redirect()->intended(route('Course'));
         } catch (\Exception $e) {
-            // Rollback the transaction in case of error
             dd($e);
             DB::rollback();
 
@@ -342,7 +337,6 @@ class AdminCourseController extends Controller
                 ->with('danger', 'Make sure all fields are filled!');
         }
 
-        // Use a database transaction to ensure atomicity
         DB::beginTransaction();
 
         try {
@@ -365,7 +359,6 @@ class AdminCourseController extends Controller
             $description = 'Changes on Course_id: ' . $cId;
             $now = now();
 
-            // Check if the log entry already exists
             $logExists = Log::where('action', $action)
                 ->where('description', $description)
                 ->where('created_at', $now->toDateTimeString())
@@ -373,7 +366,6 @@ class AdminCourseController extends Controller
                 ->exists();
 
             if (!$logExists) {
-                // Log the action
                 Log::create([
                     'action' => $action,
                     'description' => $description,
@@ -382,12 +374,10 @@ class AdminCourseController extends Controller
                 ]);
             }
 
-            // Commit the transaction
             DB::commit();
 
             return redirect()->intended(route('Course'));
         } catch (\Exception $e) {
-            // Rollback the transaction in case of error
             DB::rollback();
 
             return redirect()->back()->withErrors('Error updating course: ' . $e->getMessage());
@@ -396,7 +386,6 @@ class AdminCourseController extends Controller
 
     public function destroy($id)
     {
-        // Use a database transaction to ensure atomicity
         DB::beginTransaction();
 
         try {
@@ -406,7 +395,6 @@ class AdminCourseController extends Controller
             $description = 'Changes on Course_id: ' . $id;
             $now = now();
 
-            // Check if the log entry already exists
             $logExists = Log::where('action', $action)
                 ->where('description', $description)
                 ->where('created_at', $now->toDateTimeString())
@@ -414,7 +402,6 @@ class AdminCourseController extends Controller
                 ->exists();
 
             if (!$logExists) {
-                // Log the action
                 Log::create([
                     'action' => $action,
                     'description' => $description,
@@ -423,12 +410,10 @@ class AdminCourseController extends Controller
                 ]);
             }
 
-            // Commit the transaction
             DB::commit();
 
             return redirect()->intended(route('Course'));
         } catch (\Exception $e) {
-            // Rollback the transaction in case of error
             DB::rollback();
 
             return redirect()->back()->withErrors('Error deleting course: ' . $e->getMessage());

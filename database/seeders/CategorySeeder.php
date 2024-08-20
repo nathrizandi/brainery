@@ -19,13 +19,13 @@ class CategorySeeder extends Seeder
             "category" => "Computer Science",
         ]);
         Category::factory()->create([
-            "category" => "Music",
+            "category" => "Web Programming",
         ]);
         Category::factory()->create([
-            "category" => "English",
+            "category" => "Infrastructure",
         ]);
         Category::factory()->create([
-            "category" => "Accounting",
+            "category" => "Data Science",
         ]); 
     }
 }

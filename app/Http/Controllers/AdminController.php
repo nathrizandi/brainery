@@ -27,7 +27,6 @@ class AdminController extends Controller
     public function index(){
         $logs = Log::orderBy('created_at', 'desc')->limit(2)->get();
 
-        // Format the log data
         $formattedLogs = $logs->map(function ($log) {
             return [
                 'action' => $log->action,
@@ -39,7 +38,6 @@ class AdminController extends Controller
             ];
         });
 
-        // Pass the formatted logs to the view using compact
         return view('admin.dashboards.home', compact('formattedLogs'));
 
     }
@@ -80,12 +78,10 @@ class AdminController extends Controller
         ]);
 
 
-        // Determine if the input is an email or a username
         $fieldType = filter_var($request->email_or_username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
 
         // dd($fieldType, $incomingFields);
 
-        // Attempt to log in
         if (Auth::guard('webAdmin')->attempt([$fieldType => $request->email_or_username, 'password' => $request->password])) {
             return redirect()->intended(route('AdminHome')); // Redirect to intended page after login
         }
@@ -156,7 +152,6 @@ public function changeUsername(Request $request)
         'username' => ['required'],
     ]);
 
-    // Use a database transaction to ensure atomicity
     DB::beginTransaction();
 
     try {
@@ -168,7 +163,6 @@ public function changeUsername(Request $request)
         $description = 'Changes on Admin: ' . $admin2->username;
         $now = now();
 
-        // Check if the log entry already exists
         $logExists = Log::where('action', $action)
             ->where('description', $description)
             ->where('created_at', $now->toDateTimeString())
@@ -176,7 +170,6 @@ public function changeUsername(Request $request)
             ->exists();
 
         if (!$logExists) {
-            // Log the action
             Log::create([
                 'action' => $action,
                 'description' => $description,
@@ -185,12 +178,10 @@ public function changeUsername(Request $request)
             ]);
         }
 
-        // Commit the transaction
         DB::commit();
 
         return redirect()->intended(route('admin.profile'));
     } catch (\Exception $e) {
-        // Rollback the transaction in case of error
         DB::rollback();
 
         return redirect()->back()->withErrors('Error changing username: ' . $e->getMessage());
@@ -207,19 +198,17 @@ public function changePassword(Request $request)
     ]);
 
     if ($request->password == $request->confirmPassword) {
-        // Use a database transaction to ensure atomicity
         DB::beginTransaction();
 
         try {
             $admin2 = Admin::findOrFail($admin->id);
-            $admin2->password = bcrypt($request->password); // Make sure to hash the password
+            $admin2->password = bcrypt($request->password); 
             $admin2->save();
 
             $action = 'Change Password';
             $description = 'Changes on Admin: ' . $admin2->username;
             $now = now();
 
-            // Check if the log entry already exists
             $logExists = Log::where('action', $action)
                 ->where('description', $description)
                 ->where('created_at', $now->toDateTimeString())
@@ -227,7 +216,6 @@ public function changePassword(Request $request)
                 ->exists();
 
             if (!$logExists) {
-                // Log the action
                 Log::create([
                     'action' => $action,
                     'description' => $description,
@@ -236,12 +224,10 @@ public function changePassword(Request $request)
                 ]);
             }
 
-            // Commit the transaction
             DB::commit();
 
             return redirect()->intended(route('admin.profile'));
         } catch (\Exception $e) {
-            // Rollback the transaction in case of error
             DB::rollback();
 
             return redirect()->back()->withErrors('Error changing password: ' . $e->getMessage());
@@ -259,7 +245,6 @@ public function changeEmail(Request $request)
         'email' => ['required|email'],
     ]);
 
-    // Use a database transaction to ensure atomicity
     DB::beginTransaction();
 
     try {
@@ -271,7 +256,6 @@ public function changeEmail(Request $request)
         $description = 'Changes on Admin: ' . $admin2->username;
         $now = now();
 
-        // Check if the log entry already exists
         $logExists = Log::where('action', $action)
             ->where('description', $description)
             ->where('created_at', $now->toDateTimeString())
@@ -279,7 +263,6 @@ public function changeEmail(Request $request)
             ->exists();
 
         if (!$logExists) {
-            // Log the action
             Log::create([
                 'action' => $action,
                 'description' => $description,
@@ -288,12 +271,10 @@ public function changeEmail(Request $request)
             ]);
         }
 
-        // Commit the transaction
         DB::commit();
 
         return redirect()->intended(route('admin.profile'));
     } catch (\Exception $e) {
-        // Rollback the transaction in case of error
         DB::rollback();
 
         return redirect()->back()->withErrors('Error changing email: ' . $e->getMessage());

@@ -23,7 +23,6 @@ class SubscriptionController extends Controller
         $subs = Subscription::where('id', $request->id)->get();
         $user = Auth::user();
 
-        // Create payment entry
         $payment = Payment::create([
             'subscription_id' => $request->id,
             'user_id' => $user->id,
@@ -35,11 +34,10 @@ class SubscriptionController extends Controller
 
         // Midtrans configuration
          \Midtrans\Config::$serverKey = config('midtrans.server_key');
-         \Midtrans\Config::$isProduction = false; // Set to true for production environment
+         \Midtrans\Config::$isProduction = false;
          \Midtrans\Config::$isSanitized = true;
          \Midtrans\Config::$is3ds = true;
 
-        // Prepare transaction details
         $params = [
             'transaction_details' => [
                 'order_id' => 'ORDER-'.time().'-'.$id,
@@ -52,7 +50,6 @@ class SubscriptionController extends Controller
             ],
         ];
 
-        // Get Snap token
         $snapToken = \Midtrans\Snap::getSnapToken($params);
         return view('checkout.checkout', compact('subs', 'snapToken', 'id'));
     }
@@ -67,7 +64,6 @@ class SubscriptionController extends Controller
             $payment->status = 'paid';
             $payment->save();
 
-            // Update user membership_type to 'paid'
             $user = User::find($payment->user_id);
             $user->membership_type = 'paid';
             $user->save();

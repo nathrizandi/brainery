@@ -96,7 +96,6 @@ class AdminUserController extends Controller
                 ->with('danger', 'Make sure all fields are filled!');
         }
 
-        // Use a database transaction to ensure atomicity
         DB::beginTransaction();
 
         try {
@@ -111,7 +110,6 @@ class AdminUserController extends Controller
             $description = 'New User with User_id: ' . $createUser->id;
             $now = now();
 
-            // Check if the log entry already exists
             $logExists = Log::where('action', $action)
                             ->where('description', $description)
                             ->where('created_at', $now->toDateTimeString())
@@ -119,7 +117,6 @@ class AdminUserController extends Controller
                             ->exists();
 
             if (!$logExists) {
-                // Log the action
                 Log::create([
                     'action' => $action,
                     'description' => $description,
@@ -128,29 +125,23 @@ class AdminUserController extends Controller
                 ]);
             }
 
-            // Commit the transaction
             DB::commit();
 
             return redirect()->intended(route('User'));
         } catch (\Exception $e) {
-            // Rollback the transaction in case of error
             DB::rollback();
 
             return redirect()->back()->withErrors('Error creating user: ' . $e->getMessage());
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
+    
     public function show(User $user)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+   
     public function edit($id)
     {
         $user = User::findOrFail($id);
@@ -216,7 +207,6 @@ class AdminUserController extends Controller
                 ->with('danger', 'Make sure all fields are filled!');
         }
 
-        // Use a database transaction to ensure atomicity
         DB::beginTransaction();
 
         try {
@@ -230,7 +220,6 @@ class AdminUserController extends Controller
             $description = 'Changes on User_id: ' . $id;
             $now = now();
 
-            // Check if the log entry already exists
             $logExists = Log::where('action', $action)
                             ->where('description', $description)
                             ->where('created_at', $now->toDateTimeString())
@@ -238,7 +227,6 @@ class AdminUserController extends Controller
                             ->exists();
 
             if (!$logExists) {
-                // Log the action
                 Log::create([
                     'action' => $action,
                     'description' => $description,
@@ -247,12 +235,10 @@ class AdminUserController extends Controller
                 ]);
             }
 
-            // Commit the transaction
             DB::commit();
 
             return redirect()->route('User')->with('success', 'User has been updated!');
         } catch (\Exception $e) {
-            // Rollback the transaction in case of error
             DB::rollback();
 
             return redirect()->back()->withErrors('Error updating user: ' . $e->getMessage());
@@ -273,7 +259,6 @@ class AdminUserController extends Controller
     // }
     public function destroy($id)
     {
-        // Use a database transaction to ensure atomicity
         DB::beginTransaction();
 
         try {
@@ -284,7 +269,6 @@ class AdminUserController extends Controller
             $description = 'Changes on User_id: ' . $id;
             $now = now();
 
-            // Check if the log entry already exists
             $logExists = Log::where('action', $action)
                             ->where('description', $description)
                             ->where('created_at', $now->toDateTimeString())
@@ -292,7 +276,6 @@ class AdminUserController extends Controller
                             ->exists();
 
             if (!$logExists) {
-                // Log the action
                 Log::create([
                     'action' => $action,
                     'description' => $description,
@@ -301,12 +284,10 @@ class AdminUserController extends Controller
                 ]);
             }
 
-            // Commit the transaction
             DB::commit();
 
             return redirect()->route('User')->with('success', 'User Has Been Deleted');
         } catch (\Exception $e) {
-            // Rollback the transaction in case of error
             DB::rollback();
 
             return redirect()->back()->withErrors('Error deleting user: ' . $e->getMessage());
